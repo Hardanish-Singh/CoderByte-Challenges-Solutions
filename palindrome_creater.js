@@ -26,7 +26,7 @@
  * palindromic substring by removing 1 or 2 characters.         *
  * The 2 characters you remove do not have to be adjacent in    *
  * the string                                                   *
- *
+ *                                                              *
  * Examples                                                     *
  * Input 1: "mmop"                                              *
  * Output 1: not possible                                       *
