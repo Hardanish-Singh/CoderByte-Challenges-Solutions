@@ -1,5 +1,5 @@
 /****************************************************************
- *           CODERBYTE PALINDROME CREATOR CHALLENGE             *
+ *           CODERBYTE LONGEST WORD CHALLENGE                   *
  *                                                              *
  * Problem Statement                                            *
  * Have the function LongestWord(sen) take the sen parameter    *
