@@ -61,5 +61,5 @@ function ABCheck(str) {
   }
 }
 
-// KEEP THIS FUNCTION CALL HERE
+// KEEP THIS FUNCTION CALL HERE.
 console.log(ABCheck(readline()));
