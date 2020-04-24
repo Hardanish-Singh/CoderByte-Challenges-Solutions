@@ -24,61 +24,52 @@
  * Output 2: 6,1 4,3                                            *
  ***************************************************************/
 
-function TwoSum(nums) {
-  //REMOVE THE TARGET FROM THE ARRAY
-  let target = nums[0];
-  nums = nums.slice(1);
+function TwoSum(nums) { 
+    let target = nums[0];
+    nums = nums.splice(1);
+    let twoPointerArray = [...nums].sort((a, b) => a-b);
+    let leftPosition = 0, rightPosition = 0, lthPosition = 0, rthPosition = 0;
+    let twoSumPairArray = new Array();
+    let finalString = new String('');
 
-  let twoSumHashMap = {
-    key: Number,
-    value: Number,
-  };
+    for (let i = 0; i < twoPointerArray.length; i++) {
+      leftPosition = twoPointerArray[i];
+      rightPosition = twoPointerArray[twoPointerArray.length - 1];
+      lthPosition = i;
+      rthPosition = twoPointerArray.length - 1;
+      if (leftPosition === undefined || rightPosition === undefined) break;
+      if (lthPosition === rthPosition) break;
 
-  let finalString = new String();
-  let twoSumPairsTwoDimesionalValueArray = new Array();
-  let twoSumPairsTwoDimensionalIndexArray = new Array();
-  let twoSumPairsTwoDimensionalAnswerArray = new Array();
-
-  for (let i = 0; i < nums.length; i++) {
-    let difference = target - nums[i];
-    let checkDictionaryIndex = twoSumHashMap[difference];
-    if (checkDictionaryIndex != null || checkDictionaryIndex != undefined) {
-      twoSumPairsTwoDimesionalValueArray.push(new Array(difference, nums[i]));
-    } else {
-      twoSumHashMap[nums[i]] = i;
+      while(true) {
+        if (leftPosition + rightPosition == target) {
+           if(nums.indexOf(leftPosition) < nums.indexOf(rightPosition)) twoSumPairArray.push(new Array(nums.indexOf(leftPosition), nums.indexOf(rightPosition)));
+           else twoSumPairArray.push(new Array(nums.indexOf(rightPosition), nums.indexOf(leftPosition)));
+           i = lthPosition;
+           break;
+        } else if (leftPosition + rightPosition < target) {
+            lthPosition++;
+            while (twoPointerArray[lthPosition] == leftPosition) lthPosition++;
+            leftPosition = twoPointerArray[lthPosition];
+        } else if (leftPosition + rightPosition > target) {
+            rthPosition--;
+            while (twoPointerArray[rthPosition] == rightPosition) rthPosition--;
+            rightPosition = twoPointerArray[rthPosition];
+        }
+        if (lthPosition === rthPosition || lthPosition > rthPosition) break;
+      } 
     }
-  }
-  //ADD THE TARGET BACK TO THE ARRAY
-  nums.splice(0, 0, target);
 
-  for (let i = 0; i < twoSumPairsTwoDimesionalValueArray.length; i++) {
-    twoSumPairsTwoDimensionalIndexArray.push(
-      new Array(
-        nums.indexOf(twoSumPairsTwoDimesionalValueArray[i][0]),
-        nums.indexOf(twoSumPairsTwoDimesionalValueArray[i][1])
-      )
-    );
-  }
+    twoSumPairArray.sort((a, b) => {
+    	return a[0] - b[0];
+  	});
+    
+    for(let i=0; i<twoSumPairArray.length; i++){
+      finalString += " " + nums[twoSumPairArray[i][0]] + String.fromCharCode(44) + nums[twoSumPairArray[i][1]];
+    }
+    
+    return finalString.length > 0 ? finalString.trim() : "-1" ;
 
-  twoSumPairsTwoDimensionalIndexArray.sort((a, b) => {
-    return a[0] - b[0];
-  });
-
-  for (let r = 0; r < twoSumPairsTwoDimensionalIndexArray.length; r++) {
-    twoSumPairsTwoDimensionalAnswerArray.push(
-      new Array(
-        nums[twoSumPairsTwoDimensionalIndexArray[r][0]],
-        nums[twoSumPairsTwoDimensionalIndexArray[r][1]]
-      )
-    );
-  }
-
-  for (let i = 0; i < twoSumPairsTwoDimensionalAnswerArray.length; i++) {
-    finalString += twoSumPairsTwoDimensionalAnswerArray[i].join(",") + " ";
-  }
-
-  return finalString.length > 0 ? finalString : "-1";
 }
-
-// KEEP THIS FUNCTION CALL HERE
+   
+// keep this function call here 
 console.log(TwoSum(readline()));
