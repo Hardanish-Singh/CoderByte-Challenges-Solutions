@@ -7,7 +7,7 @@
  * letters, & question marks, & check if there are exactly 3    *
  * question marks between every pair of two numbers that add up *
  * to 10. If so, then your program should return the string     *
- * true, otherwise t should return the string false. If there   *
+ * true, otherwise it should return the string false. If there  *
  * aren't any two numbers that add up to 10 in the string, then *
  * your program should return false as well.                    *
  *                                                              *
@@ -23,51 +23,35 @@
  *                                                              *
  * Input 2: acc?7??sss?3rr1??????5                              *
  * Output 2: true                                               *
+ *                                                              *
+ * Input 3: 5??aaaaaaaaaaaaaaaaaaa?5?5                          *
+ * Output 3: false                                              *
+ *                                                              *
+ * Input 4: 9???1???9???1???9                                   *
+ * Output 4: true                                               *
+ *                                                              *
+ * Solution Efficiency                                          *
+ * The user scored higher than 68.6% of users who solved this   *
+ * challenge.                                                   *
+ *                                                              *
  ***************************************************************/
 
-function QuestionsMarks(str) {
-  //VARIABLES DECLARATION
-  let string = str;
-  let quotientMarkCount = 0;
+function QuestionsMarks(string) {
+  let questionMarkCount = 0;
+  let temp = 0;
   let flag = false;
-  let numberStored = [];
-  //LOOP THROUGH STRING
-  for (let i = 0; i < string.length; i++) {
-    //WHEN NUMBER IS FOUND
-    if (Number(string[i])) {
-      numberStored.push(Number(string[i]));
-      if (quotientMarkCount === 3) {
-        if (Number(string[i])) {
-          if (numberStored.length == 2) {
-            let sum = numberStored.reduce(function(a, b) { return a + b; }, 0);
-            if (sum === 10) {
-              flag = true;
-            } 
-            else {
-              flag = false;
-            }
-          } 
-          else {
-            flag = false;
+
+  for(let i=0; i<string.length; i++){
+      if(+string[i]) {
+          if(temp + +string[i] === 10) {
+              if(questionMarkCount !== 3) return false;
+              else flag = true;
+              i --;
           }
-          numberStored = [];
-          numberStored.push(Number(string[i]));
-        }
-      } 
-      else if (numberStored.length > 1) {
-        if (quotientMarkCount > 0 && quotientMarkCount < 3) {
-          flag = false;
-          return flag;
-        }
-        numberStored = [];
-        numberStored.push(Number(string[i]));
+          temp = +string[i];
+          questionMarkCount = 0;
       }
-      quotientMarkCount = 0;
-    }
-    //WHEN QUOTIENT MARK IS FOUND
-    else if (string[i] === "?") {
-      quotientMarkCount++;
-    }
+      else if(string[i] === '?') questionMarkCount++;
   }
   return flag;
 }
