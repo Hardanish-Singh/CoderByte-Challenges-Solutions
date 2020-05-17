@@ -39,21 +39,22 @@ function QuestionsMarks(str) {
       if (quotientMarkCount === 3) {
         if (Number(string[i])) {
           if (numberStored.length == 2) {
-            let sum = numberStored.reduce(function(a, b) {
-              return a + b;
-            }, 0);
+            let sum = numberStored.reduce(function(a, b) { return a + b; }, 0);
             if (sum === 10) {
               flag = true;
-            } else {
+            } 
+            else {
               flag = false;
             }
-          } else {
+          } 
+          else {
             flag = false;
           }
           numberStored = [];
           numberStored.push(Number(string[i]));
         }
-      } else if (numberStored.length > 1) {
+      } 
+      else if (numberStored.length > 1) {
         if (quotientMarkCount > 0 && quotientMarkCount < 3) {
           flag = false;
           return flag;
