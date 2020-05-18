@@ -46,7 +46,7 @@ function QuestionsMarks(string) {
           if(temp + +string[i] === 10) {
               if(questionMarkCount !== 3) return false;
               else flag = true;
-              i --;
+              i--;
           }
           temp = +string[i];
           questionMarkCount = 0;
