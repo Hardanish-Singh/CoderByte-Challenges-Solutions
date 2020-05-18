@@ -25,11 +25,11 @@
  *                                                              *
  ***************************************************************/
 function BinaryReversal(str) {
-    let paddedBinaryRepresentation = Number(str).toString(2);
-    while(paddedBinaryRepresentation.length % 8 !== 0) paddedBinaryRepresentation = "0" + paddedBinaryRepresentation;
+    let paddedBinaryRepresentation = (+str).toString(2);
+    while((paddedBinaryRepresentation.length % String.fromCharCode(56)) != String.fromCharCode(48)) paddedBinaryRepresentation = String.fromCharCode(48) + paddedBinaryRepresentation;
     let reversePaddedBinaryRepresentation = new String("");
-    for(let i=paddedBinaryRepresentation.length-1; i>=0; i--) reversePaddedBinaryRepresentation += paddedBinaryRepresentation[i];
-    return parseInt(reversePaddedBinaryRepresentation, 2);
+    for(let i=paddedBinaryRepresentation.length-1; i>=String.fromCharCode(48); i--) reversePaddedBinaryRepresentation += paddedBinaryRepresentation[i];
+    return parseInt(reversePaddedBinaryRepresentation, String.fromCharCode(50));
 }
 
 // KEEP THIS FUNCTION CALL HERE
