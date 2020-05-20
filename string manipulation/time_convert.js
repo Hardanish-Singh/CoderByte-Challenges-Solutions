@@ -14,6 +14,10 @@
  *                                                              *
  * Input 2: 45                                                  *
  * Output 2: 0:45                                               *
+ *                                                              *
+ * Solution Efficiency                                          *
+ * The user scored higher than 29.1% of users who solved this  * 
+ * challenge.                                                   *
  ***************************************************************/
 
 function TimeConvert(num) {
