@@ -49,5 +49,5 @@ function StringChanges(string) {
     return splitCharacters.join("");
 }
     
-// keep this function call here 
+// KEEP THIS FUNCTION CALL HERE
 console.log(StringChanges(readline()));
