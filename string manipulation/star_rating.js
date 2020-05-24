@@ -28,16 +28,12 @@
 
 function StarRating(string) { 
     let answer = new String("");
-    
     for(let i=0; i<parseInt(Number(string)); i++) answer += "full ";
-    if (parseInt(Number(string)) === 5) return answer.trim();
-    
+    if (parseInt(Number(string)) === 5) return answer.trim();  
     if((Number(string)%1) >= 0.75) answer += "full ";
     else if((Number(string)%1) >= 0.25 && (Number(string)%1) < 0.75) answer += "half ";
-    else answer += "empty ";
-    
+    else answer += "empty "; 
     for(let i=0; i<parseInt(5 - parseInt(Number(string)))-1; i++) answer += "empty ";
-  
     return answer.trim();
   }
      
