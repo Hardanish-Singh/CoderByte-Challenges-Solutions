@@ -28,20 +28,14 @@ function RunLength(string) {
     let array = string.split("");
     let counter = 0 ;
     let runLength = new String("");
-    let temp = array[0];
-
     for(let i=0; i<=array.length; i++){
-        if(temp !== array[i]) {
-            runLength += counter + array[i-1];
-            temp = array[i];
+        if(array[i] !== array[i+1]) {
+            runLength += counter + 1 + array[i];
             counter = 0;
-            i--;
         }
         else counter++;
     }
-
     return runLength;
 }
-    
 // KEEP THIS FUNCTION CALL HERE
 console.log(RunLength(readline()));
