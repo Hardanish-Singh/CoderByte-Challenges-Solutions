@@ -40,7 +40,6 @@ function QuestionsMarks(string) {
   let questionMarkCount = 0;
   let temp = 0;
   let flag = false;
-
   for(let i=0; i<string.length; i++){
       if(+string[i]) {
           if(temp + +string[i] === 10) {
