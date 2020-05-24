@@ -28,7 +28,6 @@
 
 function StringChanges(string) { 
     let splitCharacters = string.split("");
-  
     for(let i=0; i<splitCharacters.length; i++){
         if(splitCharacters[i] === "N") {
             splitCharacters.splice(i, 2);
@@ -47,7 +46,6 @@ function StringChanges(string) {
             }
         }
     }
-  
     return splitCharacters.join("");
 }
     
