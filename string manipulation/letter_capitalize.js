@@ -21,9 +21,7 @@
 function LetterCapitalize(string) {
     let splitStringAtSpace = string.split(" ");
     let letterCapitalizedString = new String("");
-
     for(let i=0; i<splitStringAtSpace.length; i++) letterCapitalizedString += splitStringAtSpace[i][0].toUpperCase() + splitStringAtSpace[i].substring(1) + String.fromCharCode(32);
-
     return letterCapitalizedString;
 }
 
