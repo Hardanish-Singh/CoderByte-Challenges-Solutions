@@ -24,6 +24,7 @@
  * challenge.                                                   *
  *                                                              *
  ***************************************************************/
+
 function BinaryReversal(str) {
     let paddedBinaryRepresentation = (+str).toString(2);
     while(paddedBinaryRepresentation.length % 8 !== 0) paddedBinaryRepresentation = String.fromCharCode(48) + paddedBinaryRepresentation;
