@@ -19,6 +19,7 @@
  * challenge.                                                   *
  *                                                              *
  ***************************************************************/
+
 function VowelCount(str) {
     let vowelCount = 0;
     let vowelRegex = /^[aeiouAEIOU]$/;
