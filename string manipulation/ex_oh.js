@@ -21,6 +21,7 @@
  * challenge.                                                   *
  *                                                              *
  ***************************************************************/
+
 function ExOh(string) {
   //VARIABLE DECLARATION
   let x_count = 0;
