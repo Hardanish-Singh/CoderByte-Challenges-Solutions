@@ -18,6 +18,7 @@
  * challenge.                                                   *
  *                                                              *
  ***************************************************************/
+
 function LetterCapitalize(string) {
     let splitStringAtSpace = string.split(" ");
     let letterCapitalizedString = new String("");
