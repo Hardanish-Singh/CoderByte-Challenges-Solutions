@@ -21,6 +21,7 @@
  * challenge.                                                   *
  *                                                              *
  ***************************************************************/
+
 function LetterChanges(string) {
     let lettersChangedString = new String("");
     let lettersRegex = /^[A-Za-z]$/;
