@@ -37,5 +37,6 @@ function RunLength(string) {
     }
     return runLength;
 }
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(RunLength(readline()));
