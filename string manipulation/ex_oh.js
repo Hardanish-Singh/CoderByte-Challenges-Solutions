@@ -15,6 +15,11 @@
  *                                                              *
  * Input 2: x                                                   *
  * Output 2: false                                              *
+ *                                                              *
+ * Solution Efficiency                                          *
+ * The user scored higher than 16.8% of users who solved this   *
+ * challenge.                                                   *
+ *                                                              *
  ***************************************************************/
 function ExOh(string) {
   //VARIABLE DECLARATION
