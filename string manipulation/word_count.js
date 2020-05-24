@@ -19,5 +19,5 @@ function WordCount(str) {
   return string.length;
 }
 
-// keep this function call here
+// KEEP THIS FUNCTION CALL HERE
 console.log(WordCount(readline()));
