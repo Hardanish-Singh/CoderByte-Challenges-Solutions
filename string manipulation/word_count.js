@@ -14,6 +14,7 @@
  * Input 2: "one 22 three"                                      *
  * Output 2: 3                                                  *
  ***************************************************************/
+
 function WordCount(str) {
   let string = str.trim().split(" "); 
   return string.length;
