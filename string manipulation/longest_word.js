@@ -24,11 +24,8 @@ function LongestWord(sentence) {
     let splitStringAtSpace = sentence.split(" ");
     let punctuationString = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g;
     let maxLength = 0;
-
     for(let i=0; i<splitStringAtSpace.length; i++) if(splitStringAtSpace[i].replace(punctuationString, "").length > maxLength) maxLength = splitStringAtSpace[i].replace(punctuationString, "").length;
-    
     for(let i=0; i<splitStringAtSpace.length; i++) if(maxLength === splitStringAtSpace[i].length) return splitStringAtSpace[i];
-    
 }
 
 // KEEP THIS FUNCTION CALL HERE
