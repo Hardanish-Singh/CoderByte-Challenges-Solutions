@@ -34,7 +34,7 @@ function SwapII(str) {
         if(array[i].length === 1) {
             if (array[i] == array[i].toLowerCase()) swipeCaseTwo += array[i].toUpperCase(); 
             else swipeCaseTwo += array[i].toLowerCase();
-        } 
+        }
         else {
             for(let j=0; j<array[i].length; j++){
                 if(Number(array[i][j]) && !Number(array[i][j+1])) {
