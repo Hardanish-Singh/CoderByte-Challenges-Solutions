@@ -37,4 +37,4 @@ function DashInsertII(number) {
 }
     
 // KEEP THIS FUNCTION CALL HERE
-console.log(DashInsertII(10120));
+console.log(DashInsertII(readline()));
