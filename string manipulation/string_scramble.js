@@ -17,6 +17,10 @@
  * Input 2: "h3llko" & "hello"                                  *
  * Output 2: false                                              *
  *                                                              *
+ * Solution Efficiency                                          *
+ * The user scored higher than 37.5% of users who solved this   *
+ * challenge.                                                   *
+ *                                                              *
  ***************************************************************/
 
 //SOLUTION 1
