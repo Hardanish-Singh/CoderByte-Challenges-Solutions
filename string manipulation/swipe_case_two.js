@@ -22,9 +22,9 @@
  *                                                              *
  ***************************************************************/
 
-function SwapII(str) { 
+function SwapII(str) {
     let punctuationRegex = /\w+|\s+|[^\s\w]+/g;
-    let array = str.match(punctuationRegex); 
+    let array = str.match(punctuationRegex);
     let swipeCaseTwo = new String("");
     let start = 0;
     let end = 0;
@@ -32,7 +32,7 @@ function SwapII(str) {
         start = 0;
         end = 0;
         if(array[i].length === 1) {
-            if (array[i] == array[i].toLowerCase()) swipeCaseTwo += array[i].toUpperCase(); 
+            if (array[i] == array[i].toLowerCase()) swipeCaseTwo += array[i].toUpperCase();
             else swipeCaseTwo += array[i].toLowerCase();
         }
         else {
