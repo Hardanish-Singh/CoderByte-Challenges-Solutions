@@ -26,7 +26,7 @@
  *                                                              *
  ***************************************************************/
 
-function StarRating(string) { 
+function StarRating(string) {
   let answer = new String("");
   for(let i=0; i<parseInt(Number(string)); i++) answer += "full ";
   if (parseInt(Number(string)) === 5) return answer.trim();  
