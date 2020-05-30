@@ -26,7 +26,7 @@
  *                                                              *
  ***************************************************************/
 
-function StringChanges(string) { 
+function StringChanges(string) {
     let splitCharacters = string.split("");
     for(let i=0; i<splitCharacters.length; i++){
         if(splitCharacters[i] === "N") {
