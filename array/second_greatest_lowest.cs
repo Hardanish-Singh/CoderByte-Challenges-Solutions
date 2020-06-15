@@ -35,7 +35,7 @@ class MainClass {
 
     static void Main() 
     {  
-        // keep this function call here
+        // KEEP THIS FUNCTION CALL HERE
         Console.WriteLine(SecondGreatLow(Console.ReadLine()));
     } 
 
