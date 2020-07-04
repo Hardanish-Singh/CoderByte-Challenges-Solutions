@@ -1,5 +1,5 @@
 /****************************************************************
- *             CODERBYTE FIND INTERSECTION CHALLENGE            *
+ *             CODERBYTE MEAN MODE CHALLENGE                    *
  *                                                              *
  * Problem Statement                                            *
  * Have the function MeanMode(arr) take the array of numbers    *
@@ -19,7 +19,7 @@
  *                                                              *
  ***************************************************************/
 using System;
-using System.Linq; 
+using System.Linq;
 
 class MainClass {
     public static int MeanMode(int[] arr) {
@@ -34,8 +34,8 @@ class MainClass {
         if(mode == mean) return 1;
         else return 0;
     }
-    static void Main() {  
+    static void Main() {
         // KEEP THIS FUNCTION CALL HERE
         Console.WriteLine(MeanMode(Console.ReadLine()));
-    } 
+    }
 }
