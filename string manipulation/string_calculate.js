@@ -41,8 +41,8 @@ function StringCalculate(string) {
                 flag = true;
             }
             else evaluateExpression += splittedString[i];  
-      }
-      else evaluateExpression += splittedString[i];
+        }
+        else evaluateExpression += splittedString[i];
     }	
     return eval(evaluateExpression);
 }
