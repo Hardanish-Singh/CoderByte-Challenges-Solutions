@@ -25,7 +25,7 @@ function CodelandUsernameValidation(string) {
         if(string.length<4 || string.length>25) return false;
         if(!string[0].match(/[a-zA-Z]/g)) return false;
         if(string[string.length-1] === '_') return false;
-        for(let i=0; i<string.length; i++) if(!(string[i].match(/[a-zA-Z]/g) || string[i].match(/[1-9]/g) ||string[i] === '_')) return false;
+        for(let i=0; i<string.length; i++) if(!(string[i].match(/[a-zA-Z]/g) || string[i].match(/[1-9]/g) | string[i] === '_')) return false;
         return true;
 }
 
