@@ -36,37 +36,73 @@ function ScaleBalancing( str ) {
         }
         
          
-        for(let i=0; i<combination_array.length-2; i++) {
-                for(let j=0; j<combination_array[i].length; j++) {
-                        for(let k=combination_array.length-2; k<combination_array.length; k++) {
-                                for(let p=0; p<combination_array[k].length; p++) {
-                                        if(combination_array[i][j] == combination_array[k][p] && j!=p) {
-                                                if(i%2==0 && k%2==0) {
-                                                        if(array_one[0]+array_two[j] == array_one[1]+array_two[p]) {
-                                                                if(array_two[j]==0) return array_two[p];
-                                                                else if (array_two[p]==0) return array_two[j]
-                                                                else return (array_two[j]+","+array_two[p]).split(",").sort().join(",");
+        for( let i=0; i<combination_array.length-2; i++ ) {
+                for( let j=0; j<combination_array[i].length; j++ ) {
+                        for( let k=combination_array.length-2; k<combination_array.length; k++ ) {
+                                for( let p=0; p<combination_array[k].length; p++ ) {
+                                        if( combination_array[i][j] == combination_array[k][p] && j!=p ) {
+                                                if( i%2==0 && k%2==0 ) {
+                                                        if( array_one[0] + array_two[j] == array_one[1] + array_two[p] ) {
+                                                                if(array_two[j] == 0 ) {
+                                                                        return array_two[p];
+                                                                }
+                                                                else if ( array_two[p] == 0 ) {
+                                                                        return array_two[j];
+                                                                }
+                                                                else {
+                                                                        return ( array_two[j] + "," + array_two[p] )
+                                                                                                                .split(",")
+                                                                                                                .sort()
+                                                                                                                .join(",");
+                                                                }
                                                         }
                                                 } 
-                                                else if(i%2==0 && k%2!=0) {
-                                                        if(array_one[0]+array_two[j] == array_one[1]-array_two[p]) {
-                                                                if(array_two[j]==0) return array_two[p];
-                                                                else if (array_two[p]==0) return array_two[j]
-                                                                else return (array_two[j]+","+array_two[p]).split(",").sort().join(",");
+                                                else if( i%2==0 && k%2!=0 ) {
+                                                        if( array_one[0] + array_two[j] == array_one[1] - array_two[p] ) {
+                                                                if( array_two[j] == 0 ) {
+                                                                        return array_two[p];
+                                                                }
+                                                                else if ( array_two[p] == 0 ) {
+                                                                        return array_two[j];
+                                                                }
+                                                                else {
+                                                                        return ( array_two[j] + "," + array_two[p] )
+                                                                                                                .split(",")
+                                                                                                                .sort()
+                                                                                                                .join(",");
+                                                                }
                                                         }
                                                 }
-                                                else if(i%2!=0 && k%2==0) {
-                                                        if(array_one[0]-array_two[j] == array_one[1]+array_two[p]) {
-                                                                if(array_two[j]==0) return array_two[p];
-                                                                else if (array_two[p]==0) return array_two[j]
-                                                                else return (array_two[j]+","+array_two[p]).split(",").sort().join(",");
+                                                else if( i%2!=0 && k%2==0 ) {
+                                                        if( array_one[0] - array_two[j] == array_one[1] + array_two[p] ) {
+                                                                if( array_two[j] == 0 ) {
+                                                                        return array_two[p];
+                                                                }
+                                                                else if ( array_two[p] == 0 ) {
+                                                                        return array_two[j];
+                                                                }
+                                                                else {
+                                                                        return ( array_two[j] + "," + array_two[p] )
+                                                                                                                .split(",")
+                                                                                                                .sort()
+                                                                                                                .join(",");
+                                                                }
                                                         }
                                                 } 
                                                 else {
-                                                        if(array_one[0]-array_two[j] == array_one[1]-array_two[p]) {
-                                                                if(array_two[j]==0) return array_two[p];
-                                                                else if (array_two[p]==0) return array_two[j]
-                                                                else return (array_two[j]+","+array_two[p]).split(",").sort().join(",");
+                                                        if( array_one[0] - array_two[j] == array_one[1] - array_two[p] ) {
+                                                                if( array_two[j] == 0 ) {
+                                                                        return array_two[p];
+                                                                }
+                                                                else if ( array_two[p] == 0 ) {
+                                                                        return array_two[j];
+                                                                }
+                                                                else {
+                                                                        return ( array_two[j] + "," + array_two[p] )
+                                                                                                                .split(",")
+                                                                                                                .sort()
+                                                                                                                .join(",");
+                                                                }
                                                         }
                                                 }
                                         }
