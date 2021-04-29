@@ -16,6 +16,7 @@ function ScaleBalancing( str ) {
                         .split(",")
                         .map( n => parseInt(n) );
         
+        //PUSH 0 VALUE AT FIRST ARRAY INDEX
         if( array_two[0] != 0 ) {
           array_two.unshift(0);
         }
