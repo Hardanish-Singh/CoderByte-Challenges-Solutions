@@ -22,14 +22,14 @@ function ScaleBalancing( str ) {
         }
         
         
-        for( let i=0; i<array_one.length; i++ ){
+        for( let i=0; i<array_one.length; i++ ) {
                 temp = [];
-                for( let j=0; j<array_two.length; j++ ){
-                  temp.push( array_one[i] + array_two[j] );
+                for( let j=0; j<array_two.length; j++ ) {
+                        temp.push( array_one[i] + array_two[j] );
                 }
                 combination_array.push(temp);
                 temp = [];
-                for( let j=0; j<array_two.length; j++ ){
+                for( let j=0; j<array_two.length; j++ ) {
                         temp.push( array_one[i] - array_two[j] );
                 }
                 combination_array.push(temp);
