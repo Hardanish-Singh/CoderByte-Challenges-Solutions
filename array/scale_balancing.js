@@ -18,7 +18,7 @@ function ScaleBalancing( str ) {
         
         //PUSH 0 VALUE AT FIRST ARRAY INDEX
         if( array_two[0] != 0 ) {
-          array_two.unshift(0);
+                array_two.unshift(0);
         }
         
         
@@ -74,8 +74,10 @@ function ScaleBalancing( str ) {
                         }
                 }
         }
+
         return "not possible";
-      }
+        
+}
          
 // keep this function call here 
 console.log(ScaleBalancing(readline()));
