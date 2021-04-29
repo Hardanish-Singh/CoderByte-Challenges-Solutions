@@ -1,4 +1,4 @@
-function ScaleBalancing(str) { 
+function ScaleBalancing( str ) { 
 
         let array_one = [];
         let array_two = [];
