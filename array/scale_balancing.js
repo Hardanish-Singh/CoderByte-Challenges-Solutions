@@ -5,8 +5,16 @@ function ScaleBalancing( str ) {
         let combination_array = [];
         let temp = [];
         
-        array_one = str[0].slice(1).slice(0, str[0].length-2).split(",").map( n => parseInt(n) );
-        array_two = str[1].slice(1).slice(0, str[1].length-2).split(",").map( n => parseInt(n) );
+        array_one = str[0]
+                        .slice(1)
+                        .slice(0, str[0].length-2)
+                        .split(",")
+                        .map( n => parseInt(n) );
+        array_two = str[1]
+                        .slice(1)
+                        .slice(0, str[1].length-2)
+                        .split(",")
+                        .map( n => parseInt(n) );
         
         if( array_two[0] != 0 ) {
           array_two.unshift(0);
