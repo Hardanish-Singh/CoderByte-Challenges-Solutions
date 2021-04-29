@@ -6,7 +6,7 @@
  * will contain two elements, the first being the two positive  *
  * integer weights on a balance scale (left and right sides)    *
  * and the second element being a list of available weights as  *
- * positive integers. Your goal is to determine if you can      * 
+ * positive integers. Your goal is to determine if you can      *
  * balance the scale by using the least amount of weights from  *
  * the list, but using at most only 2 weights.                  *
  *                                                              *
@@ -23,7 +23,7 @@
  * so for this example your code should return the string 2,6   *
  *                                                              *
  * There will only ever be one unique solution and the list of  *
- * available weights will not be empty. It is also possible to  * 
+ * available weights will not be empty. It is also possible to  *
  * add two weights to only one side of the scale to balance it. *
  * If it is not possible to balance the scale then your program *
  * should return the string not possible.                       *
@@ -33,7 +33,7 @@
  * Output 1: 1                                                  *
  *                                                              *
  * Input 2: ["[13, 4]", "[1, 2, 3, 6, 14]"]                     *
- * Output 2: 3,6                                              *
+ * Output 2: 3,6                                                *
  *                                                              *
  ***************************************************************/
 
