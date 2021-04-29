@@ -17,13 +17,13 @@ function ScaleBalancing(str) {
                 temp = [];
                 for(let j=0; j<array_two.length; j++){
                   temp.push(array_one[i]+array_two[j]);
-          }
-          combination_array.push(temp);
-          temp = [];
-          for(let j=0; j<array_two.length; j++){
-                  temp.push(array_one[i]-array_two[j]);
-          }
-          combination_array.push(temp);
+                }
+                combination_array.push(temp);
+                temp = [];
+                for(let j=0; j<array_two.length; j++){
+                        temp.push(array_one[i]-array_two[j]);
+                }
+                combination_array.push(temp);
         }
         
          
