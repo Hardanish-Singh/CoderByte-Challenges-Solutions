@@ -36,8 +36,8 @@
  * Output 2: 3,6                                                *
  *                                                              *
  ***************************************************************/
- function MatchWeights(array_two, p , j) {
-        if(array_two[j] == 0 ) {
+ function MatchWeights( array_two, p , j ) {
+        if( array_two[j] == 0 ) {
                 return array_two[p];
         }
         else if ( array_two[p] == 0 ) {
