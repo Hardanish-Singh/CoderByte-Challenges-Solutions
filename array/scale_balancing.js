@@ -36,6 +36,20 @@
  * Output 2: 3,6                                                *
  *                                                              *
  ***************************************************************/
+ function MatchWeights(array_two, p , j) {
+        if(array_two[j] == 0 ) {
+                return array_two[p];
+        }
+        else if ( array_two[p] == 0 ) {
+                return array_two[j];
+        }
+        else {
+                return ( array_two[j] + "," + array_two[p] )
+                                                        .split(",")
+                                                        .sort()
+                                                        .join(",");
+        }
+}
 
 function ScaleBalancing( str ) { 
 
@@ -82,66 +96,22 @@ function ScaleBalancing( str ) {
                                         if( combination_array[i][j] == combination_array[k][p] && j!=p ) {
                                                 if( i%2==0 && k%2==0 ) {
                                                         if( array_one[0] + array_two[j] == array_one[1] + array_two[p] ) {
-                                                                if(array_two[j] == 0 ) {
-                                                                        return array_two[p];
-                                                                }
-                                                                else if ( array_two[p] == 0 ) {
-                                                                        return array_two[j];
-                                                                }
-                                                                else {
-                                                                        return ( array_two[j] + "," + array_two[p] )
-                                                                                                                .split(",")
-                                                                                                                .sort()
-                                                                                                                .join(",");
-                                                                }
+                                                                return MatchWeights(array_two, p , j);
                                                         }
                                                 } 
                                                 else if( i%2==0 && k%2!=0 ) {
                                                         if( array_one[0] + array_two[j] == array_one[1] - array_two[p] ) {
-                                                                if( array_two[j] == 0 ) {
-                                                                        return array_two[p];
-                                                                }
-                                                                else if ( array_two[p] == 0 ) {
-                                                                        return array_two[j];
-                                                                }
-                                                                else {
-                                                                        return ( array_two[j] + "," + array_two[p] )
-                                                                                                                .split(",")
-                                                                                                                .sort()
-                                                                                                                .join(",");
-                                                                }
+                                                                return MatchWeights(array_two, p , j);
                                                         }
                                                 }
                                                 else if( i%2!=0 && k%2==0 ) {
                                                         if( array_one[0] - array_two[j] == array_one[1] + array_two[p] ) {
-                                                                if( array_two[j] == 0 ) {
-                                                                        return array_two[p];
-                                                                }
-                                                                else if ( array_two[p] == 0 ) {
-                                                                        return array_two[j];
-                                                                }
-                                                                else {
-                                                                        return ( array_two[j] + "," + array_two[p] )
-                                                                                                                .split(",")
-                                                                                                                .sort()
-                                                                                                                .join(",");
-                                                                }
+                                                                return MatchWeights(array_two, p , j);
                                                         }
                                                 } 
                                                 else {
                                                         if( array_one[0] - array_two[j] == array_one[1] - array_two[p] ) {
-                                                                if( array_two[j] == 0 ) {
-                                                                        return array_two[p];
-                                                                }
-                                                                else if ( array_two[p] == 0 ) {
-                                                                        return array_two[j];
-                                                                }
-                                                                else {
-                                                                        return ( array_two[j] + "," + array_two[p] )
-                                                                                                                .split(",")
-                                                                                                                .sort()
-                                                                                                                .join(",");
-                                                                }
+                                                                return MatchWeights(array_two, p , j);
                                                         }
                                                 }
                                         }
