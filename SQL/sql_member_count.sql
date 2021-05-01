@@ -13,6 +13,14 @@
  * The rows should be ordered by the names in alphabetical      *
  * order. Your output should look like the following table.     *
  *                                                              *
+ *       +-----------------+------------+------------+          *
+ *       | ReportsTo       | Members    | Average Age|          *
+ *       +-----------------+------------+------------+          *
+ *       | Bob Boss        | 2          | 24         |          *
+ *       | Daniel Smith    | 1          | 22         |          *
+ *       | David S         | 1          | 25         |          *
+ *       | Jenny Richards  | 2          | 31         |          *
+ *       +-----------------+------------+------------+          *
  ***************************************************************/
 
 SELECT 
@@ -20,6 +28,7 @@ SELECT
         COUNT(ReportsTo) AS Members,
         CEIL(AVG(AGE)) AS `Average Age`
 FROM
-        maintable_L99ON
+        maintable_L99ON        
 WHERE ReportsTo IS NOT NULL
+ORDER BY ReportsTo
 GROUP BY ReportsTo
