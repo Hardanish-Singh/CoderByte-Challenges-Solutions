@@ -9,7 +9,7 @@
  * for the new array until a single number is left and return   *
  * that number.                                                 *
  *                                                              *
- * For example: if arr is [4, 5, 1, 2, 7] then taking the       * 
+ * For example: if arr is [4, 5, 1, 2, 7] then taking the       *
  * difference of each pair of elements produces the following   *
  * new array: [1, 4, 1, 5]. Then do the same for this new array *
  * to produce [3, 3, 4] -> [0, 1] -> 1. So for this example your*
@@ -33,12 +33,7 @@ function ElementMerger( arr ) {
                 merge_elements.push( Math.abs( arr[i] - arr[i+1] ) );
         }
 
-        if( merge_elements.length > 1 ) {
-                return ElementMerger(merge_elements);
-        }
-        else {
-                return merge_elements[0];
-        }
+        return (merge_elements.length > 1) ? ElementMerger(merge_elements) : merge_elements[0];
 
 }
         
