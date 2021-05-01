@@ -36,82 +36,82 @@
  * Output 2: 3,6                                                *
  *                                                              *
  ***************************************************************/
- function MatchWeights( array_two, p , j ) {
-        if( array_two[j] == 0 ) {
-                return array_two[p];
+ function MatchWeights( right_side_weights, p , j ) {
+        if( right_side_weights[j] == 0 ) {
+                return right_side_weights[p];
         }
-        else if ( array_two[p] == 0 ) {
-                return array_two[j];
+        else if ( right_side_weights[p] == 0 ) {
+                return right_side_weights[j];
         }
         else {
-                return ( array_two[j] + "," + array_two[p] )
-                                                        .split(",")
-                                                        .sort()
-                                                        .join(",");
+                return ( right_side_weights[j] + "," + right_side_weights[p] )
+                                                                        .split(",")
+                                                                        .sort()
+                                                                        .join(",");
         }
 }
 
 function ScaleBalancing( str ) { 
 
-        let array_one = [];
-        let array_two = [];
-        let combination_array = [];
+        let left_side_weights = [];
+        let right_side_weights = [];
+        let weights_combination = [];
         let temp = [];
         
-        array_one = str[0]
-                        .slice(1)
-                        .slice(0, str[0].length-2)
-                        .split(",")
-                        .map( n => parseInt(n) );
-        array_two = str[1]
-                        .slice(1)
-                        .slice(0, str[1].length-2)
-                        .split(",")
-                        .map( n => parseInt(n) );
+        left_side_weights = str[0]
+                                .slice(1)
+                                .slice(0, str[0].length-2)
+                                .split(",")
+                                .map( n => parseInt(n) );
+        right_side_weights = str[1]
+                                .slice(1)
+                                .slice(0, str[1].length-2)
+                                .split(",")
+                                .map( n => parseInt(n) );
         
         //PUSH 0 VALUE AT FIRST ARRAY INDEX
-        if( array_two[0] != 0 ) {
-                array_two.unshift(0);
+        if( right_side_weights[0] != 0 ) {
+                right_side_weights.unshift(0);
         }
         
         
-        for( let i=0; i<array_one.length; i++ ) {
+        for( let i=0; i<left_side_weights.length; i++ ) {
                 temp = [];
-                for( let j=0; j<array_two.length; j++ ) {
-                        temp.push( array_one[i] + array_two[j] );
+                for( let j=0; j<right_side_weights.length; j++ ) {
+                        temp.push( left_side_weights[i] + right_side_weights[j] );
                 }
-                combination_array.push(temp);
+                weights_combination.push(temp);
                 temp = [];
-                for( let j=0; j<array_two.length; j++ ) {
-                        temp.push( array_one[i] - array_two[j] );
+                for( let j=0; j<right_side_weights.length; j++ ) {
+                        temp.push( left_side_weights[i] - right_side_weights[j] );
                 }
-                combination_array.push(temp);
+                weights_combination.push(temp);
         }
         
          
-        for( let i=0; i<combination_array.length-2; i++ ) {
-                for( let j=0; j<combination_array[i].length; j++ ) {
-                        for( let k=combination_array.length-2; k<combination_array.length; k++ ) {
-                                for( let p=0; p<combination_array[k].length; p++ ) {
-                                        if( combination_array[i][j] == combination_array[k][p] && j!=p ) {
+        for( let i=0; i<weights_combination.length-2; i++ ) {
+                for( let j=0; j<weights_combination[i].length; j++ ) {
+                        for( let k=weights_combination.length-2; k<weights_combination.length; k++ ) {
+                                for( let p=0; p<weights_combination[k].length; p++ ) {
+                                        if( weights_combination[i][j] == weights_combination[k][p] && j!=p ) {
                                                 if( i%2==0 && k%2==0 ) {
-                                                        if( array_one[0] + array_two[j] == array_one[1] + array_two[p] ) {
-                                                                return MatchWeights(array_two, p , j);
+                                                        if( left_side_weights[0] + right_side_weights[j] == left_side_weights[1] + right_side_weights[p] ) {
+                                                                return MatchWeights(right_side_weights, p , j);
                                                         }
                                                 } 
                                                 else if( i%2==0 && k%2!=0 ) {
-                                                        if( array_one[0] + array_two[j] == array_one[1] - array_two[p] ) {
-                                                                return MatchWeights(array_two, p , j);
+                                                        if( left_side_weights[0] + right_side_weights[j] == left_side_weights[1] - right_side_weights[p] ) {
+                                                                return MatchWeights(right_side_weights, p , j);
                                                         }
                                                 }
                                                 else if( i%2!=0 && k%2==0 ) {
-                                                        if( array_one[0] - array_two[j] == array_one[1] + array_two[p] ) {
-                                                                return MatchWeights(array_two, p , j);
+                                                        if( left_side_weights[0] - right_side_weights[j] == left_side_weights[1] + right_side_weights[p] ) {
+                                                                return MatchWeights(right_side_weights, p , j);
                                                         }
                                                 } 
                                                 else {
-                                                        if( array_one[0] - array_two[j] == array_one[1] - array_two[p] ) {
-                                                                return MatchWeights(array_two, p , j);
+                                                        if( left_side_weights[0] - right_side_weights[j] == left_side_weights[1] - right_side_weights[p] ) {
+                                                                return MatchWeights(right_side_weights, p , j);
                                                         }
                                                 }
                                         }
