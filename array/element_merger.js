@@ -37,5 +37,5 @@ function ElementMerger( arr ) {
 
 }
         
-// keep this function call here 
+// KEEP THIS FUNCTION CALL HERE
 console.log(ElementMerger(readline()));
