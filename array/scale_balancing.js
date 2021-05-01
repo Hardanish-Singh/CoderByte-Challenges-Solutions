@@ -36,7 +36,8 @@
  * Output 2: 3,6                                                *
  *                                                              *
  ***************************************************************/
- function MatchWeights( right_side_weights, p , j ) {
+ 
+function isWeightEqual( right_side_weights, p , j ) {
         if( right_side_weights[j] == 0 ) {
                 return right_side_weights[p];
         }
@@ -96,22 +97,22 @@ function ScaleBalancing( str ) {
                                         if( weights_combination[i][j] == weights_combination[k][p] && j!=p ) {
                                                 if( i%2==0 && k%2==0 ) {
                                                         if( left_side_weights[0] + right_side_weights[j] == left_side_weights[1] + right_side_weights[p] ) {
-                                                                return MatchWeights(right_side_weights, p , j);
+                                                                return isWeightEqual( right_side_weights, p , j );
                                                         }
                                                 } 
                                                 else if( i%2==0 && k%2!=0 ) {
                                                         if( left_side_weights[0] + right_side_weights[j] == left_side_weights[1] - right_side_weights[p] ) {
-                                                                return MatchWeights(right_side_weights, p , j);
+                                                                return isWeightEqual( right_side_weights, p , j );
                                                         }
                                                 }
                                                 else if( i%2!=0 && k%2==0 ) {
                                                         if( left_side_weights[0] - right_side_weights[j] == left_side_weights[1] + right_side_weights[p] ) {
-                                                                return MatchWeights(right_side_weights, p , j);
+                                                                return isWeightEqual( right_side_weights, p , j );
                                                         }
                                                 } 
                                                 else {
                                                         if( left_side_weights[0] - right_side_weights[j] == left_side_weights[1] - right_side_weights[p] ) {
-                                                                return MatchWeights(right_side_weights, p , j);
+                                                                return isWeightEqual( right_side_weights, p , j );
                                                         }
                                                 }
                                         }
