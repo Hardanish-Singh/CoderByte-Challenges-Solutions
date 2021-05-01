@@ -1,16 +1,16 @@
-function ElementMerger(arr) { 
+function ElementMerger( arr ) { 
 
-        let array = [];
+        let merge_elements = [];
 
         for( let i=0; i<arr.length-1; i++ ){
-                array.push( Math.abs( arr[i] - arr[i+1] ) );
+                merge_elements.push( Math.abs( arr[i] - arr[i+1] ) );
         }
 
-        if( array.length > 1 ) {
-                return ElementMerger(array);
+        if( merge_elements.length > 1 ) {
+                return ElementMerger(merge_elements);
         }
         else {
-                return array[0];
+                return merge_elements[0];
         }
 
 }
