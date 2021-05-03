@@ -22,7 +22,7 @@
  * reported to (excluding null values) the number of members that report to them, and     *
  * the average the number of members that report to them, and the average age of those    *
  * members as an integer                                                                  *
- *                                                              *
+ *                                                                                        *
  * The rows should be ordered by the names in alphabetical order. Your output should look *
  * like the following table.                                                              *
  *                                                                                        *
