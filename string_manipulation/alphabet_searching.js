@@ -27,8 +27,7 @@ function AlphabetSearching(string) {
   //LOOP THROUGH STRING
   for (let i = 0; i < sortedStringArray.length; i++) {
     if (
-      sortedStringArray[i].toLowerCase() >= "a" &&
-      sortedStringArray[i].toLowerCase() <= "z"
+      sortedStringArray[i].toLowerCase() >= "a" && sortedStringArray[i].toLowerCase() <= "z"
     ) {
       count++;
     }
