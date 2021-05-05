@@ -21,7 +21,7 @@
 
 function AlphabetSearching( string ) {
   //SORT THE STRING & REMOVE DUPLICATES FROM THE STRING
-  let sortedStringArray = Array.from(new Set(string.split("").sort()));
+  let sortedStringArray = Array.from( new Set( string.split("").sort() ) );
   //COUNT THE ENGLISH ALPHABET CHARACTERS
   let count = 0;
   
@@ -33,7 +33,7 @@ function AlphabetSearching( string ) {
   }
 
   return ( count === 26 ) ? true : false;
-  
+
 }
 
 // KEEP THIS FUNCTION CALL HERE
