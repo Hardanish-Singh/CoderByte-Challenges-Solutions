@@ -19,20 +19,21 @@
  * Output 2: false                                              *
  ***************************************************************/
 
-function AlphabetSearching(string) {
+function AlphabetSearching( string ) {
   //SORT THE STRING & REMOVE DUPLICATES FROM THE STRING
   let sortedStringArray = Array.from(new Set(string.split("").sort()));
   //COUNT THE ENGLISH ALPHABET CHARACTERS
   let count = 0;
   
   //LOOP THROUGH STRING
-  for (let i = 0; i < sortedStringArray.length; i++) {
+  for ( let i = 0; i < sortedStringArray.length; i++ ) {
     if ( sortedStringArray[i].toLowerCase() >= "a" && sortedStringArray[i].toLowerCase() <= "z" ) {
       count++;
     }
   }
 
   return ( count === 26 ) ? true : false;
+  
 }
 
 // KEEP THIS FUNCTION CALL HERE
