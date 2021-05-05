@@ -24,17 +24,15 @@ function AlphabetSearching(string) {
   let sortedStringArray = Array.from(new Set(string.split("").sort()));
   //COUNT THE ENGLISH ALPHABET CHARACTERS
   let count = 0;
+  
   //LOOP THROUGH STRING
   for (let i = 0; i < sortedStringArray.length; i++) {
     if ( sortedStringArray[i].toLowerCase() >= "a" && sortedStringArray[i].toLowerCase() <= "z" ) {
       count++;
     }
   }
-  if (count === 26) {
-    return true;
-  } else {
-    return false;
-  }
+
+  return ( count === 26 ) ? true : false;
 }
 
 // KEEP THIS FUNCTION CALL HERE
