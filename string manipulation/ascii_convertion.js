@@ -18,17 +18,18 @@
  ***************************************************************/
 
 function ASCIIConversion( str ) {
-  let asciiValueString = new String("");
+        let asciiValueString = new String("");
 
-  for ( let i = 0; i < str.length; i++ ) {
-    if ( str[i] === " " ) {
-      asciiValueString += str[i];
-    } else {
-      asciiValueString += str.charCodeAt(i);
-    }
-  }
+        for ( let i = 0; i < str.length; i++ ) {
+                if ( str[i] === " " ) {
+                        asciiValueString += str[i];
+                }
+                else {
+                        asciiValueString += str.charCodeAt(i);
+                }
+        }
 
-  return asciiValueString;
+        return asciiValueString;
 }
 
 // KEEP THIS FUNCTION CALL HERE
