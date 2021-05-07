@@ -1,5 +1,5 @@
 /*********************************************************************************************
- *                            CODERBYTE SQL MEMBER COUNT CHALLENGE                           *
+ *                            CODERBYTE SQL EMPLOYEE SALARIES CHALLENGE                      *
  *                                                                                           *
  * Your table: maintable_M3LJZ                                                               *
  * MySQL version: 5.5.56-log                                                                 *
