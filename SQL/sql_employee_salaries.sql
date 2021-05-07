@@ -47,11 +47,11 @@ JOIN cb_companydivisions ON cb_companydivisions.id = maintable_M3LJZ.DivisionID
 
 JOIN 
 (
-  SELECT 
-      Name, 
-      ID
-  FROM    
-      maintable_M3LJZ
+        SELECT 
+                Name, 
+                ID
+        FROM    
+                maintable_M3LJZ
 )AS t ON t.ID = maintable_M3LJZ.ManagerID
 
 WHERE Salary = (
