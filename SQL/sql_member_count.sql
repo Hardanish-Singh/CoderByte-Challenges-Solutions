@@ -1,5 +1,5 @@
 /*********************************************************************************************
- *              CODERBYTE SQL MEMBER COUNT CHALLENGE                                         *
+ *                            CODERBYTE SQL MEMBER COUNT CHALLENGE                           *
  *                                                                                           *
  * Your table: maintable_L99ON                                                               *
  * MySQL version: 5.5.56-log                                                                 *
