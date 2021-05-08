@@ -52,7 +52,7 @@
  *                        +-----------------+---------------------+                          *
  *                                                                                           *
  ********************************************************************************************/
- 
+
 /*
         SOLUTION ONE WITHOUT LAG FUNCTION
 */
@@ -71,7 +71,7 @@ FROM
                 SELECT 
                         COUNT(DateJoined) AS date1,
                         DateJoined,
-                        (SELECT @prev := '') r
+                        ( SELECT @prev := '' ) r
                 FROM 
                         maintable_O9AAP
                 GROUP BY MONTH(DateJoined)
@@ -81,7 +81,7 @@ FROM
 WHERE previous > 0
 
 /*
-        SOLUTION 2 WITH LAG FUNCTION
+        SOLUTION 2 WITH LAG FUNCTION, USED IN MYSQL VERSION 8.0+
 */
 
 SELECT
