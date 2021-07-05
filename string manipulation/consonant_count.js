@@ -1,3 +1,20 @@
+/****************************************************************
+ *             CODERBYTE CONSONANT COUNT CHALLENGE              *
+ *                                                              *
+ * Problem Statement                                            *
+ * Have the function ConsonantCount(str) take the str string	*
+ * parameter being passed and return the number of consonants 	*
+ * the string contains.  					*
+ *                                                              *
+ * Examples                                                     *
+ * Input 1: "Hello World"                                       *
+ * Output 1: 7		                                        *
+ *                                                              *
+ * Input 2: "Alphabets"                                         *
+ * Output 2: 6                                                  *
+ *                                                              *
+ ***************************************************************/
+ 
 function ConsonantCount( str ) {
 	let count = 0;
 	let vowelRegex = /^[aeiouAEIOU]$/;
