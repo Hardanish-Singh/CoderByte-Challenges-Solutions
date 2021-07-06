@@ -12,7 +12,7 @@
  * the first is multiplied by some constant or common ratio.    *
  * Arithmetic example: [2, 4, 6, 8] and                         *
  * Geometric example: [2, 6, 18, 54]. Negative numbers may be   *
- * entered as parameters, 0 will not be entered, and no array   * 
+ * entered as parameters, 0 will not be entered, and no array   *
  * will contain all the same elements.                          *
  *                                                              *
  * Examples                                                     *
@@ -25,44 +25,58 @@
  ***************************************************************/
 
 using System;
-class MainClass 
+class MainClass
 {
-    public static string ArithGeo(int[] arr)
-    {
-        var isArithmeticProgression = false;
-        var isGeometricProgression = false;
-        for (var i=arr.Length-1; i>=0; i--)
-        {
-            if (i != 0)
-            {
-                if (arr[i] - arr[i - 1] == arr[arr.Length-1] - arr[arr.Length-1-1]) isArithmeticProgression = true;
-                else
-                {
-                    isArithmeticProgression = false;
-                    break;
-                }
-            }
-        }
-        for (var i=arr.Length-1; i>=0; i--)
-        {
-            if (i != 0)
-            {
-                if (arr[i]/arr[i - 1] == arr[arr.Length-1]/arr[arr.Length-1-1]) isGeometricProgression = true;
-                else
-                {
-                    isGeometricProgression = false;
-                    break;
-                }
-            }
-        }
-        if(isArithmeticProgression) return "Arithmetic";
-        if(isGeometricProgression) return "Geometric";
-        return "-1";
-    }
+	public static string ArithGeo( int[] arr )
+	{
+	        var isArithmeticProgression = false;
+	        var isGeometricProgression = false;
+		// CHECK ARITHMETIC LOGIC
+	        for( var i=arr.Length-1; i>=0; i-- )
+	        {
+            		if ( i!=0 )
+	            	{
+	                	if ( arr[i] - arr[i-1] == arr[arr.Length-1] - arr[arr.Length-1-1] )
+				{
+					isArithmeticProgression = true;
+				}
+	                	else
+	                	{
+	                    		isArithmeticProgression = false;
+	                    		break;
+	                	}
+	            	}
+        	}
+		// CHECK GEOMETRIC LOGIC
+	        for ( var i=arr.Length-1; i>=0; i-- )
+        	{
+            		if ( i!=0 )
+	            	{
+                		if ( arr[i] / arr[i-1] == arr[arr.Length-1] / arr[arr.Length-1-1] )
+				{
+					isGeometricProgression = true;
+				}
+                		else
+                		{
+					isGeometricProgression = false;
+		                    	break;
+                		}
+    			}
+        	}
+		if( isArithmeticProgression )
+		{
+			return "Arithmetic";
+		}
+        	if( isGeometricProgression )
+		{
+			return "Geometric";
+		}
+        	return "-1";
+	}
 
-    static void Main() 
-    {  
-        // KEEP THIS FUNCTION CALL HERE
-        Console.WriteLine(ArithGeo(Console.ReadLine()));
-    } 
+	static void Main()
+	{
+		// KEEP THIS FUNCTION CALL HERE
+		Console.WriteLine(ArithGeo(Console.ReadLine()));
+	}
 }
