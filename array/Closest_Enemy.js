@@ -1,32 +1,19 @@
-function moveLeft( array )
+function makeMoves( array )
 {
 	let count = 0;
-	let isFound = false;
-	for( let i=array.length-1; i>=0; i-- )
-	{
-		count++;
-		if( array[i] == 2 )
-		{
-			isFound = true;
-			break;
-		}
-	}
-	return isFound ? count : 0;
-}
-function moveRight( array )
-{
-	let count = 0;
-	let isFound = false;
 	for( let i=0; i<array.length; i++ )
 	{
 		count++;
 		if( array[i] == 2 )
 		{
-			isFound = true;
 			break;
 		}
+		if( i == array.length-1 && array[i] != 2 )
+		{
+			count = 0;
+		}
 	}
-	return isFound ? count : 0;
+	return count;
 }
 
 function ClosestEnemy( arr )
@@ -35,7 +22,7 @@ function ClosestEnemy( arr )
 	let leftArray = [];
 	let rightArray = [];
 
-	for( let i=0; i<onePosition; i++ )
+	for( let i=onePosition-1; i>=0; i-- )
 	{
 		leftArray.push( arr[i] );
 	}
@@ -45,8 +32,8 @@ function ClosestEnemy( arr )
 		rightArray.push( arr[i] );
 	}
 
-	let leftEnemy = moveLeft( leftArray );
-	let rightEnemy = moveRight( rightArray );
+	let leftEnemy = makeMoves( leftArray );
+	let rightEnemy = makeMoves( rightArray );
 
 	return ( leftEnemy > rightArray ) ? leftEnemy : rightEnemy;
 }
