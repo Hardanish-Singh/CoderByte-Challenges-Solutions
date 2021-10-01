@@ -1,5 +1,5 @@
 /****************************************************************
- *             CODERBYTE ARRAY ADDITION I CHALLENGE             *
+ *             CODERBYTE ARRAY ROTATION CHALLENGE               *
  *                                                              *
  * Problem Statement                                            *
  * Have the function ArrayRotation(arr) take the arr parameter  *
