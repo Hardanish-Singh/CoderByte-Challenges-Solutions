@@ -25,6 +25,9 @@
  *                                                              *
  ***************************************************************/
 
+/*
+        SOLUTION 1: USES ADDITIONAL ARRAY
+*/
 function ArrayRotation( arr ) { 
 
         let startIndex = arr[0];
@@ -43,5 +46,26 @@ function ArrayRotation( arr ) {
       
 }
          
+// KEEP THIS FUNCTION CALL HERE
+console.log( ArrayRotation( readline() ) );
+
+/*
+        SOLUTION 2: DOES NOT USE ADDITIONAL ARRAY
+*/
+
+function ArrayRotation( arr ) { 
+
+        let startIndex = arr[0];
+        
+        for( let i=0; i<startIndex; i++ ){
+                arr.push( arr[i] );
+        }
+
+        arr = arr.splice(startIndex);
+
+        return arr.join(""); 
+      
+}
+   
 // KEEP THIS FUNCTION CALL HERE
 console.log( ArrayRotation( readline() ) );
