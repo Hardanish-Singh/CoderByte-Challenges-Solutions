@@ -37,9 +37,7 @@ function CountingAnagrams( str ) {
                         if( string_array[i] === string_array[j] ) {
                                 break;
                         }
-                        let sorted_one = string_array[i].split("").sort().join("");
-                        let sorted_two = string_array[j].split("").sort().join("");
-                        if( sorted_one === sorted_two ) {
+                        if( string_array[i].split("").sort().join("") === string_array[j].split("").sort().join("") ) {
                                 count++;
                                 break;
                         }
