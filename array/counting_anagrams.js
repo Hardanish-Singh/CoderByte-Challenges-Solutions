@@ -31,20 +31,20 @@
 
 function CountingAnagrams( str ) { 
         string_array = str.split(" ").sort();
-        let count = 0;
+        let anagram_count = 0;
         for( let i = 0; i<string_array.length; i++ ) {
                 for( let j=i+1; j<string_array.length; j++ ) {
                         if( string_array[i] === string_array[j] ) {
                                 break;
                         }
                         if( string_array[i].split("").sort().join("") === string_array[j].split("").sort().join("") ) {
-                                count++;
+                                anagram_count++;
                                 break;
                         }
                 }
         }
 
-        return count;
+        return anagram_count;
 }
    
 // KEEP THIS FUNCTION CALL HERE
