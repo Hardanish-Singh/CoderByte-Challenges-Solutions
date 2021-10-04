@@ -49,5 +49,5 @@ function CountingAnagrams( str ) {
         return count;
 }
    
-// keep this function call here 
-console.log(CountingAnagrams(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log( CountingAnagrams( readline() ) );
