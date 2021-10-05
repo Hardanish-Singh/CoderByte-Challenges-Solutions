@@ -70,5 +70,5 @@ function LRUCache( strArr ) {
 
 }
 
-// keep this function call here 
-console.log(LRUCache(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log( LRUCache( readline() ) );
