@@ -54,7 +54,7 @@ function LRUCache( strArr ) {
                                 is_old = true;
                         }
                         else {
-                                lru_cache.splice( 0, 1 );
+                                lru_cache.splice( 0, 1 ); // or lru_cache.shift();
                         }
                 }
                 if( lru_cache.includes( strArr[i] ) ) {
