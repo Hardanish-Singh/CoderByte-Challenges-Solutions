@@ -36,8 +36,7 @@ function LRUCache( strArr ) {
                 if( lru_cache.includes( strArr[i] ) ){
                         let index = lru_cache.indexOf( strArr[i] );
                         lru_cache.splice( index, 1 );
-                        lru_cache.push( strArr[i] );
-                        
+                        lru_cache.push( strArr[i] );  
                 }
                 else {
                         lru_cache.push( strArr[i] );
