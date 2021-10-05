@@ -53,10 +53,11 @@ function LRUCache( strArr ) {
                         if( lru_cache.includes( strArr[i] ) ) {
                                 is_old = true;
                         }
-                        else
+                        else {
                                 lru_cache.splice( 0, 1 );
+                        }
                 }
-                if( lru_cache.includes( strArr[i] ) ){
+                if( lru_cache.includes( strArr[i] ) ) {
                         is_old = true;
                 }
                 if( is_old ) {
