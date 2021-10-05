@@ -31,7 +31,7 @@
  *                                                              *
  ***************************************************************/
 
-function EquivalentKeypresses(strArr) { 
+function EquivalentKeypresses( strArr ) { 
 
         let string1 = strArr[0].split(",");
         let string2 = strArr[1].split(",");
@@ -68,4 +68,4 @@ function EquivalentKeypresses(strArr) {
 }
          
 // KEEP THIS FUNCTION CALL HERE
-console.log(EquivalentKeypresses(readline()));
+console.log( EquivalentKeypresses( readline() ) );
