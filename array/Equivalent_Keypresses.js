@@ -39,8 +39,8 @@ function EquivalentKeypresses(strArr) {
         let s1 = "";
         let s2 = "";
       
-        for( let i=0; i<string1.length; i++ ){
-                if( string1[i] === "-B") {
+        for( let i=0; i<string1.length; i++ ) {
+                if( string1[i] === "-B" ) {
                         continue;
                 }
                 if( string1[i+1] !== "-B" ) {
@@ -51,7 +51,7 @@ function EquivalentKeypresses(strArr) {
                 }
         }
       
-        for( let i=0; i<string2.length; i++ ){
+        for( let i=0; i<string2.length; i++ ) {
                 if( string2[i] === "-B" ) {
                         continue;
                 }
@@ -65,7 +65,7 @@ function EquivalentKeypresses(strArr) {
       
         return s1 === s2 ? true : false;
 
-      }
+}
          
 // KEEP THIS FUNCTION CALL HERE
 console.log(EquivalentKeypresses(readline()));
