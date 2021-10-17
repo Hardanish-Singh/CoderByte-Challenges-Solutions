@@ -42,5 +42,5 @@ function MaxSubarray(nums) {
       
 }
         
-// keep this function call here 
-console.log(MaxSubarray(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log( MaxSubarray( readline() ) );
