@@ -33,12 +33,9 @@
 function getAllIndexes( word, subword ) {
         let indexes = [];
         let index = word.indexOf( subword );
-        indexes.push( index );
         while( index !== -1 ) {
+                indexes.push( index );
                 index = word.indexOf( subword, index + 1 );
-                if( index !== -1 ) {
-                        indexes.push( index );
-                }
         }
         return indexes;
 }
