@@ -30,10 +30,15 @@
  *                                                                      *
  ***********************************************************************/
 
-function getAllIndexes(arr, val) {
-        let indexes = [], i = -1;
-        while ( ( i = arr.indexOf( val,  i+1 ) ) != -1 ) {
-                indexes.push(i);
+function getAllIndexes( word, subword ) {
+        let indexes = [];
+        let index = word.indexOf( subword );
+        indexes.push( index );
+        while( index !== -1 ) {
+                index = word.indexOf( subword, index + 1 );
+                if( index !== -1 ) {
+                        indexes.push( index );
+                }
         }
         return indexes;
 }
@@ -43,7 +48,7 @@ function WordSplit( strArr ) {
         let word = strArr[0];
         let word_split = "not possible";
         for( let i=0; i<words.length; i++ ) {
-                let indexes = getAllIndexes(word, words[i]);
+                let indexes = getAllIndexes( word, words[i] );
                 for( let j=0; j<indexes.length; j++) {
                         let temp = "";
                         for( let k=0; k<word.length; k++ ) {
