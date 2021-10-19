@@ -48,6 +48,9 @@ function WordSplit( strArr ) {
                 for( let j=0; j<indexes.length; j++) {
                         let temp = "";
                         for( let k=0; k<word.length; k++ ) {
+                                if( k > indexes[k] ) {
+                                        break;
+                                }
                                 if( k == indexes[j] ) {
                                         for( let f=0; f<words[i].length-1; f++ ) {
                                                 k++;
