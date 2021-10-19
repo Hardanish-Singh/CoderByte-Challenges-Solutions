@@ -70,4 +70,5 @@ function WordSplit( strArr ) {
         return word_split;
 }
 
-console.log(WordSplit(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log( WordSplit( readline() ) );
