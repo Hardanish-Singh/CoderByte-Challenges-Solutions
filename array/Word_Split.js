@@ -30,7 +30,7 @@
  *                                                                      *
  ***********************************************************************/
 
-function getAllIndexes( word, subword ) {
+function getAllWordIndexes( word, subword ) {
         let indexes = [];
         let index = word.indexOf( subword );
         while( index !== -1 ) {
@@ -44,7 +44,7 @@ function WordSplit( strArr ) {
         let words = strArr[1].split(",");
         let word = strArr[0];
         for( let i=0; i<words.length; i++ ) {
-                let indexes = getAllIndexes( word, words[i] );
+                let indexes = getAllWordIndexes( word, words[i] );
                 for( let j=0; j<indexes.length; j++) {
                         let temp = "";
                         for( let k=0; k<word.length; k++ ) {
