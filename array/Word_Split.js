@@ -18,7 +18,7 @@
  * above,your program should return hello,cat. There will only be one   *
  * correct way to split the first element of characters into two words. *
  * If there is no way to split string into two words that exist in the  *
- * dictionary, return the string not possible. The first element itself * 
+ * dictionary, return the string not possible. The first element itself *
  * will never exist in the dictionary as a real word.                   *
  *                                                                      *
  * Examples                                                             *
