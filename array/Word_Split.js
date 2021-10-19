@@ -43,7 +43,6 @@ function getAllIndexes( word, subword ) {
 function WordSplit( strArr ) {
         let words = strArr[1].split(",");
         let word = strArr[0];
-        let word_split = "not possible";
         for( let i=0; i<words.length; i++ ) {
                 let indexes = getAllIndexes( word, words[i] );
                 for( let j=0; j<indexes.length; j++) {
@@ -60,16 +59,15 @@ function WordSplit( strArr ) {
                         }
                         if( words.includes( temp ) ) {
                                 if( word.startsWith( words[i] ) ) {
-                                        word_split = words[i] + "," + temp;
+                                        return words[i] + "," + temp;
                                 }
                                 else {
-                                        word_split = temp + "," + words[i];
+                                        return temp + "," + words[i];
                                 }
-                                return word_split;
                         }
                 }
         }
-        return word_split;
+        return "not possible";
 }
 
 // KEEP THIS FUNCTION CALL HERE
