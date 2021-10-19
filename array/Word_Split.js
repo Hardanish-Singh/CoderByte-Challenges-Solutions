@@ -50,9 +50,9 @@ function WordSplit( strArr ) {
                         let temp = "";
                         for( let k=0; k<word.length; k++ ) {
                                 if( k == indexes[j] ) {
-                                     for( let f=0; f<words[i].length-1; f++ ) {
-                                        k++;
-                                     }   
+                                        for( let f=0; f<words[i].length-1; f++ ) {
+                                                k++;
+                                        }   
                                 }
                                 else {
                                         temp += word[k];
@@ -60,10 +60,10 @@ function WordSplit( strArr ) {
                         }
                         if( words.includes( temp ) ) {
                                 if( word.startsWith( words[i] ) ) {
-                                  word_split = words[i] + "," + temp;
+                                        word_split = words[i] + "," + temp;
                                 }
                                 else {
-                                  word_split = temp + "," + words[i];
+                                        word_split = temp + "," + words[i];
                                 }
                                 return word_split;
                         }
