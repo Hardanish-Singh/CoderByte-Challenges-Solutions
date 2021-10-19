@@ -42,11 +42,11 @@ function WordSplit( strArr ) {
         let words = strArr[1].split(",");
         let word = strArr[0];
         let word_split = "not possible";
-        for( let i=0; i<words.length; i++ ){
+        for( let i=0; i<words.length; i++ ) {
                 let indexes = getAllIndexes(word, words[i]);
                 for( let j=0; j<indexes.length; j++){
                         let temp = "";
-                        for( let k=0; k<word.length; k++ ){
+                        for( let k=0; k<word.length; k++ ) {
                                 if( k == indexes[j] ) {
                                      for( let f=0; f<words[i].length-1; f++ ) {
                                         k++;
