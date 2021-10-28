@@ -38,22 +38,19 @@ function make_plus_minus_combinations( plus_minus_combinations ){
         }
         else {
                 let originalLength = plus_minus_combinations.length;
-                let i = 0;
                 while( originalLength != 0 ) {
                         let temp = plus_minus_combinations.shift();
                         plus_minus_combinations.push( '+' + temp );
                         plus_minus_combinations.push( '-' + temp );
                         originalLength--;
-                        i++;
                 }
         }
 }
 
 function PlusMinus( num ) {  
         num = String( num );
-        let plus_minus = "not possible"; 
         if( num.length < 2 ) {
-                return plus_minus;
+                return "not possible"; 
         }
         let plus_minus_combinations = [];
         for( let i=num.length-1; i > 0; i-- ){
@@ -79,7 +76,7 @@ function PlusMinus( num ) {
                 }
         }
         if( results.length === 0 ) {
-                return plus_minus;
+                return "not possible"; 
         }
         if( results.length === 1 ) {
                 return results[0];
