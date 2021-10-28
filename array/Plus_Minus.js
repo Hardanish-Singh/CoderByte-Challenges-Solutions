@@ -31,7 +31,7 @@
  *                                                              *
  ***************************************************************/
 
-function make_plus_minus_combinations( plus_minus_combinations ){
+function make_plus_minus_combinations( plus_minus_combinations ) {
         if( plus_minus_combinations.length === 0 ) {
                 plus_minus_combinations.push( '+' );
                 plus_minus_combinations.push( '-' );
@@ -53,7 +53,7 @@ function PlusMinus( num ) {
                 return "not possible"; 
         }
         let plus_minus_combinations = [];
-        for( let i=num.length-1; i > 0; i-- ){
+        for( let i=num.length-1; i > 0; i-- ) {
                 make_plus_minus_combinations( plus_minus_combinations );
         }
         let sum = 0;
@@ -85,7 +85,7 @@ function PlusMinus( num ) {
         let max = 0;
         index = -1;
         for( let i=0; i<results.length; i++ ) {
-                for( let j=0; j<results[i].length; j++ ){
+                for( let j=0; j<results[i].length; j++ ) {
                         if( results[i][j] === '-' ) {
                                 minus_count++;
                         }
