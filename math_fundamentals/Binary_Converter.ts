@@ -30,4 +30,4 @@ function BinaryConverter( str: string ): number {
         
 // KEEP THIS FUNCTION CALL HERE
 // @ts-ignore
-console.log(BinaryConverter(readline()));
+console.log( BinaryConverter( readline() ) );
