@@ -38,16 +38,24 @@ function isPalindrome( string ) {
 
         return true;
 }
-      
+
+function reverseString( s ) {
+        let str = "";
+        for( let i = s.length-1; i>=0; i-- ){
+                str += s[i];
+        }
+        return str;
+}
+
 function PalindromicSubstring( str ) {
         let PalindromicSubstrings = [];
         for( let i=0; i<str.length; i++ ) {
-                let reverseStr = str.slice(i+1).split("").reverse().join("");
+                let reverseStr = reverseString( str.slice(i+1) );
                 for( let j=0; j<reverseStr.length; j++ ) {
                         if( reverseStr.slice(j) === str[i] ) {
                                 continue;
                         }
-                        let subString =  ( reverseStr.slice(j) + str[i] ).split("").reverse().join("");
+                        let subString =  reverseString( ( reverseStr.slice(j) + str[i] ) );
                         if( isPalindrome( subString ) ) {
                                 PalindromicSubstrings.push( subString );
                         }
