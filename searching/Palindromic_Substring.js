@@ -64,5 +64,5 @@ function PalindromicSubstring( str ) {
         return index === -1 ? "none" : PalindromicSubstrings[index];
 }
          
-      // keep this function call here 
-      console.log(PalindromicSubstring(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log(PalindromicSubstring(readline()));
