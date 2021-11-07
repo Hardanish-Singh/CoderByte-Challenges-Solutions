@@ -16,7 +16,7 @@
  * return the string none.                                      *
  *                                                              *
  * Examples                                                     *
- * Input 1: "hellosannasmith                                    *
+ * Input 1: "hellosannasmith"                                   *
  * Output 1: sannas                                             *
  *                                                              *
  * Input 2: "abcdefgg"                                          *
