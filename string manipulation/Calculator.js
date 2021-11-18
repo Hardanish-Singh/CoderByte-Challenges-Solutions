@@ -85,6 +85,33 @@ function getNextOperation(str) {
   return [!!nextOp, Operations[nextOp], remainingStr];
 }
 
+function getNextExpression(str){
+    const firstChar =str ? str[0] : null;
+    str = str.slice(1)
+    if(firstChar == '('){
+        let buffer = [];
+        let openingsCount = 1;
+        let closingCount = 0;
+        for(let i=0;i<str.length;i++){
+            const currentChar = str[i];
+            if(currentChar=="("){
+                openingsCount+=1;
+            }else if(currentChar==")"){
+                closingCount+=1;
+            }
+            if(openingsCount == closingCount){
+                return [
+                    true,
+                    buffer.join(''),
+                    str.slice(buffer.length+1),
+                ]
+            }
+            buffer.push(currentChar)
+        }
+    }  
+    return [false,null,str]
+}
+
 const SymbolTypes = {
   NUMBER: "number",
   OPERATION: "operation",
@@ -99,6 +126,10 @@ const Handlers = [
   {
     fn: getNextOperation,
     type: SymbolTypes.OPERATION,
+  },
+  {
+    fn: getNextExpression,
+    type: SymbolTypes.EXPRESSION,
   },
 ];
 
@@ -222,7 +253,8 @@ function Calculator(string) {
 }
 
 // KEEP THIS FUNCTION CALL HERE
-console.log(Calculator("6*4/2+3*1"));
+//console.log(Calculator("6*4/2+3*1"));
+console.log(Calculator("6+4/(2+3)*1"));
 
 //console.log(Calculator("(6*(4/2)+3*1)(6*(4/2)+3*1)(6*(4/2)+3*1)"));
 //console.log(Calculator("(6*(4/2)+3*1)+(6*(4/2)+3*1)(6*(4/2)+3*1)"));
