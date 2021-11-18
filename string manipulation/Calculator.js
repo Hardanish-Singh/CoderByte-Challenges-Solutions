@@ -51,18 +51,22 @@ const Operations = {
   "-": {
     fn: (a, b) => a - b,
     priority: false,
+    allowBegingWith: true,
   },
   "+": {
     fn: (a, b) => a + b,
     priority: false,
+    allowBegingWith: true,
   },
   "*": {
     fn: (a, b) => a * b,
     priority: true,
+    allowBegingWith: false,
   },
   "/": {
     fn: (a, b) => a / b,
     priority: true,
+    allowBegingWith: false,
   },
 };
 
@@ -70,48 +74,64 @@ function getNextNumber(str) {
   const nextNumber = str.match(/\d+/);
   const isNext = nextNumber ? str.startsWith(nextNumber) : false;
   const remainingStr = isNext ? str.slice(nextNumber.length) : str;
-  return [isNext, nextNumber, remainingStr];
+  return [isNext, nextNumber[0], remainingStr];
 }
 
 function getNextOperation(str) {
   const nextOp = Object.keys(Operations).find((op) => str.startsWith(op));
-  const remainingStr = nextOp ? str.splice(nextOp.length) : str;
+  const remainingStr = nextOp ? str.slice(nextOp.length) : str;
   return [!!nextOp, nextOp, remainingStr];
 }
 
 const SymbolTypes = {
-  NUMBER: "number",
-  OPERATION: "operation",
-  EXPRESSION: "expression",
-};
+    NUMBER: "number",
+    OPERATION: "operation",
+    EXPRESSION: "expression",
+  };
+
+const Handlers = [
+    {
+      fn:getNextNumber,
+      type:SymbolTypes.NUMBER,
+    },
+    {
+      fn:getNextOperation,
+      type:SymbolTypes.OPERATION,
+    },
+]
+
 
 class Node {
   constructor() {
     this._innerValue = 0;
     this._nextOp = null;
-    this._nextNode = null;
   }
 
   set innerValue(val) {
     if (this._innerValue) {
-      throw "innerValue already exists wtf";
+      throw "innerValue already exists";
     }
     this._innerValue = val;
   }
+  set nextOp(val){
+    if (this._nextOp) {
+        throw "nextOp already exists";
+    }
+    this._nextOp = val;
+  }
+  
 }
+
 function ParseNext(str) {
   if (!str) {
     return null;
   }
-  // check if next expression is a number
-  const [exists, nextNumber, remainingStr] = getNextNumber(str);
-  if (exists) {
-    return [SymbolTypes.NUMBER, nextNumber, remainingStr];
-  }
-  // check if next expression is an operation
-  const [exists, nextOperation, remainingStr] = getNextOperation(str);
-  if (exists) {
-    return [SymbolTypes.OPERATION, nextOperation, remainingStr];
+  for (let i=0;i<Handlers.length;i++){
+      const handler = Handlers[i];
+      const [exists, symbolContent, remainingStr] = handler.fn(str);
+      if (exists){
+          return [handler.type,symbolContent,remainingStr]
+      }
   }
   throw `Something went wrong with ${str}`;
 }
@@ -119,35 +139,49 @@ function ParseNext(str) {
 class Parser {
   constructor(str) {
     this.string = str;
-    this.nodes = null;
+    this.nodes = this.compile();
   }
 
   compile() {
+    const nodes = []
     let currentStr = this.string;
-    this.nodes = [];
     while (true) {
       let currentSymbol = ParseNext(currentStr);
       if (!currentSymbol) {
-        return;
+        return nodes;
       }
       const [symboleType, symbolContent, remainingStr] = currentSymbol;
       switch (symboleType) {
         case SymbolTypes.NUMBER:
-            // create new node with number 
-            break;
+          const node = new Node();
+          node.innerValue = symbolContent;
+          nodes.push(node)
+          break;
         case SymbolTypes.OPERATION:
-            // set last nodes with operation
-    }
+          // set last nodes with operation
+          if (!nodes.length && !symbolContent.allowBegingWith) {
+            throw `cannot start with a multiplication`;
+          }
+          nodes[nodes.length-1].nextOp = symbolContent;
+          break;
+      }
       currentStr = remainingStr;
     }
   }
 }
 
-function Calculator(string) {}
+function execute(nodes){
+    return nodes
+}
+
+function Calculator(string) {
+    const nodes = new Parser(string).nodes;
+    return execute(nodes);
+}
 
 // KEEP THIS FUNCTION CALL HERE
-console.log(Calculator("6*(4/2)+3*1"));
+console.log(Calculator("6*4/2+3*1"));
 
-console.log(Calculator("(6*(4/2)+3*1)(6*(4/2)+3*1)(6*(4/2)+3*1)"));
-console.log(Calculator("(6*(4/2)+3*1)+(6*(4/2)+3*1)(6*(4/2)+3*1)"));
-console.log(Calculator("6/3-1"));
+//console.log(Calculator("(6*(4/2)+3*1)(6*(4/2)+3*1)(6*(4/2)+3*1)"));
+//console.log(Calculator("(6*(4/2)+3*1)+(6*(4/2)+3*1)(6*(4/2)+3*1)"));
+//console.log(Calculator("6/3-1"));
