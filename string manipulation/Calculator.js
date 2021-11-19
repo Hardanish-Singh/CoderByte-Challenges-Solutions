@@ -48,31 +48,42 @@
 //    return eval(evaluateExpression);
 //}
 
-/** @type {*} */
+/** @type {{fn: Function, priority: boolean, allowBeginningWith: boolean}}
+ * fn : function to execute operation
+ * allowBeginningWith: wether or not the interpreter should tolerate it at the start
+ */
 const Operations = {
   "-": {
     fn: (a, b) => a - b,
     priority: false,
-    allowBegingWith: true,
+    allowBeginningWith: true,
   },
   "+": {
     fn: (a, b) => a + b,
     priority: false,
-    allowBegingWith: true,
+    allowBeginningWith: true,
   },
   "*": {
     fn: (a, b) => a * b,
     priority: true,
-    allowBegingWith: false,
+    allowBeginningWith: false,
   },
   "/": {
     fn: (a, b) => a / b,
     priority: true,
-    allowBegingWith: false,
+    allowBeginningWith: false,
   },
 };
 
+/** @type {Regex}
+ *  regex expression that gets the next digit
+ */
 const NextNumberRegex = /\d+/;
+
+/**
+ * @param {string} str the string to get the next number.
+ * @return {[exists: boolean, symbolContent: string, remainingStr: string]}
+ */
 function getNextNumber(str) {
   const nextNumber = str.match(NextNumberRegex);
   const isNext = nextNumber ? str.startsWith(nextNumber) : false;
@@ -80,12 +91,20 @@ function getNextNumber(str) {
   return [isNext, nextNumber[0], remainingStr];
 }
 
+/**
+ * @param {string} str the string to get the next operation.
+ * @return {[exists: boolean, symbolContent: string, remainingStr: string]}
+ */
 function getNextOperation(str) {
   const nextOp = Object.keys(Operations).find((op) => str.startsWith(op));
   const remainingStr = nextOp ? str.slice(nextOp.length) : str;
   return [!!nextOp, Operations[nextOp], remainingStr];
 }
 
+/**
+ * @param {string} str the string to get the next expression (between parenthesis).
+ * @return {[exists: boolean, symbolContent: string, remainingStr: string]}
+ */
 function getNextExpression(str) {
   const firstChar = str ? str[0] : null;
   str = str.slice(1);
@@ -108,13 +127,18 @@ function getNextExpression(str) {
   }
   return [false, null, str];
 }
-
+/** @type {Object.<string, number>}
+ * Enum of the types of symbol
+ */
 const SymbolTypes = {
   NUMBER: "number",
   OPERATION: "operation",
   EXPRESSION: "expression",
 };
 
+/** @type {{fn: Function, type: string}}
+ * Handlers to parse the equation
+ */
 const Handlers = [
   {
     fn: getNextNumber,
@@ -130,6 +154,11 @@ const Handlers = [
   },
 ];
 
+/**
+ * Node is the class to handle the chunks of the equation.
+ *
+ * @class Node
+ */
 class Node {
   constructor(innerValue) {
     // enable for debugging
@@ -154,12 +183,14 @@ class Node {
       this._innerValue = parseInt(val);
       return;
     }
-    const parsedInnerValue = new Parser(val).nodes;
-    this._innerValue = execute(parsedInnerValue);
+    this._innerValue = compile(val);
   }
 
   get innerValue() {
-    return this._innerValue;
+    if (typeof this._innerValue == "number") {
+      return this._innerValue;
+    }
+    return execute(this._innerValue);
   }
 
   set nextOp(val) {
@@ -173,7 +204,12 @@ class Node {
     return this._nextOp;
   }
 }
-
+/**
+ *
+ * Parse the next sumbol
+ * @param {string} str
+ * @return {[type: SymbolType, content: string|Symbol, remainingStr: string]}
+ */
 function ParseNext(str) {
   if (!str) {
     return null;
@@ -188,40 +224,32 @@ function ParseNext(str) {
   throw `Something went wrong with ${str}`;
 }
 
-class Parser {
-  constructor(str) {
-    this.string = str;
-    this.nodes = this.compile();
-  }
-
-  compile() {
-    const nodes = [];
-    let currentStr = this.string;
-    while (true) {
-      let currentSymbol = ParseNext(currentStr);
-      if (!currentSymbol) {
-        return nodes;
-      }
-      const [symboleType, symbolContent, remainingStr] = currentSymbol;
-      switch (symboleType) {
-        case SymbolTypes.EXPRESSION:
-        case SymbolTypes.NUMBER:
-          nodes.push(new Node(symbolContent));
-          break;
-        case SymbolTypes.OPERATION:
-          // set last nodes with operation
-          if (!nodes.length && !symbolContent.allowBegingWith) {
-            throw `cannot start with a multiplication`;
-          } else if (!nodes.length) {
-            nodes.push(new Node("0"));
-          }
-          nodes[nodes.length - 1].nextOp = symbolContent;
-          break;
-        default:
-          throw `unknown symbole type ${symboleType}`;
-      }
-      currentStr = remainingStr;
+function compile(str) {
+  const nodes = [];
+  while (true) {
+    let currentSymbol = ParseNext(str);
+    if (!currentSymbol) {
+      return nodes;
     }
+    const [symboleType, symbolContent, remainingStr] = currentSymbol;
+    switch (symboleType) {
+      case SymbolTypes.EXPRESSION:
+      case SymbolTypes.NUMBER:
+        nodes.push(new Node(symbolContent));
+        break;
+      case SymbolTypes.OPERATION:
+        // set last nodes with operation
+        if (!nodes.length && !symbolContent.allowBeginningWith) {
+          throw `cannot start with a multiplication`;
+        } else if (!nodes.length) {
+          nodes.push(new Node("0"));
+        }
+        nodes[nodes.length - 1].nextOp = symbolContent;
+        break;
+      default:
+        throw `unknown symbole type ${symboleType}`;
+    }
+    str = remainingStr;
   }
 }
 
@@ -255,8 +283,15 @@ function execute(nodes) {
 }
 
 function Calculator(string) {
-  const nodes = new Parser(string).nodes;
-  return execute(nodes);
+  console.time(`total ${string}`);
+  console.time(`compiling ${string}`);
+  const nodes = compile(string);
+  console.timeEnd(`compiling ${string}`);
+  console.time(`executing ${string}`);
+  const ret = execute(nodes);
+  console.timeEnd(`executing ${string}`);
+  console.timeEnd(`total ${string}`);
+  return ret;
 }
 
 function PrettyPrint(equation) {
@@ -264,7 +299,7 @@ function PrettyPrint(equation) {
 }
 
 // KEEP THIS FUNCTION CALL HERE
-PrettyPrint("6*(4/2)+3*1");
-PrettyPrint("6*((4)(3)/2)+3*1");
 PrettyPrint("6/3-1");
 PrettyPrint("-6/3-1");
+PrettyPrint("6*(4/2)+3*1");
+PrettyPrint("6*((4)(3)/2)+3*1");
