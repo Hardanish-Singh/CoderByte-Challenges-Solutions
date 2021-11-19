@@ -47,6 +47,8 @@
 //    }
 //    return eval(evaluateExpression);
 //}
+
+/** @type {*} */
 const Operations = {
   "-": {
     fn: (a, b) => a - b,
@@ -71,7 +73,6 @@ const Operations = {
 };
 
 const NextNumberRegex = /\d+/;
-
 function getNextNumber(str) {
   const nextNumber = str.match(NextNumberRegex);
   const isNext = nextNumber ? str.startsWith(nextNumber) : false;
@@ -85,31 +86,27 @@ function getNextOperation(str) {
   return [!!nextOp, Operations[nextOp], remainingStr];
 }
 
-function getNextExpression(str){
-    const firstChar =str ? str[0] : null;
-    str = str.slice(1)
-    if(firstChar == '('){
-        let buffer = [];
-        let openingsCount = 1;
-        let closingCount = 0;
-        for(let i=0;i<str.length;i++){
-            const currentChar = str[i];
-            if(currentChar=="("){
-                openingsCount+=1;
-            }else if(currentChar==")"){
-                closingCount+=1;
-            }
-            if(openingsCount == closingCount){
-                return [
-                    true,
-                    buffer.join(''),
-                    str.slice(buffer.length+1),
-                ]
-            }
-            buffer.push(currentChar)
-        }
-    }  
-    return [false,null,str]
+function getNextExpression(str) {
+  const firstChar = str ? str[0] : null;
+  str = str.slice(1);
+  if (firstChar == "(") {
+    let buffer = [];
+    let openingsCount = 1;
+    let closingCount = 0;
+    for (let i = 0; i < str.length; i++) {
+      const currentChar = str[i];
+      if (currentChar == "(") {
+        openingsCount += 1;
+      } else if (currentChar == ")") {
+        closingCount += 1;
+      }
+      if (openingsCount == closingCount) {
+        return [true, buffer.join(""), str.slice(buffer.length + 1)];
+      }
+      buffer.push(currentChar);
+    }
+  }
+  return [false, null, str];
 }
 
 const SymbolTypes = {
@@ -134,8 +131,10 @@ const Handlers = [
 ];
 
 class Node {
-  constructor() {
-    this._innerValue = 0;
+  constructor(innerValue) {
+    // enable for debugging
+    this.constructorParam = innerValue;
+    this.innerValue = innerValue;
     this._nextOp = null;
   }
 
@@ -205,18 +204,21 @@ class Parser {
       }
       const [symboleType, symbolContent, remainingStr] = currentSymbol;
       switch (symboleType) {
+        case SymbolTypes.EXPRESSION:
         case SymbolTypes.NUMBER:
-          const node = new Node();
-          node.innerValue = symbolContent;
-          nodes.push(node);
+          nodes.push(new Node(symbolContent));
           break;
         case SymbolTypes.OPERATION:
           // set last nodes with operation
           if (!nodes.length && !symbolContent.allowBegingWith) {
             throw `cannot start with a multiplication`;
+          } else if (!nodes.length) {
+            nodes.push(new Node("0"));
           }
           nodes[nodes.length - 1].nextOp = symbolContent;
           break;
+        default:
+          throw `unknown symbole type ${symboleType}`;
       }
       currentStr = remainingStr;
     }
@@ -225,13 +227,15 @@ class Parser {
 
 function executeOps(nodes, OpSelector) {
   for (let i = 0; i < nodes.length - 1; i++) {
-    console.log(i, nodes[i]);
     const { nextOp, innerValue } = nodes[i];
     if (OpSelector(nextOp)) {
       const nextNode = nodes[i + 1];
       nodes[i] = {
         nextOp: nextNode.nextOp,
-        innerValue: nextOp.fn(innerValue, nextNode.innerValue),
+        // default operation is multiplication
+        innerValue: nextOp
+          ? nextOp.fn(innerValue, nextNode.innerValue)
+          : innerValue * nextNode.innerValue,
       };
       nodes.splice(i + 1, 1);
     }
@@ -240,11 +244,14 @@ function executeOps(nodes, OpSelector) {
 }
 
 function execute(nodes) {
-  let currentOps = executeOps(nodes, ({ priority }) => priority);
-  while(currentOps.length>1){
-      currentOps =executeOps(currentOps, () => true); 
+  const prioritySelector = (nextOp) => (nextOp ? nextOp.priority : false);
+  while (nodes.find((n) => prioritySelector(n.nextOp))) {
+    nodes = executeOps(nodes, prioritySelector);
   }
-  return currentOps[0].innerValue;
+  while (nodes.length > 1) {
+    nodes = executeOps(nodes, () => true);
+  }
+  return nodes[0].innerValue;
 }
 
 function Calculator(string) {
@@ -252,10 +259,12 @@ function Calculator(string) {
   return execute(nodes);
 }
 
-// KEEP THIS FUNCTION CALL HERE
-//console.log(Calculator("6*4/2+3*1"));
-console.log(Calculator("6+4/(2+3)*1"));
+function PrettyPrint(equation) {
+  console.log(equation, "=", Calculator(equation));
+}
 
-//console.log(Calculator("(6*(4/2)+3*1)(6*(4/2)+3*1)(6*(4/2)+3*1)"));
-//console.log(Calculator("(6*(4/2)+3*1)+(6*(4/2)+3*1)(6*(4/2)+3*1)"));
-//console.log(Calculator("6/3-1"));
+// KEEP THIS FUNCTION CALL HERE
+PrettyPrint("6*(4/2)+3*1");
+PrettyPrint("6*((4)(3)/2)+3*1");
+PrettyPrint("6/3-1");
+PrettyPrint("-6/3-1");
