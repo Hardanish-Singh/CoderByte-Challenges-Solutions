@@ -127,6 +127,7 @@ function getNextExpression(str) {
   }
   return [false, null, str];
 }
+
 /** @type {Object.<string, number>}
  * Enum of the types of symbol
  */
@@ -204,6 +205,7 @@ class Node {
     return this._nextOp;
   }
 }
+
 /**
  *
  * Parse the next sumbol
@@ -224,6 +226,12 @@ function ParseNext(str) {
   throw `Something went wrong with ${str}`;
 }
 
+/**
+ * Compiles str into nodes for execution.
+ *
+ * @param {string} str the equation to compile.
+ * @return {Array<Node>} nodes to execute.
+ */
 function compile(str) {
   const nodes = [];
   while (true) {
@@ -253,6 +261,13 @@ function compile(str) {
   }
 }
 
+/**
+ * Executes the ops that OpSelector dictates.
+ *
+ * @param {Array<Node>} nodes to execute
+ * @param {Function} OpSelector callback to prioritize some operation
+ * @return {number}
+ */
 function executeOps(nodes, OpSelector) {
   for (let i = 0; i < nodes.length - 1; i++) {
     const { nextOp, innerValue } = nodes[i];
@@ -271,6 +286,12 @@ function executeOps(nodes, OpSelector) {
   return nodes;
 }
 
+/**
+ * Executes the nodes respecting the mathematical order.
+ *
+ * @param {Array<Node>} nodes to execute
+ * @return {number} result
+ */
 function execute(nodes) {
   const prioritySelector = (nextOp) => (nextOp ? nextOp.priority : false);
   while (nodes.find((n) => prioritySelector(n.nextOp))) {
@@ -282,7 +303,14 @@ function execute(nodes) {
   return nodes[0].innerValue;
 }
 
+/**
+ * @param {string} mathematical equatin
+ * @return {number} result
+ */
 function Calculator(string) {
+  if (!string) {
+    return 0;
+  }
   console.time(`total ${string}`);
   console.time(`compiling ${string}`);
   const nodes = compile(string);
@@ -294,11 +322,20 @@ function Calculator(string) {
   return ret;
 }
 
+/**
+ *
+ * Pretty prints equation and results.
+ *
+ * @param {string} equation
+ */
 function PrettyPrint(equation) {
   console.log(equation, "=", Calculator(equation));
 }
 
 // KEEP THIS FUNCTION CALL HERE
+PrettyPrint("");
+PrettyPrint("1");
+PrettyPrint("-2");
 PrettyPrint("6/3-1");
 PrettyPrint("-6/3-1");
 PrettyPrint("6*(4/2)+3*1");
