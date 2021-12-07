@@ -1,5 +1,5 @@
 /***************************************************************************************
- *                            CODERBYTE SQL VENDOR JOIN CHALLENGE                      *
+ *                         CODERBYTE SQL VENDOR JOIN CHALLENGE                         *
  * In this MySQL challenge, your query should return the vendor information along with *
  * the values from the table cb_vendorinformation. You should combine the values of the*
  * two tables based on the GroupID column. The final query should only print out the   *
@@ -9,17 +9,17 @@
  *                                                                                     *
  * Your output should look like the following table.                                   *
  *                                                                                     *
- *                           +---------+---------------------+-------+                 *
- *                           | GroupID | CompanyName         | Count |                 *
- *                           +---------+---------------------+-------+                 *
- *                           |       27| Machinx             |      1|                 *
- *                           |        5| WaterBus Enterprise |      1|                 *
- *                           |       36| Johnson and Sons    |      2|                 * 
- *                           |       35| Shipping & Co.      |      3|                 *
- *                           |        6| Alloy LLC           |      3|                 *
- *                           |       40| FireConsulting      |      5|                 *
- *                           |       39| News Corp.          |      6|                 *
- *                           +---------+---------------------+-------+                 *
+ *                         +---------+---------------------+-------+                   *
+ *                         | GroupID | CompanyName         | Count |                   *
+ *                         +---------+---------------------+-------+                   *
+ *                         |       27| Machinx             |      1|                   *
+ *                         |        5| WaterBus Enterprise |      1|                   *
+ *                         |       36| Johnson and Sons    |      2|                   * 
+ *                         |       35| Shipping & Co.      |      3|                   *
+ *                         |        6| Alloy LLC           |      3|                   *
+ *                         |       40| FireConsulting      |      5|                   *
+ *                         |       39| News Corp.          |      6|                   *
+ *                         +---------+---------------------+-------+                   *
  *                                                                                     *
  **************************************************************************************/
 
