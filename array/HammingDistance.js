@@ -22,10 +22,13 @@
  ***************************************************************/
 
 function HammingDistance(stringArray) {
-  let stringOne = stringArray[0];
-  let stringTwo = stringArray[1];
+  let [stringOne, stringTwo] = stringArray;
   let intersection = 0;
-  for(let i=0; i<stringOne.length; i++) if(stringOne[i] !== stringTwo[i]) intersection++;
+  for(let i=0; i<stringOne.length; i++) {
+    if(stringOne[i] !== stringTwo[i]) {
+      intersection++;
+    }
+  }
   return intersection;
 }
 
