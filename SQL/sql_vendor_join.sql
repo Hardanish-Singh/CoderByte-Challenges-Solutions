@@ -9,17 +9,17 @@
  *                                                                                     *
  * Your output should look like the following table.                                   *
  *                                                                                     *
- *                         +---------+---------------------+-------+                   *
- *                         | GroupID | CompanyName         | Count |                   *
- *                         +---------+---------------------+-------+                   *
- *                         |       27| Machinx             |      1|                   *
- *                         |        5| WaterBus Enterprise |      1|                   *
- *                         |       36| Johnson and Sons    |      2|                   * 
- *                         |       35| Shipping & Co.      |      3|                   *
- *                         |        6| Alloy LLC           |      3|                   *
- *                         |       40| FireConsulting      |      5|                   *
- *                         |       39| News Corp.          |      6|                   *
- *                         +---------+---------------------+-------+                   *
+ *                       +---------+---------------------+-------+                     *
+ *                       | GroupID | CompanyName         | Count |                     *
+ *                       +---------+---------------------+-------+                     *
+ *                       |       27| Machinx             |      1|                     *
+ *                       |        5| WaterBus Enterprise |      1|                     *
+ *                       |       36| Johnson and Sons    |      2|                     * 
+ *                       |       35| Shipping & Co.      |      3|                     *
+ *                       |        6| Alloy LLC           |      3|                     *
+ *                       |       40| FireConsulting      |      5|                     *
+ *                       |       39| News Corp.          |      6|                     *
+ *                       +---------+---------------------+-------+                     *
  *                                                                                     *
  **************************************************************************************/
 
