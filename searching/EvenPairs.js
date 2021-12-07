@@ -12,19 +12,39 @@ Input: "f09r27i8e67"
 Output: false
 */
 function EvenPairs( str ) {
+        // SOLUTION 1
         for( let i=0; i<str.length; i++ ) {
-                if( str[i] === '0' || ( +str[i] && +str[i+1] ) ) {
+                if( typeof( +str[i] ) === 'number' && typeof( +str[i+1] ) === 'number' ) {
                         for( let j = i+1; j<str.length; j++ ) {
-                                if( !(+str[j]) ) {
+                                if( !( +str[j] ) ) {
                                         break;
                                 }
-                                if( (+str[j]) % 2 === 0 ) {
+                                if( ( ( +str[j] ) % 2 === 0 ) && ( ( +str[i] ) % 2 === 0 ) ) {
                                         return true;
                                 }
                         }
                 }
         }
         return false;
+
+        /*
+                SOLUTION 2
+                for( let i=0; i<str.length; i++ ) {
+                        let slicedEvenPair = str.slice(i+1);
+                        if( +slicedEvenPair[0]) {
+                                for( let j = 0; j<slicedEvenPair.length; j++ ) {
+                                        if( !(+slicedEvenPair[j]) ) {
+                                                break;
+                                        }
+                                        else if( (+slicedEvenPair[j]) % 2 === 0 && (+str[i]) % 2 === 0 ) {
+                                                return true;
+                                        }
+                                }
+                        }
+                }
+                return false;
+        
+        */
 }
          
 // KEEP THIS FUNCTION CALL HERE 
