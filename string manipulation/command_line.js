@@ -59,5 +59,5 @@ function CommandLine( string ) {
         return argumentsString.trim("");
 }
        
-// keep this function call here 
-console.log(CommandLine(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log( CommandLine( readline() ) );
