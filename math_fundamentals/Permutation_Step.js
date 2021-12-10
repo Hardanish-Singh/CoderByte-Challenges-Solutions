@@ -72,5 +72,5 @@ var PermutationStep = function(nums) {
 };
 
 
-// keep this function call here 
-console.log(PermutationStep(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log( PermutationStep( readline() ) );
