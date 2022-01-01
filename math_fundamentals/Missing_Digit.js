@@ -25,12 +25,12 @@ function MissingDigit( str ) {
         while( true ) {
                 let t = '';
                 for( let k =0 ; k<string.length; k++ ){
-                if( string[k] == "x" ) {
-                        t += i;
-                }
-                else {
-                        t += string[k];
-                }
+                        if( string[k] == "x" ) {
+                                t += i;
+                        }
+                        else {
+                                t += string[k];
+                        }
                 }
                 t = t.trim();
                 if( t.startsWith("0") && t.length > 1 ) {
