@@ -44,5 +44,5 @@ function MissingDigit( str ) {
         }
 }
 
-// keep this function call here 
-console.log(MissingDigit(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log( MissingDigit( readline() ) );
