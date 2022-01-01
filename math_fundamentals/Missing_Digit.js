@@ -52,7 +52,7 @@ function MissingDigit( str ) {
         let i = 0;
         while( true ) {
                 let equation = '';
-                for( let k =0 ; k<missing_digit_equation.length; k++ ) {
+                for( let k = 0 ; k < missing_digit_equation.length; k++ ) {
                         if( missing_digit_equation[k] == "x" ) {
                                 equation += i;
                         }
