@@ -26,6 +26,10 @@
  *                                                              *
  ***************************************************************/
 
+function parse( str ) {
+    return Function(`'use strict'; return (${str})`)()
+}
+
 function Calculator(string) { 
     let evaluateExpression = new String("");
     let splittedString = string.split("");
@@ -60,7 +64,7 @@ function Calculator(string) {
             evaluateExpression += splittedString[i];
         }
     }	
-    return eval( evaluateExpression );
+    return parse( evaluateExpression );
 }
      
 // KEEP THIS FUNCTION CALL HERE
