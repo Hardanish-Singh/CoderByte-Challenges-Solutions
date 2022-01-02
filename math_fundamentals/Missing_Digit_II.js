@@ -3,32 +3,31 @@ function parse( str ) {
 }
 
 function MissingDigitII( str ) {
-
         let split_equation = str.split("=");
-        let lhs = split_equation[0].trim();
-        let rhs = split_equation[1].trim();
+        let left_side_expression = split_equation[0].trim();
+        let right_side_expression = split_equation[1].trim();
 
         let i = 0;
-        while( true ) {
+        while( i <= 9 ) {
 
                 let equation1 = '';
-                for( let k = 0 ; k < lhs.length; k++ ) {
-                        if( lhs[k] == "?" ) {
+                for( let k = 0 ; k < left_side_expression.length; k++ ) {
+                        if( left_side_expression[k] === "?" ) {
                                 equation1 += i;
                         }
                         else {
-                                equation1 += lhs[k];
+                                equation1 += left_side_expression[k];
                         }
                 }
 
-                for( let j=0; j<10; j++ ) {
+                for( let j = 0; j < 10; j++ ) {
                         let equation2 = '';
-                        for( let l = 0 ; l < rhs.length; l++ ) {
-                                if( rhs[l] == "?" ) {
+                        for( let l = 0 ; l < right_side_expression.length; l++ ) {
+                                if( right_side_expression[l] === "?" ) {
                                         equation2 += j;
                                 }
                                 else {
-                                        equation2 += rhs[l];
+                                        equation2 += right_side_expression[l];
                                 }
                         }
                         equation1 = equation1.trim();
@@ -51,8 +50,7 @@ function MissingDigitII( str ) {
                 }
                 i++;
         }
-
 }
 
-// keep this function call here 
-console.log(MissingDigitII(readline()));
+// KEEP THIS FUNCTION CALL HERE
+console.log( MissingDigitII( readline() ) );
