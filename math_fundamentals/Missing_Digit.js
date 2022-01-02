@@ -69,6 +69,9 @@ function MissingDigit( str ) {
                         return i;
                 }
                 i++;
+                if( i > 9 ) {
+                        break;
+                }
         }
 }
 
