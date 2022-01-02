@@ -22,6 +22,10 @@
  *                                                              *
  ***************************************************************/
 
+function parse( str ) {
+    return Function(`'use strict'; return (${str})`)()
+}
+
 function StringExpression(string) {
     let numberToWords = {
         'zero': 0,
@@ -62,7 +66,7 @@ function StringExpression(string) {
         }
         count++;
     }
-    let value = String(eval(expression));
+    let value = String(parse(expression));
     let result = new String("");
     for(let i=0; i<value.length; i++) {
         if(value[i] == "-") result += "negative";
