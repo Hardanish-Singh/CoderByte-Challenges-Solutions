@@ -61,9 +61,11 @@ function MissingDigit( str ) {
                         }
                 }
                 equation = equation.trim();
-                if( equation.startsWith("0") && equation.length > 1 ) {
-                        i++;
-                        continue;
+                if( equation.startsWith("0") ) {
+                        equation = equation.replace(/^0+/, '');
+                        if( equation === "" ) {
+                                equation = "0";
+                        }
                 }
                 if( parse( equation ) === result ) {
                         return i;
