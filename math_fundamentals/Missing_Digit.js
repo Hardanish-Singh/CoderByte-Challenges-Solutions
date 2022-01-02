@@ -50,7 +50,7 @@ function MissingDigit( str ) {
         }
 
         let i = 0;
-        while( true ) {
+        while( i <= 9 ) {
                 let equation = '';
                 for( let k = 0 ; k < missing_digit_equation.length; k++ ) {
                         if( missing_digit_equation[k] == "x" ) {
@@ -60,18 +60,15 @@ function MissingDigit( str ) {
                                 equation += missing_digit_equation[k];
                         }
                 }
-                equation = equation.trim();
+                equation.trim();
                 if( equation.startsWith("0") && equation.length > 1 ) {
                         i++;
                         continue;
                 }
-                if( parse( equation ) == result ) {
+                if( parse( equation ) === result ) {
                         return i;
                 }
                 i++;
-                if( i > 9 ) {
-                        break;
-                }
         }
 }
 
