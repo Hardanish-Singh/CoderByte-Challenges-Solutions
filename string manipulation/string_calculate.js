@@ -26,6 +26,11 @@
  * Output 2: 1600                                               *
  *                                                              *
  ***************************************************************/
+
+function parse( str ) {
+    return Function(`'use strict'; return (${str})`)()
+}
+
 function StringCalculate(string) {
     let evaluateExpression = new String("");
     let splittedString = string.split("");
@@ -44,8 +49,8 @@ function StringCalculate(string) {
         }
         else evaluateExpression += splittedString[i];
     }	
-    return eval(evaluateExpression);
+    return parse(evaluateExpression);
 }
     
 // KEEP THIS FUNCTION CALL HERE
-console.log(StringCalculate(readline()));
+console.log( StringCalculate( readline() ) );
