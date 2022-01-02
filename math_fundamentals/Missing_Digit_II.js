@@ -1,3 +1,40 @@
+/****************************************************************
+ *              CODERBYTE MISSING DIGIT II CHALLENGE            *
+ *                                                              *
+ * Problem Statement                                            *
+ * Have the function MissingDigitII(str) take the str parameter *
+ * which will be simple mathematical formula with three numbers *
+ * a single operator (+, -, *, or /) and an equal sign (=)      *
+ * and return the two digits that complete the equation.        *
+ * In two of the numbers in the equation, there will be a       *
+ * single ? character, and your program should determine what   *
+ * digits are missing and return them separated by a space.     *
+ *                                                              *
+ * For example, if str is "38?5 * 3 = 1?595" then your program  *
+ * should output 6 1.                                           *
+ *                                                              *
+ * In one of the numbers in the equation, there will be an x    *
+ * character, and your program should determine what digit is   *
+ * missing.                                                     *
+ *                                                              *
+ * For example, if str is "3x + 12 = 46" then your program      *
+ * should output 4. The x character can appear in any of the    *
+ * three numbers and all three numbers will be greater than or  *
+ * equal to 0 and less than or equal to 1000000.                *
+ *                                                              *
+ * The ? character will always appear in both the first number  *
+ * and the last number in the mathematical expression.          *
+ * There will always be a unique solution.                      *
+ *                                                              *
+ * Examples                                                     *
+ * Input 1: "56? * 106 = 5?678"		                        *
+ * Output 1: 3 9                                                *
+ *                                                              *
+ * Input 2: "18?1 + 9 = 189?"		                        *
+ * Output 2: 8 0                                                *
+ *                                                              *
+ ***************************************************************/
+
 function parse( str ) {
         return Function(`'use strict'; return (${str})`)()
 }
