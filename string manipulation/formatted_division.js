@@ -1,5 +1,5 @@
 /****************************************************************
- *                  CODERBYTE FIZZBUZZ CHALLENGE                *
+ *               CODERBYTE FORMATTED DIVISION CHALLENGE         *
  *                                                              *
  * Problem Statement                                            *
  * Have the function FormattedDivision(num1,num2) take both     *
