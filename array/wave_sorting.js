@@ -22,14 +22,14 @@
 
 function WaveSorting(arr) { 
     arr = arr.sort( (a, b) => a - b );
-    let smalls = arr.slice(0, Math.floor(arr.length / 2)); 
-    let bigs = arr.slice(Math.floor(arr.length / 2), arr.length);
-    for (let i = 0; i < smalls.length; i++) {
-        if (smalls[i] >= bigs[i]) {
-            return 'false';
+    let array1 = arr.slice(0, Math.floor(arr.length / 2)); 
+    let array2 = arr.slice(Math.floor(arr.length / 2), arr.length);
+    for (let i = 0; i < array1.length; i++) {
+        if (array1[i] >= array2[i]) {
+            return false;
         }
     }
-    return 'true';
+    return true;
 }
 
 // KEEP THIS FUNCTION CALL HERE
