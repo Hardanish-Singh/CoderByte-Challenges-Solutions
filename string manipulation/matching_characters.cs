@@ -1,5 +1,5 @@
 /****************************************************************
- *           CODERBYTE LONGEST WORD CHALLENGE                   *
+ *           CODERBYTE MATCHING CHARACTERS CHALLENGE            *
  *                                                              *
  * Problem Statement                                            *
  * Have the function MatchingCharacters(str) take the str       *
