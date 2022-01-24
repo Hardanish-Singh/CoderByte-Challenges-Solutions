@@ -1,5 +1,5 @@
 /*********************************************************************************************
- *                            CODERBYTE SQL MEMBER COUNT CHALLENGE                           *
+ *                            CODERBYTE SQL USER LOGINS CHALLENGE                            *
  *                                                                                           *
  * Your table: maintable_O9AAP                                                               *
  * MySQL version: 5.5.56-log                                                                 *
