@@ -54,4 +54,4 @@ function solution(a, b) {
 }
 
 // KEEP THIS FUNCTION CALL HERE
-console.log(solution(readline()));
+console.log( solution( readline() ) );
