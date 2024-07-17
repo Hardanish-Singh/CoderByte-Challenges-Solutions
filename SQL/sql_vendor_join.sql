@@ -35,4 +35,4 @@ GROUP BY
     cb_vendorinformation.CompanyName
 ORDER BY 
     COUNT(maintable_V47CA.GroupID),
-    maintable_V47CA.GroupID
+    maintable_V47CA.GroupID desc
