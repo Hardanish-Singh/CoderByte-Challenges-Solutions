@@ -27,9 +27,11 @@
 
 function BinaryReversal(str) {
     let paddedBinaryRepresentation = (+str).toString(2);
-    while(paddedBinaryRepresentation.length % 8 !== 0) paddedBinaryRepresentation = String.fromCharCode(48) + paddedBinaryRepresentation;
+    while (paddedBinaryRepresentation.length % 8 !== 0)
+        paddedBinaryRepresentation = String.fromCharCode(48) + paddedBinaryRepresentation;
     let reversePaddedBinaryRepresentation = new String("");
-    for(let i=paddedBinaryRepresentation.length-1; i>=0; i--) reversePaddedBinaryRepresentation += paddedBinaryRepresentation[i];
+    for (let i = paddedBinaryRepresentation.length - 1; i >= 0; i--)
+        reversePaddedBinaryRepresentation += paddedBinaryRepresentation[i];
     return parseInt(reversePaddedBinaryRepresentation, 2);
 }
 
