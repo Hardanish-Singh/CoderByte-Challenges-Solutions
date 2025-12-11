@@ -24,16 +24,17 @@
  ***************************************************************/
 
 function BasicRomanNumerals(str) {
-  const NumeralsArray = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
-  let numeralString = str;
-  let currentIndex = numeralString[0];
-  let numberTotal = NumeralsArray[currentIndex];
-  for (let i = 1; i < numeralString.length; i++) {
-    if (NumeralsArray[currentIndex] >= NumeralsArray[numeralString[i]]) numberTotal += NumeralsArray[numeralString[i]];
-    else numberTotal = numberTotal - NumeralsArray[numeralString[i - 1]] * 2 + NumeralsArray[numeralString[i]];
-    currentIndex = numeralString[i];
-  }
-  return numberTotal;
+    const NumeralsArray = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+    let numeralString = str;
+    let currentIndex = numeralString[0];
+    let numberTotal = NumeralsArray[currentIndex];
+    for (let i = 1; i < numeralString.length; i++) {
+        if (NumeralsArray[currentIndex] >= NumeralsArray[numeralString[i]])
+            numberTotal += NumeralsArray[numeralString[i]];
+        else numberTotal = numberTotal - NumeralsArray[numeralString[i - 1]] * 2 + NumeralsArray[numeralString[i]];
+        currentIndex = numeralString[i];
+    }
+    return numberTotal;
 }
 // KEEP THIS FUNCTION CALL HERE
 console.log(BasicRomanNumerals(readline()));
