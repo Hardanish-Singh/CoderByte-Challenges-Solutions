@@ -26,19 +26,17 @@
  ***************************************************************/
 
 function CaesarCipher(string, number) {
-    let caesarCiper = new String(""); 
-    for(let i=0; i<string.length; i++){
-        if(string[i].match(/^[a-z]+$/)) {
-            let value = Number(string.charCodeAt(i)+number);
-            if(value >= 97 && value <= 122) caesarCiper += String.fromCharCode(string.charCodeAt(i)+number);
-            else if(value > 122) caesarCiper += String.fromCharCode(96+(value - 122));
-        }
-        else if(string[i].match(/^[A-Z]+$/)) {
-            let value = Number(string.charCodeAt(i)+number);
-            if(value >= 65 && value <= 90) caesarCiper += String.fromCharCode(string.charCodeAt(i)+number);
-            else if(value > 90) caesarCiper += String.fromCharCode(64+(value - 90));
-        }
-        else caesarCiper += string[i];
+    let caesarCiper = new String("");
+    for (let i = 0; i < string.length; i++) {
+        if (string[i].match(/^[a-z]+$/)) {
+            let value = Number(string.charCodeAt(i) + number);
+            if (value >= 97 && value <= 122) caesarCiper += String.fromCharCode(string.charCodeAt(i) + number);
+            else if (value > 122) caesarCiper += String.fromCharCode(96 + (value - 122));
+        } else if (string[i].match(/^[A-Z]+$/)) {
+            let value = Number(string.charCodeAt(i) + number);
+            if (value >= 65 && value <= 90) caesarCiper += String.fromCharCode(string.charCodeAt(i) + number);
+            else if (value > 90) caesarCiper += String.fromCharCode(64 + (value - 90));
+        } else caesarCiper += string[i];
     }
     return caesarCiper;
 }
