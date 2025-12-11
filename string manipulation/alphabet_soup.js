@@ -21,7 +21,7 @@
  ***************************************************************/
 
 function AlphabetSoup(str) {
-  return str.split("").sort().join("");
+    return str.split("").sort().join("");
 }
 
 // KEEP THIS FUNCTION CALL HERE
