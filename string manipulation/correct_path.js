@@ -37,98 +37,98 @@ let quotientMarkCount = 0;
 
 //LOOP THROUGH STRING & COUNT QUOTIENT MARKS
 for (let i = 0; i < string.length; i++) {
-  if (string[i] === "?") {
-    quotientMarkCount++;
-  }
+    if (string[i] === "?") {
+        quotientMarkCount++;
+    }
 }
 
 //IF QUOTIENTMARKCOUNT IS 1, THEN INIALIZE TO POSSIBLEMOVESARRAY
 if (quotientMarkCount === 1) {
-  combinationArray = possibleMovesArray;
+    combinationArray = possibleMovesArray;
 }
 
 //DYNAMIC FUNCTION WHICH MAKES MOVES ARRAY COMBINATION & RETURN ARRAY RECURSIVELY
 function makeMovesCombination(movesCount, movesArray) {
-  let combinationArrayCopy = [];
+    let combinationArrayCopy = [];
 
-  for (let i = 0; i < possibleMovesArray.length; i++) {
-    for (let j = 0; j < movesArray.length; j++) {
-      combinationArrayCopy.push(possibleMovesArray[i] + "" + movesArray[j]);
+    for (let i = 0; i < possibleMovesArray.length; i++) {
+        for (let j = 0; j < movesArray.length; j++) {
+            combinationArrayCopy.push(possibleMovesArray[i] + "" + movesArray[j]);
+        }
     }
-  }
 
-  return combinationArrayCopy;
+    return combinationArrayCopy;
 }
 
 //LOOP THROUGH QUOTIENTMARK & CONSTRUCT MOVES ARRAY RECURSIVELY
 for (let i = 2; i <= quotientMarkCount; i++) {
-  if (combinationArray.length === 0) {
-    combinationArray = makeMovesCombination(i, possibleMovesArray);
-  } else {
-    combinationArray = makeMovesCombination(i, combinationArray);
-  }
+    if (combinationArray.length === 0) {
+        combinationArray = makeMovesCombination(i, possibleMovesArray);
+    } else {
+        combinationArray = makeMovesCombination(i, combinationArray);
+    }
 }
 
 //LOOP THROUGH COMBINATION ARRAY & CONSTRUCT MOVES STRING & TRY EACH COMBINATION
 for (let i = 0; i < combinationArray.length; i++) {
-  let temp = 0;
-  let combinationString = new String("");
+    let temp = 0;
+    let combinationString = new String("");
 
-  for (let j = 0; j < string.length; j++) {
-    if (string[j] === "?") {
-      combinationString += combinationArray[i][temp];
-      temp++;
-    } else {
-      combinationString += string[j];
+    for (let j = 0; j < string.length; j++) {
+        if (string[j] === "?") {
+            combinationString += combinationArray[i][temp];
+            temp++;
+        } else {
+            combinationString += string[j];
+        }
     }
-  }
 
-  let isPathGood = makeArrayMovement(combinationString);
-  if (isPathGood === true) {
-    console.log(combinationString);
-    break;
-  }
+    let isPathGood = makeArrayMovement(combinationString);
+    if (isPathGood === true) {
+        console.log(combinationString);
+        break;
+    }
 }
 
 //CHECK STRING COMBINATION
 function makeArrayMovement(combinationString) {
-  let array = [
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-  ];
-  let row = 0;
-  let column = 0;
+    let array = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+    ];
+    let row = 0;
+    let column = 0;
 
-  for (let i = 0; i < combinationString.length; i++) {
-    if (combinationString[i] === "r") {
-      column++;
-    } else if (combinationString[i] === "d") {
-      row++;
-    } else if (combinationString[i] === "l") {
-      column--;
-    } else if (combinationString[i] === "u") {
-      row--;
+    for (let i = 0; i < combinationString.length; i++) {
+        if (combinationString[i] === "r") {
+            column++;
+        } else if (combinationString[i] === "d") {
+            row++;
+        } else if (combinationString[i] === "l") {
+            column--;
+        } else if (combinationString[i] === "u") {
+            row--;
+        }
+
+        //IF PATH GOES OUT OF GRID
+        if (row < 0 || column < 0 || row > 4 || column > 4) {
+            break;
+        }
+
+        //IF THE PATH IS ALREADY TRAVERSED, THEN RETURN FALSE
+        if (array[row][column] === 1) {
+            return false;
+        }
+
+        array[row][column] = 1;
     }
 
-    //IF PATH GOES OUT OF GRID
-    if (row < 0 || column < 0 || row > 4 || column > 4) {
-      break;
+    if (row === 4 && column === 4) {
+        return true;
+    } else {
+        return false;
     }
-
-    //IF THE PATH IS ALREADY TRAVERSED, THEN RETURN FALSE
-    if (array[row][column] === 1) {
-      return false;
-    }
-
-    array[row][column] = 1;
-  }
-
-  if (row === 4 && column === 4) {
-    return true;
-  } else {
-    return false;
-  }
 }
