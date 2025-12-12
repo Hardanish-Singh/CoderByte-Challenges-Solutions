@@ -31,33 +31,32 @@
  *                                                              *
  ***************************************************************/
 
-function CommandLine( string ) {
-        let splitStirngAtEqualSign = string.split("=");
-        let argumentsArray = new Array();
-        let argumentsString = new String("");
+function CommandLine(string) {
+    let splitStirngAtEqualSign = string.split("=");
+    let argumentsArray = new Array();
+    let argumentsString = new String("");
 
-        for( let i=0; i<splitStirngAtEqualSign.length; i++ ) {
-                if( i === 0 || i === splitStirngAtEqualSign.length-1 ) {
-                        argumentsArray.push( splitStirngAtEqualSign[i].length );
-                }
-                else {
-                        let lastIndexOfSpace = splitStirngAtEqualSign[i].lastIndexOf(" ");
-                        argumentsArray.push(splitStirngAtEqualSign[i].slice(0, lastIndexOfSpace).length);
-                        argumentsArray.push(splitStirngAtEqualSign[i].slice(lastIndexOfSpace+1).length);
-                }
+    for (let i = 0; i < splitStirngAtEqualSign.length; i++) {
+        if (i === 0 || i === splitStirngAtEqualSign.length - 1) {
+            argumentsArray.push(splitStirngAtEqualSign[i].length);
+        } else {
+            let lastIndexOfSpace = splitStirngAtEqualSign[i].lastIndexOf(" ");
+            argumentsArray.push(splitStirngAtEqualSign[i].slice(0, lastIndexOfSpace).length);
+            argumentsArray.push(splitStirngAtEqualSign[i].slice(lastIndexOfSpace + 1).length);
         }
+    }
 
-        for(let i=0; i<argumentsArray.length; i++) {
-                if( i%2 !== 0 ) {
-                        argumentsString += "="
-                }
-                argumentsString += argumentsArray[i];
-                if( i%2 !== 0 ) {
-                        argumentsString += " "
-                }
+    for (let i = 0; i < argumentsArray.length; i++) {
+        if (i % 2 !== 0) {
+            argumentsString += "=";
         }
-        return argumentsString.trim("");
+        argumentsString += argumentsArray[i];
+        if (i % 2 !== 0) {
+            argumentsString += " ";
+        }
+    }
+    return argumentsString.trim("");
 }
-       
+
 // KEEP THIS FUNCTION CALL HERE
-console.log( CommandLine( readline() ) );
+console.log(CommandLine(readline()));
