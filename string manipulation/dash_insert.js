@@ -15,24 +15,19 @@
  * Output 2: 567-30                                             *
  ***************************************************************/
 
-function DashInsert( str ) {
-        //VARIABLE DECLARATION
-        let fs = "";
-        //LOOP THROUGH STRING
-        for ( let i = 0; i < str.length; i++ ) {
-                if (
-                        i != str.length - 1 &&
-                        Number(str[i]) % 2 != 0 &&
-                        Number(str[i + 1]) % 2 != 0
-                ) {
-                        fs += str[i] + "-";
-                }
-                else {
-                        fs += str[i];
-                }
+function DashInsert(str) {
+    //VARIABLE DECLARATION
+    let fs = "";
+    //LOOP THROUGH STRING
+    for (let i = 0; i < str.length; i++) {
+        if (i != str.length - 1 && Number(str[i]) % 2 != 0 && Number(str[i + 1]) % 2 != 0) {
+            fs += str[i] + "-";
+        } else {
+            fs += str[i];
         }
-        return fs;
+    }
+    return fs;
 }
 
 // KEEP THIS FUNCTION CALL HERE
-console.log( DashInsert( readline() ) );
+console.log(DashInsert(readline()));
