@@ -19,6 +19,6 @@
  * Output 2: false                                              *
  ***************************************************************/
 
-function DistinctCharacters( str ) {
-        return Array.from( new Set( str.split("") ) ).length >= 10 ? true : false;
+function DistinctCharacters(str) {
+    return Array.from(new Set(str.split(""))).length >= 10 ? true : false;
 }
