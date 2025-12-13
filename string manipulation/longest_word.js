@@ -16,7 +16,7 @@
  * Output 2: love                                               *
  *                                                              *
  * Solution Efficiency                                          *
- * This user scored higher than 63.3% of users who solved this  * 
+ * This user scored higher than 63.3% of users who solved this  *
  * challenge.                                                   *
  ***************************************************************/
 
@@ -24,8 +24,11 @@ function LongestWord(sentence) {
     let splitStringAtSpace = sentence.split(" ");
     let punctuationString = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g;
     let maxLength = 0;
-    for(let i=0; i<splitStringAtSpace.length; i++) if(splitStringAtSpace[i].replace(punctuationString, "").length > maxLength) maxLength = splitStringAtSpace[i].replace(punctuationString, "").length;
-    for(let i=0; i<splitStringAtSpace.length; i++) if(maxLength === splitStringAtSpace[i].length) return splitStringAtSpace[i];
+    for (let i = 0; i < splitStringAtSpace.length; i++)
+        if (splitStringAtSpace[i].replace(punctuationString, "").length > maxLength)
+            maxLength = splitStringAtSpace[i].replace(punctuationString, "").length;
+    for (let i = 0; i < splitStringAtSpace.length; i++)
+        if (maxLength === splitStringAtSpace[i].length) return splitStringAtSpace[i];
 }
 
 // KEEP THIS FUNCTION CALL HERE
