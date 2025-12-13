@@ -21,19 +21,20 @@
  *                                                              *
  ***************************************************************/
 
-function FormattedNumber(strArr) { 
-        let noOfDecimals = strArr[0].split(".");
-        if(noOfDecimals.length > 2) return false;
-        let unformattedNumber = new String("");
-        for(let i=0; i<noOfDecimals[0].length; i++) if(strArr[0][i] !== ",") unformattedNumber += strArr[0][i];
-        unformattedNumber = new Intl.NumberFormat().format(unformattedNumber) + (noOfDecimals.length>1?("."+noOfDecimals[1]) : "");
-        let zeroPadding = 0;
-        for(let i=0; i<noOfDecimals[0].length; i++){
-                if(noOfDecimals[0][i]==="0") zeroPadding++;
-                else break;
-        }
-        if(noOfDecimals[0].length > 1) for(let i=0; i<zeroPadding; i++) unformattedNumber = "0" + unformattedNumber;
-        return (strArr[0] === unformattedNumber) ? true : false;
+function FormattedNumber(strArr) {
+    let noOfDecimals = strArr[0].split(".");
+    if (noOfDecimals.length > 2) return false;
+    let unformattedNumber = new String("");
+    for (let i = 0; i < noOfDecimals[0].length; i++) if (strArr[0][i] !== ",") unformattedNumber += strArr[0][i];
+    unformattedNumber =
+        new Intl.NumberFormat().format(unformattedNumber) + (noOfDecimals.length > 1 ? "." + noOfDecimals[1] : "");
+    let zeroPadding = 0;
+    for (let i = 0; i < noOfDecimals[0].length; i++) {
+        if (noOfDecimals[0][i] === "0") zeroPadding++;
+        else break;
+    }
+    if (noOfDecimals[0].length > 1) for (let i = 0; i < zeroPadding; i++) unformattedNumber = "0" + unformattedNumber;
+    return strArr[0] === unformattedNumber ? true : false;
 }
 
 // KEEP THIS FUNCTION CALL HERE
