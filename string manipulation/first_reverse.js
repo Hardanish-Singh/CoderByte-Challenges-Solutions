@@ -18,7 +18,7 @@
  * Output 2: edoC evoL I                                        *
  *                                                              *
  * Solution Efficiency                                          *
- * This user scored higher than 29.4% of users who solved this  * 
+ * This user scored higher than 29.4% of users who solved this  *
  * challenge.                                                   *
  *                                                              *
  ***************************************************************/
@@ -26,6 +26,6 @@
 function FirstReverse(string) {
     return string.split("").reverse().join("");
 }
-  
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(FirstReverse(readline()));
