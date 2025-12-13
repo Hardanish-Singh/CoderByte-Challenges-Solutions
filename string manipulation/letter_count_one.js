@@ -32,7 +32,7 @@ function LetterCountI(str) {
         for (let j = 0; j < array[i].length; j++) {
             let count = 0;
             for (let f = j; f < array[i].length; f++) if (array[i][j] == array[i][f]) count++;
-            if(count > 1) {
+            if (count > 1) {
                 temp2d.push(array[i][j]);
                 temp2d.push(count);
             }
@@ -41,14 +41,14 @@ function LetterCountI(str) {
     }
     let maxElement = -1;
     let maxIndex = -1;
-    for(let i=0; i<mainArray.length; i++){
-        if(mainArray[i].length === 0) continue;
-        if(mainArray[i].length > maxElement) {
-          maxElement = mainArray[i].length;
-          maxIndex = i;
+    for (let i = 0; i < mainArray.length; i++) {
+        if (mainArray[i].length === 0) continue;
+        if (mainArray[i].length > maxElement) {
+            maxElement = mainArray[i].length;
+            maxIndex = i;
         }
     }
-    return (maxIndex >= 0) ? array[maxIndex] : maxIndex;
+    return maxIndex >= 0 ? array[maxIndex] : maxIndex;
 }
 
 //KEEP THIS FUNCTION CALL HERE
