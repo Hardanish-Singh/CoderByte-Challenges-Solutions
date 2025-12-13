@@ -17,20 +17,20 @@
  * Output 2: 10110-1                                            *
  *                                                              *
  * Solution Efficiency                                          *
- * This user scored higher than 30.7% of users who solved this  * 
+ * This user scored higher than 30.7% of users who solved this  *
  * challenge.                                                   *
  *                                                              *
  ***************************************************************/
 
 function NumberEncoding(string) {
     let numberEncoding = new String("");
-    for(let i=0; i<string.length; i++){
-        if(string[i].match(/^[a-z]+$/)) numberEncoding += String(string.charCodeAt(i) - 97 + 1);
-        else if(string[i].match(/^[A-Z]+$/)) numberEncoding += String(string.charCodeAt(i) - 65 + 1);
+    for (let i = 0; i < string.length; i++) {
+        if (string[i].match(/^[a-z]+$/)) numberEncoding += String(string.charCodeAt(i) - 97 + 1);
+        else if (string[i].match(/^[A-Z]+$/)) numberEncoding += String(string.charCodeAt(i) - 65 + 1);
         else numberEncoding += string[i];
     }
     return numberEncoding;
 }
-   
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(NumberEncoding(readline()));
