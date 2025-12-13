@@ -26,11 +26,13 @@
 
 function DifferentCases(string) {
     let punctuationRegex = /\w+|\s+|[^\s\w]+/g;
-    let array = string.match(punctuationRegex); 
+    let array = string.match(punctuationRegex);
     let differentCases = new String("");
-    for(let i=0; i<array.length; i++) if(array[i].match(/^[a-zA-Z]+$/)) differentCases += array[i][0].toUpperCase() + array[i].substr(1).toLowerCase();
+    for (let i = 0; i < array.length; i++)
+        if (array[i].match(/^[a-zA-Z]+$/))
+            differentCases += array[i][0].toUpperCase() + array[i].substr(1).toLowerCase();
     return differentCases;
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(DifferentCases(readline()));
