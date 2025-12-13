@@ -23,17 +23,17 @@
  ***************************************************************/
 
 function ExOh(string) {
-  //VARIABLE DECLARATION
-  let x_count = 0;
-  let o_count = 0;
-  //LOOP THROUGH STRING
-  for (let i = 0; i < string.length; i++) {
-    if (string[i].toLowerCase() === "x") x_count++;
-    else if (string[i].toLowerCase() === "o") o_count++;
-  }
-  //CONDITIONAL CHECKING
-  if (x_count === o_count) return "true";
-  else return "false";
+    //VARIABLE DECLARATION
+    let x_count = 0;
+    let o_count = 0;
+    //LOOP THROUGH STRING
+    for (let i = 0; i < string.length; i++) {
+        if (string[i].toLowerCase() === "x") x_count++;
+        else if (string[i].toLowerCase() === "o") o_count++;
+    }
+    //CONDITIONAL CHECKING
+    if (x_count === o_count) return "true";
+    else return "false";
 }
 
 // KEEP THIS FUNCTION CALL HERE
