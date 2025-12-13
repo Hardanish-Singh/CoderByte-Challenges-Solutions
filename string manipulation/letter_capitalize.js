@@ -14,7 +14,7 @@
  * Output 2: I Ran There                                        *
  *                                                              *
  * Solution Efficiency                                          *
- * The user scored higher than 50.6% of users who solved this   * 
+ * The user scored higher than 50.6% of users who solved this   *
  * challenge.                                                   *
  *                                                              *
  ***************************************************************/
@@ -22,7 +22,9 @@
 function LetterCapitalize(string) {
     let splitStringAtSpace = string.split(" ");
     let letterCapitalizedString = new String("");
-    for(let i=0; i<splitStringAtSpace.length; i++) letterCapitalizedString += splitStringAtSpace[i][0].toUpperCase() + splitStringAtSpace[i].substring(1) + String.fromCharCode(32);
+    for (let i = 0; i < splitStringAtSpace.length; i++)
+        letterCapitalizedString +=
+            splitStringAtSpace[i][0].toUpperCase() + splitStringAtSpace[i].substring(1) + String.fromCharCode(32);
     return letterCapitalizedString;
 }
 
