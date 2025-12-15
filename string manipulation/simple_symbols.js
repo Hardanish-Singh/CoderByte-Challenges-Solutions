@@ -24,7 +24,9 @@
  ***************************************************************/
 
 function SimpleSymbols(string) {
-    for(let i=0; i<string.length; i++) if(string[i].toLowerCase() >= 'a' && string[i].toLowerCase() <= 'z')  if(!(string[i-1] === '+' && string[i+1] === '+')) return false;
+    for (let i = 0; i < string.length; i++)
+        if (string[i].toLowerCase() >= "a" && string[i].toLowerCase() <= "z")
+            if (!(string[i - 1] === "+" && string[i + 1] === "+")) return false;
     return true;
 }
 
