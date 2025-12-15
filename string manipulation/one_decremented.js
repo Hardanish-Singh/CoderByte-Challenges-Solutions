@@ -18,15 +18,15 @@
  *                                                              *
  ***************************************************************/
 
-function OneDecremented( str ) {
-        let count = 0;
-        for( let i = 0; i < str.length-1; i++ ) {
-                if( Number( str[i] ) - Number( str[i+1] ) === 1 ) {
-                        count++;
-                }
+function OneDecremented(str) {
+    let count = 0;
+    for (let i = 0; i < str.length - 1; i++) {
+        if (Number(str[i]) - Number(str[i + 1]) === 1) {
+            count++;
         }
-        return count;
+    }
+    return count;
 }
 
 // KEEP THIS FUNCTION CALL HERE
-console.log( OneDecremented( readline() ) );
+console.log(OneDecremented(readline()));
