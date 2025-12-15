@@ -11,7 +11,7 @@
  * string (then remove the N). All other characters in the      *
  * string will be lowercase letters.                            *
  * For example: "abcNdgM" should return "abcgg".                *
- * The final string will never be empty.                        *  
+ * The final string will never be empty.                        *
  *                                                              *
  * Examples                                                     *
  * Input 1: "MrtyNNgMM"                                         *
@@ -28,26 +28,24 @@
 
 function StringChanges(string) {
     let splitCharacters = string.split("");
-    for(let i=0; i<splitCharacters.length; i++){
-        if(splitCharacters[i] === "N") {
+    for (let i = 0; i < splitCharacters.length; i++) {
+        if (splitCharacters[i] === "N") {
             splitCharacters.splice(i, 2);
             i = i - 2;
-        }
-        else if(splitCharacters[i] === "M") {
-            if(i === 0) {
+        } else if (splitCharacters[i] === "M") {
+            if (i === 0) {
                 splitCharacters.splice(i, 1);
                 i--;
-            }
-            else {
+            } else {
                 let j = i;
-                while(splitCharacters[j-1] == 'M') j--;
-                if(j<=0) continue;
-                splitCharacters[i] = splitCharacters[j-1];
+                while (splitCharacters[j - 1] == "M") j--;
+                if (j <= 0) continue;
+                splitCharacters[i] = splitCharacters[j - 1];
             }
         }
     }
     return splitCharacters.join("");
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(StringChanges(readline()));
