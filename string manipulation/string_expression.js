@@ -22,43 +22,43 @@
  *                                                              *
  ***************************************************************/
 
-function parse( str ) {
-    return Function(`'use strict'; return (${str})`)()
+function parse(str) {
+    return Function(`'use strict'; return (${str})`)();
 }
 
 function StringExpression(string) {
     let numberToWords = {
-        'zero': 0,
-        'one': 1,
-        'two': 2,
-        'three': 3,
-        'four': 4,
-        'five': 5,
-        'six': 6,
-        'seven': 7,
-        'eight': 8,
-        'nine': 9,
-        'minus': '-',
-        'plus' : '+'
+        zero: 0,
+        one: 1,
+        two: 2,
+        three: 3,
+        four: 4,
+        five: 5,
+        six: 6,
+        seven: 7,
+        eight: 8,
+        nine: 9,
+        minus: "-",
+        plus: "+",
     };
     let wordsToNumber = {
-        0: 'zero',
-        1: 'one',
-        2: 'two',
-        3: 'three',
-        4: 'four',
-        5: 'five',
-        6: 'six',
-        7: 'seven',
-        8: 'eight',
-        9: 'nine'
+        0: "zero",
+        1: "one",
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+        6: "six",
+        7: "seven",
+        8: "eight",
+        9: "nine",
     };
     let count = 0;
     let position = 0;
     let expression = new String("");
-    for(let i=0; i<=string.length; i++){
-        if(count == 3 || count == 4 || count == 5) {
-            if(numberToWords[string.slice(position, i)] || numberToWords[string.slice(position, i)] == 0) {
+    for (let i = 0; i <= string.length; i++) {
+        if (count == 3 || count == 4 || count == 5) {
+            if (numberToWords[string.slice(position, i)] || numberToWords[string.slice(position, i)] == 0) {
                 expression += numberToWords[string.slice(position, i)];
                 count = 0;
                 position = i;
@@ -68,12 +68,12 @@ function StringExpression(string) {
     }
     let value = String(parse(expression));
     let result = new String("");
-    for(let i=0; i<value.length; i++) {
-        if(value[i] == "-") result += "negative";
-        else if(wordsToNumber[+value[i]]) result += wordsToNumber[+value[i]];
+    for (let i = 0; i < value.length; i++) {
+        if (value[i] == "-") result += "negative";
+        else if (wordsToNumber[+value[i]]) result += wordsToNumber[+value[i]];
     }
     return result;
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(StringExpression(readline()));
