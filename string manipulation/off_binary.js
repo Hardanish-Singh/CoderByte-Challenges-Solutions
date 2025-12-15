@@ -2,13 +2,13 @@
  *               CODERBYTE OFF BINARY CHALLENGE                 *
  *                                                              *
  * Problem Statement                                            *
- * Have the function OffBinary(strArr) read the array of strings* 
+ * Have the function OffBinary(strArr) read the array of strings*
  * stored in strArr, which will contain two elements, the first *
- * will be a positive decimal number and the second element will* 
- * be a binary number. Your goal is to determine how many digits* 
+ * will be a positive decimal number and the second element will*
+ * be a binary number. Your goal is to determine how many digits*
  * in the binary number need to be changed to represent the     *
  * decimal number correctly (either 0 change to 1 or vice versa)*
- *                                                              * 
+ *                                                              *
  * For example: if strArr is ["56", "011000"] then your program *
  * should return 1 because only 1 digit needs to change in the  *
  * binary number (the first zero needs to become a 1) to        *
@@ -23,21 +23,20 @@
  *                                                              *
  ***************************************************************/
 
-function OffBinary(strArr) { 
+function OffBinary(strArr) {
+    let number = +strArr[0];
+    let receivedBinary = strArr[1];
+    let actualBinary = (number >>> 0).toString(2);
+    let count = 0;
 
-        let number = +strArr[0];
-        let receivedBinary = strArr[1];
-        let actualBinary = ( number >>> 0 ).toString(2);
-        let count = 0;
-      
-        for( let i=0; i<receivedBinary.length; i++ ) {
-                if( receivedBinary[i] !== actualBinary[i] ) {
-                        count++;
-                }
+    for (let i = 0; i < receivedBinary.length; i++) {
+        if (receivedBinary[i] !== actualBinary[i]) {
+            count++;
         }
-      
-        return count;
+    }
+
+    return count;
 }
-         
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(OffBinary(readline()));
