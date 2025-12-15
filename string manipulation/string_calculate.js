@@ -27,30 +27,35 @@
  *                                                              *
  ***************************************************************/
 
-function parse( str ) {
-    return Function(`'use strict'; return (${str})`)()
+function parse(str) {
+    return Function(`'use strict'; return (${str})`)();
 }
 
 function StringCalculate(string) {
     let evaluateExpression = new String("");
     let splittedString = string.split("");
     let flag = false;
-    for(let i=0; i<splittedString.length; i++){
-        if(i!=0 && i!=splittedString.length-1) {
-            if(splittedString[i] == ')' && (splittedString[i+1] == Number(splittedString[i+1]) || splittedString[i+1] == '(') && flag == false) {
+    for (let i = 0; i < splittedString.length; i++) {
+        if (i != 0 && i != splittedString.length - 1) {
+            if (
+                splittedString[i] == ")" &&
+                (splittedString[i + 1] == Number(splittedString[i + 1]) || splittedString[i + 1] == "(") &&
+                flag == false
+            ) {
                 evaluateExpression += splittedString[i] + "*";
                 flag = true;
-            }
-            else if(splittedString[i] == '(' && (splittedString[i-1] == Number(splittedString[i-1]) || splittedString[i-1] == ')') && flag == false ) {
+            } else if (
+                splittedString[i] == "(" &&
+                (splittedString[i - 1] == Number(splittedString[i - 1]) || splittedString[i - 1] == ")") &&
+                flag == false
+            ) {
                 evaluateExpression += "*" + splittedString[i];
                 flag = true;
-            }
-            else evaluateExpression += splittedString[i];  
-        }
-        else evaluateExpression += splittedString[i];
-    }	
+            } else evaluateExpression += splittedString[i];
+        } else evaluateExpression += splittedString[i];
+    }
     return parse(evaluateExpression);
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
-console.log( StringCalculate( readline() ) );
+console.log(StringCalculate(readline()));
