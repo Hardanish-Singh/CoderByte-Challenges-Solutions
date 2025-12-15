@@ -2,7 +2,7 @@
  *             CODERBYTE PALINDROME TWO CHALLENGE               *
  *                                                              *
  * Problem Statement                                            *
- * Have the function PalindromeTwo(str) take the str parameter  * 
+ * Have the function PalindromeTwo(str) take the str parameter  *
  * being passed and return the string true if the parameter is  *
  * a palindrome, (the string is the same forward as it is       *
  * backward) otherwise return the string false. The parameter   *
@@ -29,11 +29,13 @@ function PalindromeTwo(string) {
     let array = string.match(punctuationRegex);
     let originalStringWithoutPunctuation = new String("");
     let reversedString = new String("");
-    for(let i=0; i<array.length; i++) if(array[i].match(/^[a-zA-Z]+$/)) originalStringWithoutPunctuation += array[i];
-    for (let i=originalStringWithoutPunctuation.length-1; i>=0; i--) reversedString += originalStringWithoutPunctuation[i];
-    if(originalStringWithoutPunctuation.toLowerCase() === reversedString.toLowerCase()) return true;
-    else return false;  
+    for (let i = 0; i < array.length; i++)
+        if (array[i].match(/^[a-zA-Z]+$/)) originalStringWithoutPunctuation += array[i];
+    for (let i = originalStringWithoutPunctuation.length - 1; i >= 0; i--)
+        reversedString += originalStringWithoutPunctuation[i];
+    if (originalStringWithoutPunctuation.toLowerCase() === reversedString.toLowerCase()) return true;
+    else return false;
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(PalindromeTwo(readline()));
