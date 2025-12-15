@@ -37,22 +37,21 @@
  ***************************************************************/
 
 function QuestionsMarks(string) {
-  let questionMarkCount = 0;
-  let temp = 0;
-  let flag = false;
-  for(let i=0; i<string.length; i++){
-      if(+string[i]) {
-          if(temp + +string[i] === 10) {
-              if(questionMarkCount !== 3) return false;
-              else flag = true;
-              i--;
-          }
-          temp = +string[i];
-          questionMarkCount = 0;
-      }
-      else if(string[i] === '?') questionMarkCount++;
-  }
-  return flag;
+    let questionMarkCount = 0;
+    let temp = 0;
+    let flag = false;
+    for (let i = 0; i < string.length; i++) {
+        if (+string[i]) {
+            if (temp + +string[i] === 10) {
+                if (questionMarkCount !== 3) return false;
+                else flag = true;
+                i--;
+            }
+            temp = +string[i];
+            questionMarkCount = 0;
+        } else if (string[i] === "?") questionMarkCount++;
+    }
+    return flag;
 }
 
 // KEEP THIS FUNCTION CALL HERE
