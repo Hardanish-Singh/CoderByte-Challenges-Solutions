@@ -20,20 +20,19 @@
  * Output 2: 3w3b1w                                             *
  *                                                              *
  * Solution Efficiency                                          *
- * This user scored higher than 42.4% of users who solved this  * 
+ * This user scored higher than 42.4% of users who solved this  *
  * challenge.                                                   *
  ***************************************************************/
 
-function RunLength(string) { 
+function RunLength(string) {
     let array = string.split("");
-    let counter = 0 ;
+    let counter = 0;
     let runLength = new String("");
-    for(let i=0; i<=array.length; i++){
-        if(array[i] !== array[i+1]) {
+    for (let i = 0; i <= array.length; i++) {
+        if (array[i] !== array[i + 1]) {
             runLength += counter + 1 + array[i];
             counter = 0;
-        }
-        else counter++;
+        } else counter++;
     }
     return runLength;
 }
