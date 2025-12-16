@@ -24,53 +24,53 @@
  *                                                              *
  ***************************************************************/
 
-function isPalindrome( string ) {
-        let leftPointer = 0;
-        let rightPointer = string.length - 1;
+function isPalindrome(string) {
+    let leftPointer = 0;
+    let rightPointer = string.length - 1;
 
-        while( leftPointer < rightPointer ) {
-                if( string[leftPointer] !== string[rightPointer] ) {
-                        return false;
-                }
-                leftPointer++;
-                rightPointer--;
+    while (leftPointer < rightPointer) {
+        if (string[leftPointer] !== string[rightPointer]) {
+            return false;
         }
+        leftPointer++;
+        rightPointer--;
+    }
 
-        return true;
+    return true;
 }
 
-function reverseString( s ) {
-        let str = "";
-        for( let i = s.length-1; i>=0; i-- ){
-                str += s[i];
-        }
-        return str;
+function reverseString(s) {
+    let str = "";
+    for (let i = s.length - 1; i >= 0; i--) {
+        str += s[i];
+    }
+    return str;
 }
 
-function PalindromicSubstring( str ) {
-        let PalindromicSubstrings = [];
-        for( let i=0; i<str.length; i++ ) {
-                let reverseStr = reverseString( str.slice(i+1) );
-                for( let j=0; j<reverseStr.length; j++ ) {
-                        if( reverseStr.slice(j) === str[i] ) {
-                                continue;
-                        }
-                        let subString =  reverseString( ( reverseStr.slice(j) + str[i] ) );
-                        if( isPalindrome( subString ) ) {
-                                PalindromicSubstrings.push( subString );
-                        }
-                }
+function PalindromicSubstring(str) {
+    let PalindromicSubstrings = [];
+    for (let i = 0; i < str.length; i++) {
+        let reverseStr = reverseString(str.slice(i + 1));
+        for (let j = 0; j < reverseStr.length; j++) {
+            if (reverseStr.slice(j) === str[i]) {
+                continue;
+            }
+            let subString = reverseString(reverseStr.slice(j) + str[i]);
+            if (isPalindrome(subString)) {
+                PalindromicSubstrings.push(subString);
+            }
         }
-        let max = -1;
-        let index = -1;
-        for( let i=0; i<PalindromicSubstrings.length; i++ ) {
-                if(PalindromicSubstrings[i].length > max) {
-                        max = PalindromicSubstrings[i].length;
-                        index = i;
-                }
+    }
+    let max = -1;
+    let index = -1;
+    for (let i = 0; i < PalindromicSubstrings.length; i++) {
+        if (PalindromicSubstrings[i].length > max) {
+            max = PalindromicSubstrings[i].length;
+            index = i;
         }
-        return index === -1 ? "none" : PalindromicSubstrings[index];
+    }
+    return index === -1 ? "none" : PalindromicSubstrings[index];
 }
-         
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(PalindromicSubstring(readline()));
