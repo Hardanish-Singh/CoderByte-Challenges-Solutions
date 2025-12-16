@@ -24,34 +24,35 @@
  ***************************************************************/
 
 function StringZigzag(strArr) {
-        if(Number(strArr[1]) === 1) return strArr[0];
-        let zigZagArray;
-        if(Number(strArr[1]) >= strArr[0].length) zigZagArray = new Array(Number(strArr[0].length));
-        else zigZagArray = new Array(Number(strArr[1]));
-        for(let i=0; i<zigZagArray.length; i++) zigZagArray[i] = new Array(Number(strArr[0].length));
-        let row = 0, column = 0, count = 1;
-        for(let i=0; i<strArr[0].length; i++){
-                zigZagArray[row][column] = strArr[0][i];
-                column++;
-                if(count>=1 && count<Number(strArr[1])) {
-                        count++;
-                        row++;
-                }
-                else if(count>=Number(strArr[1]) && count<=(Number(strArr[1])+(Number(strArr[1])-1))) {
-                        if(count == (Number(strArr[1])+(Number(strArr[1])-1))) {
-                                row = 1;
-                                count = row + 1;
-                        }
-                        else {
-                                count++;
-                                row--;
-                        }
-                }
+    if (Number(strArr[1]) === 1) return strArr[0];
+    let zigZagArray;
+    if (Number(strArr[1]) >= strArr[0].length) zigZagArray = new Array(Number(strArr[0].length));
+    else zigZagArray = new Array(Number(strArr[1]));
+    for (let i = 0; i < zigZagArray.length; i++) zigZagArray[i] = new Array(Number(strArr[0].length));
+    let row = 0,
+        column = 0,
+        count = 1;
+    for (let i = 0; i < strArr[0].length; i++) {
+        zigZagArray[row][column] = strArr[0][i];
+        column++;
+        if (count >= 1 && count < Number(strArr[1])) {
+            count++;
+            row++;
+        } else if (count >= Number(strArr[1]) && count <= Number(strArr[1]) + (Number(strArr[1]) - 1)) {
+            if (count == Number(strArr[1]) + (Number(strArr[1]) - 1)) {
+                row = 1;
+                count = row + 1;
+            } else {
+                count++;
+                row--;
+            }
         }
-        let zigZagString = new String("");
-        for(let i=0; i<zigZagArray.length; i++) for(let j=0; j<zigZagArray[i].length; j++) if(zigZagArray[i][j]) zigZagString += zigZagArray[i][j];
-        return zigZagString;
+    }
+    let zigZagString = new String("");
+    for (let i = 0; i < zigZagArray.length; i++)
+        for (let j = 0; j < zigZagArray[i].length; j++) if (zigZagArray[i][j]) zigZagString += zigZagArray[i][j];
+    return zigZagString;
 }
 
-// KEEP THIS FUNCTION CALL HERE 
+// KEEP THIS FUNCTION CALL HERE
 console.log(StringZigzag(readline()));
