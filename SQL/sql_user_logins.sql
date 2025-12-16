@@ -78,10 +78,7 @@ FROM
 ) AS SubQuery2
 WHERE previous > 0
 
-/*
-        SOLUTION 2 WITH LAG FUNCTION, USED IN MYSQL VERSION 8.0+
-*/
-
+-- SOLUTION 2 WITH LAG FUNCTION, USED IN MYSQL VERSION 8.0+
 SELECT
         MONTHNAME(STR_TO_DATE(MONTH(DateJoined), '%m')) AS Month,
         date1 - date2 AS MonthToMonthChange
