@@ -2,7 +2,7 @@
  *             CODERBYTE STRING SCRAMBLE CHALLENGE              *
  *                                                              *
  * Problem Statement                                            *
- * Have the function StringScramble(str1,str2) take both        * 
+ * Have the function StringScramble(str1,str2) take both        *
  * parameters being passed and return the string true if a      *
  * portion of str1 characters can be rearranged to match str2,  *
  * otherwise return the string false.                           *
@@ -24,24 +24,24 @@
  ***************************************************************/
 
 //SOLUTION 1
-function StringScramble(string1, string2) { 
+function StringScramble(string1, string2) {
     let array1 = string1.split("");
     let array2 = string2.split("");
-    for(let i=0; i<array1.length; i++){
-        for(let j=0; j<array2.length; j++){
-            if(array1[i] === array2[j]) {
-                array1.splice(i,1);
-                array2.splice(j,1);
+    for (let i = 0; i < array1.length; i++) {
+        for (let j = 0; j < array2.length; j++) {
+            if (array1[i] === array2[j]) {
+                array1.splice(i, 1);
+                array2.splice(j, 1);
                 i--;
                 break;
             }
         }
     }
-    if(array2.length === 0) return true;
+    if (array2.length === 0) return true;
     else return false;
 }
-   
-// KEEP THIS FUNCTION CALL HERE 
+
+// KEEP THIS FUNCTION CALL HERE
 console.log(StringScramble(readline()));
 
 //SOLUTION 2
@@ -76,6 +76,6 @@ console.log(StringScramble(readline()));
 //     for(let i=0; i<string2.length; i++)if(i!==temp1) s2 += string2[i];
 //     return {s1, s2, flag};
 // }
-    
-// // KEEP THIS FUNCTION CALL HERE 
+
+// // KEEP THIS FUNCTION CALL HERE
 // console.log(StringScramble(readline()));
