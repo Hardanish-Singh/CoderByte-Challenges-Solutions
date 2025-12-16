@@ -38,8 +38,8 @@
  * Problem Statement                                                                         *
  * In this MySQL challenge, the table provided shows all new users signing up on a specific  *
  * date in the format YYYY-MM-DD. Your query should output the change from one month to the  *
- * next. Because the first month has no preceding month, your output should skip that row.   * 
- * Your output should look like the following table.                                         *   
+ * next. Because the first month has no preceding month, your output should skip that row.   *
+ * Your output should look like the following table.                                         * 
  *                                                                                           *
  *                                                                                           *
  *                        +-----------------+---------------------+                          *
@@ -53,9 +53,7 @@
  *                                                                                           *
  ********************************************************************************************/
 
-/*
-        SOLUTION ONE WITHOUT LAG FUNCTION
-*/
+-- SOLUTION ONE WITHOUT LAG FUNCTION
 SELECT
         MONTHNAME(STR_TO_DATE(MONTH(DateJoined), '%m')) AS Month,
         date1 - previous AS MonthToMonthChange
