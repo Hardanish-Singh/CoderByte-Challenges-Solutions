@@ -20,41 +20,65 @@
  *                                                              *
  ***************************************************************/
 
-function EvenPairs(str) {
-    // SOLUTION 1
+/* ==============================================================
+   SOLUTION 1
+   ==============================================================
+   Iterates through the string and checks numeric sequences
+   to find two even numbers appearing next to each other.
+================================================================ */
+
+function EvenPairsSolution1(str) {
     for (let i = 0; i < str.length; i++) {
-        if (typeof +str[i] === "number" && typeof +str[i + 1] === "number") {
+        // Check if current and next characters are numbers
+        if (!isNaN(str[i]) && !isNaN(str[i + 1])) {
             for (let j = i + 1; j < str.length; j++) {
-                if (!+str[j]) {
+                // Stop when a non-numeric character is found
+                if (isNaN(str[j])) {
                     break;
                 }
-                if (+str[j] % 2 === 0 && +str[i] % 2 === 0) {
+
+                // Check if both numbers are even
+                if (+str[i] % 2 === 0 && +str[j] % 2 === 0) {
                     return true;
                 }
             }
         }
     }
     return false;
-
-    /*
-                SOLUTION 2
-                for( let i=0; i<str.length; i++ ) {
-                        let slicedEvenPair = str.slice(i+1);
-                        if( +slicedEvenPair[0]) {
-                                for( let j = 0; j<slicedEvenPair.length; j++ ) {
-                                        if( !(+slicedEvenPair[j]) ) {
-                                                break;
-                                        }
-                                        else if( (+slicedEvenPair[j]) % 2 === 0 && (+str[i]) % 2 === 0 ) {
-                                                return true;
-                                        }
-                                }
-                        }
-                }
-                return false;
-        
-        */
 }
 
-// KEEP THIS FUNCTION CALL HERE
-console.log(EvenPairs(readline()));
+/* ==============================================================
+   SOLUTION 2
+   ==============================================================
+   Uses string slicing to inspect adjacent numeric values
+   and determine if an even-number pair exists.
+================================================================ */
+
+function EvenPairsSolution2(str) {
+    for (let i = 0; i < str.length; i++) {
+        const sliced = str.slice(i + 1);
+
+        // Check if current character is numeric
+        if (!isNaN(str[i])) {
+            for (let j = 0; j < sliced.length; j++) {
+                // Stop when a non-numeric character is found
+                if (isNaN(sliced[j])) {
+                    break;
+                }
+
+                // Check if both numbers are even
+                if (+str[i] % 2 === 0 && +sliced[j] % 2 === 0) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+/* ==============================================================
+   FUNCTION CALLS
+================================================================ */
+
+console.log(EvenPairsSolution1(readline()));
+console.log(EvenPairsSolution2(readline()));
