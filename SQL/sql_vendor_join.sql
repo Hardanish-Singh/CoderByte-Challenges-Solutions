@@ -14,7 +14,7 @@
  *                       +---------+---------------------+-------+                     *
  *                       |       27| Machinx             |      1|                     *
  *                       |        5| WaterBus Enterprise |      1|                     *
- *                       |       36| Johnson and Sons    |      2|                     * 
+ *                       |       36| Johnson and Sons    |      2|                     *
  *                       |       35| Shipping & Co.      |      3|                     *
  *                       |        6| Alloy LLC           |      3|                     *
  *                       |       40| FireConsulting      |      5|                     *
