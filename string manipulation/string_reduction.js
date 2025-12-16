@@ -34,30 +34,28 @@
  *                                                              *
  ***************************************************************/
 
-function StringReduction(string) { 
+function StringReduction(string) {
     let stringReduction = new String("");
     let stringReplacements = {
-        "ab": "c",
-        "ac": "b",
-        "bc": "a",
-        "ca": "b",
-        "cb": "a"
+        ab: "c",
+        ac: "b",
+        bc: "a",
+        ca: "b",
+        cb: "a",
     };
     let flag = false;
-    for(let i=0; i<string.length; i++){
-        if(i !== string.length-1){
-            if((string[i] + string[i+1]) in stringReplacements){
+    for (let i = 0; i < string.length; i++) {
+        if (i !== string.length - 1) {
+            if (string[i] + string[i + 1] in stringReplacements) {
                 flag = true;
-                stringReduction += stringReplacements[string[i] + string[i+1]];
+                stringReduction += stringReplacements[string[i] + string[i + 1]];
                 i++;
-            }
-            else stringReduction += string[i];
-        }
-        else stringReduction += string[i];
+            } else stringReduction += string[i];
+        } else stringReduction += string[i];
     }
-    if(flag === true) return StringReduction(stringReduction);
+    if (flag === true) return StringReduction(stringReduction);
     else return stringReduction.length;
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(StringReduction(readline()));
