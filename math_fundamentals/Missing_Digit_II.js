@@ -1,5 +1,5 @@
 /****************************************************************
- *              CODERBYTE MISSING DIGIT II CHALLENGE             *
+ *              CODERBYTE MISSING DIGIT II CHALLENGE            *
  *                                                              *
  * Problem Statement                                            *
  * Have the function MissingDigitII(str) take the str parameter *
