@@ -16,7 +16,7 @@
  *                                                              *
  * Input 2: 101		                                        	*
  * Output 2: false                                              *
- *                                                               *
+ *                                                              *
  ***************************************************************/
 
 function Calculate_Sum_Of_Square_Of_Digits(number) {
