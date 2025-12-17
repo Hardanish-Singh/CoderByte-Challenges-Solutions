@@ -11,10 +11,10 @@
  * converges to 1.       										*
  *                                                              *
  * Examples                                                     *
- * Input 1: 1		                                        *
+ * Input 1: 1		                                        	*
  * Output 1: true                                               *
  *                                                              *
- * Input 2: 101		                                        *
+ * Input 2: 101		                                        	*
  * Output 2: false                                              *
  *                                                              *
  ***************************************************************/
