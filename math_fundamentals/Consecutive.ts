@@ -21,15 +21,15 @@
  *                                                              *
  ***************************************************************/
 
-function Consecutive( arr: Array<number> ): number {
-        let number_of_consecutives = 0;
-        arr = arr.sort( ( a,b ) => a - b );
-        for( let i: number = arr[0]; i<=arr[arr.length-1]; i++ ) {
-                number_of_consecutives++;
-        }
-        return number_of_consecutives - arr.length;
+function Consecutive(arr: Array<number>): number {
+    let number_of_consecutives = 0;
+    arr = arr.sort((a, b) => a - b);
+    for (let i: number = arr[0]; i <= arr[arr.length - 1]; i++) {
+        number_of_consecutives++;
+    }
+    return number_of_consecutives - arr.length;
 }
 
-// keep this function call here 
+// keep this function call here
 // @ts-ignore
 console.log(Consecutive(readline()));
