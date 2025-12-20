@@ -26,53 +26,51 @@
  *                                                              *
  ***************************************************************/
 
-function parse( str ) {
-        return Function(`'use strict'; return (${str})`)()
+function parse(str) {
+    return Function(`'use strict'; return (${str})`)();
 }
 
-function MissingDigit( str ) {
-        let split_equation = str.split("=");
-        let is_x_on_left_side = -1;
-        let is_x_on_right_side = -1;
-        let result = 0;
-        let missing_digit_equation = '';
+function MissingDigit(str) {
+    let split_equation = str.split("=");
+    let is_x_on_left_side = -1;
+    let is_x_on_right_side = -1;
+    let result = 0;
+    let missing_digit_equation = "";
 
-        is_x_on_left_side = split_equation[0].indexOf("x");
-        is_x_on_right_side = split_equation[1].indexOf("x");
+    is_x_on_left_side = split_equation[0].indexOf("x");
+    is_x_on_right_side = split_equation[1].indexOf("x");
 
-        if( is_x_on_left_side === -1 ) {
-                result = parse( split_equation[0] );
-                missing_digit_equation = split_equation[1];
-        }
-        else if( is_x_on_right_side === -1 ) {
-                result = parse( split_equation[1] );
-                missing_digit_equation = split_equation[0];
-        }
+    if (is_x_on_left_side === -1) {
+        result = parse(split_equation[0]);
+        missing_digit_equation = split_equation[1];
+    } else if (is_x_on_right_side === -1) {
+        result = parse(split_equation[1]);
+        missing_digit_equation = split_equation[0];
+    }
 
-        let i = 0;
-        while( i <= 9 ) {
-                let equation = '';
-                for( let k = 0 ; k < missing_digit_equation.length; k++ ) {
-                        if( missing_digit_equation[k] == "x" ) {
-                                equation += i;
-                        }
-                        else {
-                                equation += missing_digit_equation[k];
-                        }
-                }
-                equation = equation.trim();
-                if( equation.startsWith("0") ) {
-                        equation = equation.replace(/^0+/, '');
-                        if( equation === "" ) {
-                                equation = "0";
-                        }
-                }
-                if( parse( equation ) === result ) {
-                        return i;
-                }
-                i++;
+    let i = 0;
+    while (i <= 9) {
+        let equation = "";
+        for (let k = 0; k < missing_digit_equation.length; k++) {
+            if (missing_digit_equation[k] == "x") {
+                equation += i;
+            } else {
+                equation += missing_digit_equation[k];
+            }
         }
+        equation = equation.trim();
+        if (equation.startsWith("0")) {
+            equation = equation.replace(/^0+/, "");
+            if (equation === "") {
+                equation = "0";
+            }
+        }
+        if (parse(equation) === result) {
+            return i;
+        }
+        i++;
+    }
 }
 
 // KEEP THIS FUNCTION CALL HERE
-console.log( MissingDigit( readline() ) );
+console.log(MissingDigit(readline()));
