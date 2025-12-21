@@ -25,17 +25,17 @@
  *                                                              *
  ***************************************************************/
 
-function NumberSearch( str: string ): number {
-        let len: number = str.replace(/[^a-zA-Z]+/g, '').length;
-        let sum: number = 0;
-        for( let i: number = 0; i<str.length; i++ ) {
-                if( +str[i] ) {
-                        sum += +str[i];
-                }
+function NumberSearch(str: string): number {
+    let len: number = str.replace(/[^a-zA-Z]+/g, "").length;
+    let sum: number = 0;
+    for (let i: number = 0; i < str.length; i++) {
+        if (+str[i]) {
+            sum += +str[i];
         }
-        return Math.round(sum/len);
+    }
+    return Math.round(sum / len);
 }
 
-// keep this function call here 
+// keep this function call here
 // @ts-ignore
 console.log(NumberSearch(readline()));
