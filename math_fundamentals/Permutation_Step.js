@@ -25,52 +25,51 @@
  *                                                              *
  ***************************************************************/
 
-function swap_index_values( leftIndex, rightIndex, nums ) {
-        [ nums[rightIndex], nums[leftIndex] ]  = [ nums[leftIndex], nums[rightIndex] ];   
+function swap_index_values(leftIndex, rightIndex, nums) {
+    [nums[rightIndex], nums[leftIndex]] = [nums[leftIndex], nums[rightIndex]];
 }
 
-var PermutationStep = function(nums) {
-        let n = nums;
-        nums  = String(nums).split("").map(Number);
-        let leftIndex = -1;
-        let rightIndex = nums.length - 1;
-        
-        for( let i=nums.length-1; i>=0; i-- ) {
-                if( nums[i] > nums[i-1] ) {
-                        leftIndex = i-1;
-                        break;
-                }
-        }
-        
-        if( leftIndex == -1 ) {
-                return -1;
-        }
-        
-        for( let i=nums.length-1; i>=0; i-- ) {
-                if( nums[i] > nums[leftIndex] ) {
-                        rightIndex = i;
-                        break;
-                }
-        }
-        
-        swap_index_values(leftIndex, rightIndex, nums);
-        
-        //REVERSE THE ELEMENTS OF THE ARRAY FROM leftIndex to rightIndex
-        leftIndex++;
-        rightIndex = nums.length-1;
-        
-        while( leftIndex < rightIndex ) {
-                swap_index_values(leftIndex, rightIndex, nums);
-                leftIndex++;
-                rightIndex--;
-        }
+var PermutationStep = function (nums) {
+    let n = nums;
+    nums = String(nums).split("").map(Number);
+    let leftIndex = -1;
+    let rightIndex = nums.length - 1;
 
-        if( Number( nums.join("") ) > n ) {
-          return Number( nums.join("") );
-        }        
+    for (let i = nums.length - 1; i >= 0; i--) {
+        if (nums[i] > nums[i - 1]) {
+            leftIndex = i - 1;
+            break;
+        }
+    }
+
+    if (leftIndex == -1) {
         return -1;
+    }
+
+    for (let i = nums.length - 1; i >= 0; i--) {
+        if (nums[i] > nums[leftIndex]) {
+            rightIndex = i;
+            break;
+        }
+    }
+
+    swap_index_values(leftIndex, rightIndex, nums);
+
+    //REVERSE THE ELEMENTS OF THE ARRAY FROM leftIndex to rightIndex
+    leftIndex++;
+    rightIndex = nums.length - 1;
+
+    while (leftIndex < rightIndex) {
+        swap_index_values(leftIndex, rightIndex, nums);
+        leftIndex++;
+        rightIndex--;
+    }
+
+    if (Number(nums.join("")) > n) {
+        return Number(nums.join(""));
+    }
+    return -1;
 };
 
-
 // KEEP THIS FUNCTION CALL HERE
-console.log( PermutationStep( readline() ) );
+console.log(PermutationStep(readline()));
