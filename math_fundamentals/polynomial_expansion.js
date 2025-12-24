@@ -92,5 +92,5 @@ function PolynomialExpansion(str) {
     return fs;
 }
 
-// keep this function call here
+// KEEP THIS FUNCTION CALL HERE
 console.log(PolynomialExpansion(readline()));
