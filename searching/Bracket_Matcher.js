@@ -3,7 +3,7 @@
  *                                                              *
  * Problem Statement                                            *
  * Have the function BracketMatcher(str) take the str parameter	*
- * being passed and return 1 if the brackets are correctly	*
+ * being passed and return 1 if the brackets are correctly	    *
  * matched and each one is accounted for. Otherwise return 0.	*
  * For example: if str is "(hello (world))", then the output	*
  * should be 1, but if str is "((hello (world))" the the output	*
