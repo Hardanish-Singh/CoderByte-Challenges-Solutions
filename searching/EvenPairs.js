@@ -64,7 +64,6 @@ function EvenPairsSolution2(str) {
                 if (isNaN(sliced[j])) {
                     break;
                 }
-
                 // Check if both numbers are even
                 if (+str[i] % 2 === 0 && +sliced[j] % 2 === 0) {
                     return true;
