@@ -56,7 +56,6 @@ function EvenPairsSolution1(str) {
 function EvenPairsSolution2(str) {
     for (let i = 0; i < str.length; i++) {
         const sliced = str.slice(i + 1);
-
         // Check if current character is numeric
         if (!isNaN(str[i])) {
             for (let j = 0; j < sliced.length; j++) {
