@@ -36,7 +36,6 @@ function EvenPairsSolution1(str) {
                 if (isNaN(str[j])) {
                     break;
                 }
-
                 // Check if both numbers are even
                 if (+str[i] % 2 === 0 && +str[j] % 2 === 0) {
                     return true;
