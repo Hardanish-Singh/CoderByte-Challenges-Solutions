@@ -1,5 +1,5 @@
 /****************************************************************
- *               CODERBYTE EVEN PAIRS CHALLENGE		        *
+ *               CODERBYTE EVEN PAIRS CHALLENGE		            *
  *                                                              *
  * Problem Statement                                            *
  * Have the function EvenPairs(str) take the str parameter being*
