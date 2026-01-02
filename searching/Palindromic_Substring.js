@@ -1,5 +1,5 @@
 /****************************************************************
- *          CODERBYTE PALINDROMIC SUBSTRING CHALLENGE		*
+ *          CODERBYTE PALINDROMIC SUBSTRING CHALLENGE		    *
  *                                                              *
  * Problem Statement                                            *
  * Have the function PalindromicSubstring(str) take the str     *
