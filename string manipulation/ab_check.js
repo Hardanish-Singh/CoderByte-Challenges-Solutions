@@ -31,5 +31,5 @@ function ABCheck(string) {
     return false;
 }
 
-// KEEP THIS FUNCTION CALL HERE.
+// KEEP THIS FUNCTION CALL HERE
 console.log(ABCheck(readline()));
