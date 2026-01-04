@@ -36,5 +36,6 @@ function BasicRomanNumerals(str) {
     }
     return numberTotal;
 }
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(BasicRomanNumerals(readline()));
