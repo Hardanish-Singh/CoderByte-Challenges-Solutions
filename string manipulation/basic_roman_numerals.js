@@ -28,12 +28,14 @@ function BasicRomanNumerals(str) {
     let numeralString = str;
     let currentIndex = numeralString[0];
     let numberTotal = NumeralsArray[currentIndex];
+
     for (let i = 1; i < numeralString.length; i++) {
         if (NumeralsArray[currentIndex] >= NumeralsArray[numeralString[i]])
             numberTotal += NumeralsArray[numeralString[i]];
         else numberTotal = numberTotal - NumeralsArray[numeralString[i - 1]] * 2 + NumeralsArray[numeralString[i]];
         currentIndex = numeralString[i];
     }
+
     return numberTotal;
 }
 
