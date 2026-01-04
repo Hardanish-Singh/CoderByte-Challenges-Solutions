@@ -34,6 +34,7 @@ function Calculator(string) {
     let evaluateExpression = new String("");
     let splittedString = string.split("");
     let flag = false;
+
     for (let i = 0; i < splittedString.length; i++) {
         if (i != 0 && i != splittedString.length - 1) {
             if (
@@ -57,6 +58,7 @@ function Calculator(string) {
             evaluateExpression += splittedString[i];
         }
     }
+
     return parse(evaluateExpression);
 }
 
