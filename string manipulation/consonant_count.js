@@ -4,7 +4,7 @@
  * Problem Statement                                            *
  * Have the function ConsonantCount(str) take the str string	*
  * parameter being passed and return the number of consonants 	*
- * the string contains.  					*
+ * the string contains.  					                    *
  *                                                              *
  * Examples                                                     *
  * Input 1: "Hello World"                                       *
