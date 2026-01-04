@@ -55,6 +55,7 @@ function CommandLine(string) {
             argumentsString += " ";
         }
     }
+
     return argumentsString.trim("");
 }
 
