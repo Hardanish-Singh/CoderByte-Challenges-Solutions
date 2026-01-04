@@ -8,7 +8,7 @@
  *                                                              *
  * Examples                                                     *
  * Input 1: "Hello World"                                       *
- * Output 1: 7		                                        *
+ * Output 1: 7		                                            *
  *                                                              *
  * Input 2: "Alphabets"                                         *
  * Output 2: 6                                                  *
