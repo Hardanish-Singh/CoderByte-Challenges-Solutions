@@ -26,5 +26,5 @@ function ConsonantCount(str) {
     return count;
 }
 
-// keep this function call here
+// KEEP THIS FUNCTION CALL HERE
 console.log(ConsonantCount(readline()));
