@@ -33,6 +33,7 @@ function CountingMinutesI(dateString) {
     let hours2;
     let minutes2 = "";
     let ampm2 = "";
+
     for (let i = 0; i < splitDateStringAtHiphen.length; i++) {
         let splitDateStringAtColon = splitDateStringAtHiphen[i].split(":");
         for (let j = 0; j < splitDateStringAtColon.length; j++) {
