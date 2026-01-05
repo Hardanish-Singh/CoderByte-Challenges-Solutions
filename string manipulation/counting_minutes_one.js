@@ -52,6 +52,7 @@ function CountingMinutesI(dateString) {
             }
         }
     }
+
     minutes1 = Number(minutes1);
     minutes2 = Number(minutes2);
     if (ampm1 === "pm" && hours1 <= 11) hours1 += 12;
