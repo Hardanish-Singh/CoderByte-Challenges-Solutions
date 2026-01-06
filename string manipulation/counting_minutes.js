@@ -60,8 +60,10 @@ function CountingMinutes(dateString) {
     if (ampm2 === "pm" && hours2 <= 11) hours2 += 12;
     if (ampm1 === "am" && hours1 == 12) hours1 = 0;
     if (ampm2 === "am" && hours2 == 12) hours2 = 0;
+
     let minutesOneConverted = hours1 * 60 + minutes1;
     let minutesTwoConverted = hours2 * 60 + minutes2;
+
     if (minutesOneConverted > minutesTwoConverted) {
         hours2 += 24;
         let timeOne = hours2 * 60 + minutes2;
