@@ -25,6 +25,7 @@
 function DashInsertII(number) {
     let string = String(number);
     let dashInsertTwo = new String("");
+
     for (let i = 0; i < string.length; i++) {
         if (i !== string.length - 1) {
             if (
@@ -44,6 +45,7 @@ function DashInsertII(number) {
             else dashInsertTwo += string[i];
         } else if (i === string.length - 1) dashInsertTwo += string[i];
     }
+
     return dashInsertTwo;
 }
 
