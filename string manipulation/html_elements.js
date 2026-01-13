@@ -42,10 +42,12 @@ function HTMLElements(string) {
     let closingTags = new Array();
     let temp1 = new String("");
     let temp2 = new String("");
+
     for (let i = 0; i < htmlFindStringArray.length; i++) {
         if (htmlFindStringArray[i].startsWith("</")) closingTags.push(htmlFindStringArray[i]);
         else openingTags.push(htmlFindStringArray[i]);
     }
+
     for (let i = 0; i < openingTags.length; i++) {
         temp1 = new String("");
         for (let j = 0; j < openingTags[i].length; j++)
@@ -63,6 +65,7 @@ function HTMLElements(string) {
             }
         }
     }
+
     return openingTags.length === 0
         ? true
         : openingTags[openingTags.length - 1].slice(1).slice(0, openingTags[0].length - 2);
