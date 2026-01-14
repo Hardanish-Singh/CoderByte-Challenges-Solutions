@@ -26,6 +26,7 @@ function LetterChanges(string) {
     let lettersChangedString = new String("");
     let lettersRegex = /^[A-Za-z]$/;
     let vowelRegex = /^[aeiouAEIOU]$/;
+
     for (let i = 0; i < string.length; i++) {
         if (string[i].match(lettersRegex)) {
             if (String.fromCharCode(string.charCodeAt(i) + 1).match(vowelRegex))
@@ -33,6 +34,7 @@ function LetterChanges(string) {
             else lettersChangedString += String.fromCharCode(string.charCodeAt(i) + 1);
         } else lettersChangedString += string[i];
     }
+
     return lettersChangedString;
 }
 
