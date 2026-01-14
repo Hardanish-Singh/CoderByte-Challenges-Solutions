@@ -29,7 +29,7 @@
  * Output 2: "0"                                                *
  *                                                              *
  * Solution Efficiency                                          *
- * This user scored higher than 67.3% of users who solved this  * 
+ * This user scored higher than 67.3% of users who solved this  *
  * challenge.                                                   *
  ***************************************************************/
 
@@ -82,7 +82,7 @@ class MainClass {
         }
 
         indexString = new string("");
-    }    
+    }
     return ""+matchCharacterStringLength;
 
   }
@@ -90,6 +90,6 @@ class MainClass {
   static void Main() {  
     // KEEP THIS FUNCTION CALL HERE
     Console.WriteLine(MatchingCharacters(Console.ReadLine()));
-  } 
+  }
 
 }
