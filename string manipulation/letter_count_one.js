@@ -27,6 +27,7 @@
 function LetterCountI(str) {
     let array = str.split(" ");
     let mainArray = [];
+
     for (let i = 0; i < array.length; i++) {
         let temp2d = [];
         for (let j = 0; j < array[i].length; j++) {
@@ -39,8 +40,10 @@ function LetterCountI(str) {
         }
         mainArray.push(temp2d);
     }
+
     let maxElement = -1;
     let maxIndex = -1;
+
     for (let i = 0; i < mainArray.length; i++) {
         if (mainArray[i].length === 0) continue;
         if (mainArray[i].length > maxElement) {
@@ -48,6 +51,7 @@ function LetterCountI(str) {
             maxIndex = i;
         }
     }
+
     return maxIndex >= 0 ? array[maxIndex] : maxIndex;
 }
 
