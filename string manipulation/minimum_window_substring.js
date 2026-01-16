@@ -36,15 +36,18 @@ function MinWindowSubstring(stringArray) {
     let target = stringArray[1];
     let targetDictionary = {};
     let stringDictionary = {};
+
     for (let i = 0; i < target.length; i++) {
         if (target[i] in targetDictionary) targetDictionary[target[i]] += 1;
         else targetDictionary[target[i]] = 1;
     }
+
     let leftPointer = 0;
     let rightPointer = 0;
     let subStringLength = 2147483647;
     let lp = 0;
     let rp = 0;
+
     while (true) {
         if (leftPointer > rightPointer || rightPointer > string.length) break;
         let flag = checkObjectKeysArray(
@@ -67,11 +70,15 @@ function MinWindowSubstring(stringArray) {
             rightPointer++;
         }
     }
+
     return string.substring(lp, rp);
 }
+
 function checkObjectKeysArray(array1, array2, targetDictionary, stringDictionary) {
     if (array2.length === 0 || array1.length > array2.length) return false;
+
     let temp = false;
+
     for (let i = 0; i < array1.length; i++) {
         temp = false;
         for (let j = 0; j < array2.length; j++) {
@@ -82,7 +89,9 @@ function checkObjectKeysArray(array1, array2, targetDictionary, stringDictionary
         }
         if (temp === false) break;
     }
+
     return temp;
 }
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(MinWindowSubstring(readline()));
