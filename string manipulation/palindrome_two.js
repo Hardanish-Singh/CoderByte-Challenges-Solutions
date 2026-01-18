@@ -29,12 +29,14 @@ function PalindromeTwo(string) {
     let array = string.match(punctuationRegex);
     let originalStringWithoutPunctuation = new String("");
     let reversedString = new String("");
+
     for (let i = 0; i < array.length; i++)
         if (array[i].match(/^[a-zA-Z]+$/)) originalStringWithoutPunctuation += array[i];
+
     for (let i = originalStringWithoutPunctuation.length - 1; i >= 0; i--)
         reversedString += originalStringWithoutPunctuation[i];
-    if (originalStringWithoutPunctuation.toLowerCase() === reversedString.toLowerCase()) return true;
-    else return false;
+
+    return originalStringWithoutPunctuation.toLowerCase() === reversedString.toLowerCase();
 }
 
 // KEEP THIS FUNCTION CALL HERE
