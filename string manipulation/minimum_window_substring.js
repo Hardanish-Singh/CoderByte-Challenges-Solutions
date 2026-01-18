@@ -54,7 +54,7 @@ function MinWindowSubstring(stringArray) {
             Object.keys(targetDictionary),
             Object.keys(stringDictionary),
             targetDictionary,
-            stringDictionary
+            stringDictionary,
         );
         if (flag === true) {
             if (rightPointer - leftPointer + 1 <= subStringLength) {
