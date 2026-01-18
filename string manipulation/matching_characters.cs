@@ -70,7 +70,7 @@ class MainClass {
                 else indexString = indexString + ", " + j;
             }
         }
-        
+
         var splittedString = indexString.Split(",");
         for (var m=0; m<splittedString.Length; m++)
         {
@@ -83,11 +83,11 @@ class MainClass {
 
         indexString = new string("");
     }
-    return ""+matchCharacterStringLength;
 
+    return ""+matchCharacterStringLength;
   }
 
-  static void Main() {  
+  static void Main() {
     // KEEP THIS FUNCTION CALL HERE
     Console.WriteLine(MatchingCharacters(Console.ReadLine()));
   }
