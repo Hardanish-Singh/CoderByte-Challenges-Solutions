@@ -26,8 +26,7 @@ function Palindrome(str) {
     let originalString = str.replace(/\s/g, "");
     let reversedString = "";
     for (let i = originalString.length - 1; i >= 0; i--) reversedString += originalString[i];
-    if (originalString === reversedString) return true;
-    else return false;
+    return originalString === reversedString;
 }
 
 // KEEP THIS FUNCTION CALL HERE
