@@ -27,12 +27,14 @@
  ***************************************************************/
 
 function SimplePassword(str) {
-    finalString = str.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
-    if (str.length === finalString.length) return false;
-    if (str.match(/[a-zA-Z]/g).length === 0 || str.match(/[0-9]/g).length === 0) return false;
+    let finalString = str.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+    if (str.length === finalString.length || str.match(/[a-zA-Z]/g).length === 0 || str.match(/[0-9]/g).length === 0) {
+        return false;
+    }
     str = str.toLowerCase();
-    if (str.includes("password")) return false;
-    if (str.length <= 7 || str.length >= 31) return false;
+    if (str.includes("password") || str.length <= 7 || str.length >= 31) {
+        return false;
+    }
     return true;
 }
 
