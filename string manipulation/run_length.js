@@ -28,12 +28,16 @@ function RunLength(string) {
     let array = string.split("");
     let counter = 0;
     let runLength = new String("");
+
     for (let i = 0; i <= array.length; i++) {
         if (array[i] !== array[i + 1]) {
             runLength += counter + 1 + array[i];
             counter = 0;
-        } else counter++;
+        } else {
+            counter++;
+        }
     }
+
     return runLength;
 }
 
