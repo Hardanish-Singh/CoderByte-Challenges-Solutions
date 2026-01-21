@@ -37,8 +37,7 @@ function StringScramble(string1, string2) {
             }
         }
     }
-    if (array2.length === 0) return true;
-    else return false;
+    return array2.length === 0;
 }
 
 // KEEP THIS FUNCTION CALL HERE
