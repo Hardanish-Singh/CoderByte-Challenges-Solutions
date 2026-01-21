@@ -53,8 +53,7 @@ function StringReduction(string) {
             } else stringReduction += string[i];
         } else stringReduction += string[i];
     }
-    if (flag === true) return StringReduction(stringReduction);
-    else return stringReduction.length;
+    return flag ? StringReduction(stringReduction) : stringReduction.length;
 }
 
 // KEEP THIS FUNCTION CALL HERE
