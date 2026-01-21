@@ -56,6 +56,7 @@ function StringExpression(string) {
     let count = 0;
     let position = 0;
     let expression = new String("");
+
     for (let i = 0; i <= string.length; i++) {
         if (count == 3 || count == 4 || count == 5) {
             if (numberToWords[string.slice(position, i)] || numberToWords[string.slice(position, i)] == 0) {
@@ -66,12 +67,15 @@ function StringExpression(string) {
         }
         count++;
     }
+
     let value = String(parse(expression));
     let result = new String("");
+
     for (let i = 0; i < value.length; i++) {
         if (value[i] == "-") result += "negative";
         else if (wordsToNumber[+value[i]]) result += wordsToNumber[+value[i]];
     }
+
     return result;
 }
 
