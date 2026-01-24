@@ -16,8 +16,7 @@
  ***************************************************************/
 
 function WordCount(str) {
-    let string = str.trim().split(" ");
-    return string.length;
+    return str.trim().split(" ").length;
 }
 
 // KEEP THIS FUNCTION CALL HERE
