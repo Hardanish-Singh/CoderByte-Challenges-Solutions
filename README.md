@@ -37,10 +37,6 @@ If you're stuck on a Coderbyte challenge, feel free to browse through my solutio
 
 > **Note:** Try solving the problems yourself first before looking at the solutions!
 
-## 🤝 Contributing
-
-Found a better solution or want to add a new one? Pull requests are welcome!
-
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
