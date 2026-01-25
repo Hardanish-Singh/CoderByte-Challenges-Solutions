@@ -34,9 +34,3 @@ A collection of my solutions to coding challenges from [Coderbyte](https://coder
 ## 💡 How to Use
 
 If you're stuck on a Coderbyte challenge, feel free to browse through my solutions for reference. Each file is named after the challenge it solves.
-
-> **Note:** Try solving the problems yourself first before looking at the solutions!
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
