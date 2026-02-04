@@ -24,52 +24,40 @@
  *                                                              *
  ***************************************************************/
 
-function ArithGeoII( arr: Array<number> ): string {
-        let isArithmeticProgression: boolean = false;
-        let isGeometricProgression: boolean = false;
-        // CHECK ARITHMETIC LOGIC
-        for( let i:number = arr.length-1; i >= 0; i-- )
-        {
-                if ( i != 0 )
-                {
-                        if ( arr[i] - arr[i-1] == arr[arr.length-1] - arr[arr.length-1-1] )
-                        {
-                                isArithmeticProgression = true;
-                        }
-                        else
-                        {
-                                isArithmeticProgression = false;
-                                break;
-                        }
-                }
+function ArithGeoII(arr: number[]): string {
+    let isArithmeticProgression: boolean = false;
+    let isGeometricProgression: boolean = false;
+    // CHECK ARITHMETIC LOGIC
+    for (let i: number = arr.length - 1; i >= 0; i--) {
+        if (i != 0) {
+            if (arr[i] - arr[i - 1] == arr[arr.length - 1] - arr[arr.length - 1 - 1]) {
+                isArithmeticProgression = true;
+            } else {
+                isArithmeticProgression = false;
+                break;
+            }
         }
-        // CHECK GEOMETRIC LOGIC
-        for ( let i:number = arr.length-1; i >= 0; i-- )
-        {
-                if ( i!=0 )
-                {
-                        if ( arr[i] / arr[i-1] == arr[arr.length-1] / arr[arr.length-1-1] )
-                        {
-                                isGeometricProgression = true;
-                        }
-                        else
-                        {
-                                isGeometricProgression = false;
-                                break;
-                        }
-                }
+    }
+    // CHECK GEOMETRIC LOGIC
+    for (let i: number = arr.length - 1; i >= 0; i--) {
+        if (i != 0) {
+            if (arr[i] / arr[i - 1] == arr[arr.length - 1] / arr[arr.length - 1 - 1]) {
+                isGeometricProgression = true;
+            } else {
+                isGeometricProgression = false;
+                break;
+            }
         }
-        if( isArithmeticProgression )
-        {
-                return "Arithmetic";
-        }
-        if( isGeometricProgression )
-        {
-                return "Geometric";
-        }
-        return "-1";
+    }
+    if (isArithmeticProgression) {
+        return "Arithmetic";
+    }
+    if (isGeometricProgression) {
+        return "Geometric";
+    }
+    return "-1";
 }
-         
+
 // KEEP THIS FUNCTION CALL HERE
 // @ts-ignore
-console.log( ArithGeoII( readline() ) );
+console.log(ArithGeoII(readline()));
