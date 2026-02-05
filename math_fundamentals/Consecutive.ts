@@ -21,7 +21,7 @@
  *                                                              *
  ***************************************************************/
 
-function Consecutive(arr: Array<number>): number {
+function Consecutive(arr: number[]): number {
     let number_of_consecutives = 0;
     arr = arr.sort((a, b) => a - b);
     for (let i: number = arr[0]; i <= arr[arr.length - 1]; i++) {
