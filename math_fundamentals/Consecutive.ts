@@ -13,7 +13,7 @@
  * will have less than 2 elements.                              *
  *                                                              *
  * Examples                                                     *
- * Input 1: [5,10,15] 		                                *
+ * Input 1: [5,10,15] 		                                    *
  * Output 1: 8                                                  *
  *                                                              *
  * Input 2: [-2,10,4]                                           *
