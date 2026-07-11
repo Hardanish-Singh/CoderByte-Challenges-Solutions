@@ -10,7 +10,7 @@
  * converges to 1.       					                    *
  *                                                              *
  * Examples                                                     *
- * Input 1: "100101" 		                                *
+ * Input 1: "100101" 		                                    *
  * Output 1: 37                                                 *
  *                                                              *
  * Input 2: "011"                                               *
