@@ -18,7 +18,7 @@
  *                                                              *
  *                                                              *
  * Examples                                                     *
- * Input 1: "4 - 2 = x"		                                *
+ * Input 1: "4 - 2 = x"		                                    *
  * Output 1: 2                                                  *
  *                                                              *
  * Input 2: "1x0 * 12 = 1200"		                        *
