@@ -27,7 +27,7 @@
  * There will always be a unique solution.                      *
  *                                                              *
  * Examples                                                     *
- * Input 1: "56? * 106 = 5?678"		                        *
+ * Input 1: "56? * 106 = 5?678"		                            *
  * Output 1: 3 9                                                *
  *                                                              *
  * Input 2: "18?1 + 9 = 189?"		                        *
