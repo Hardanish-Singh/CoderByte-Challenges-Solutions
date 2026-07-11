@@ -26,6 +26,7 @@ function BinaryConverter(str: string): number {
             sum += Math.pow(2, str.length - 1 - i);
         }
     }
+
     return sum;
 }
 
