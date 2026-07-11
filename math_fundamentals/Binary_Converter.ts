@@ -7,7 +7,7 @@
  * return 5, or if 1000 is passed return 8.                     *
  *                                                              *
  * For example: the number 10 is Happy because 1^2 + 0^2	    *
- * converges to 1.       					*
+ * converges to 1.       					                    *
  *                                                              *
  * Examples                                                     *
  * Input 1: "100101" 		                                *
