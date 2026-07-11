@@ -20,11 +20,13 @@
 
 function BinaryConverter(str: string): number {
     let sum: number = 0;
+
     for (let i: number = str.length - 1; i >= 0; i--) {
         if (str[i] === "1") {
             sum += Math.pow(2, str.length - 1 - i);
         }
     }
+
     return sum;
 }
 
