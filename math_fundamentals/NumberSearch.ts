@@ -17,7 +17,7 @@
  * Each string will also have at least one letter.              *
  *                                                              *
  * Examples                                                     *
- * Input 1: "H3ello9-9"		                                *
+ * Input 1: "H3ello9-9"		                                    *
  * Output 1: 4                                                  *
  *                                                              *
  * Input 2: "One Number*1*"                                     *
