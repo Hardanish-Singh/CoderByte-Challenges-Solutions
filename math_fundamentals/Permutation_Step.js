@@ -11,7 +11,7 @@
  * return -1 (ie. 999).                                         *
  *                                                              *
  * Examples                                                     *
- * Input 1: 11121		                                *
+ * Input 1: 11121		                                        *
  * Output 1: 11211                                              *
  *                                                              *
  * Input 2: 41352                                               *
