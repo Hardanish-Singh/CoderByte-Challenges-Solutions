@@ -9,7 +9,7 @@
  * false because 5 is not an even number.                       *
  *                                                              *
  * Examples                                                     *
- * Input 1: 2222220222 		                                *
+ * Input 1: 2222220222 		                                    *
  * Output 1: true                                               *
  *                                                              *
  * Input 2: 20864646452                                         *
