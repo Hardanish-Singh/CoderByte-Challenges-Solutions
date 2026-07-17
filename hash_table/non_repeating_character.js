@@ -22,6 +22,7 @@
 function NonrepeatingCharacter(str) {
     let isBackward = false;
     let isDuplicate = false;
+
     for (let i = 0; i < str.length; i++) {
         characterCount = 0;
         isBackward = false;
