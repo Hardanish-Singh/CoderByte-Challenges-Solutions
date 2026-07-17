@@ -22,26 +22,26 @@
 function NonrepeatingCharacter(str) {
     let isBackward = false;
     let isDuplicate = false;
-    for(let i=0; i<str.length; i++){
-      characterCount = 0;
-      isBackward = false;
-      isDuplicate = false;
-      for(let k=0; k<i; k++){
-        if(str[k] == str[i]) {
-          isBackward = true;
-          break;
+    for (let i = 0; i < str.length; i++) {
+        characterCount = 0;
+        isBackward = false;
+        isDuplicate = false;
+        for (let k = 0; k < i; k++) {
+            if (str[k] == str[i]) {
+                isBackward = true;
+                break;
+            }
         }
-      }
-      if(isBackward == true) continue;
-      for(let j=i+1; j<str.length; j++){
-        if(str[j] == str[i]) {
-          isDuplicate = true;
-          break;
+        if (isBackward == true) continue;
+        for (let j = i + 1; j < str.length; j++) {
+            if (str[j] == str[i]) {
+                isDuplicate = true;
+                break;
+            }
         }
-      }
-      if(isDuplicate == false) return str[i];
+        if (isDuplicate == false) return str[i];
     }
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(NonrepeatingCharacter(readline()));
