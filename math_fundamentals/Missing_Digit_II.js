@@ -43,7 +43,6 @@ function MissingDigitII(str) {
     let split_equation = str.split("=");
     let left_side_expression = split_equation[0].trim();
     let right_side_expression = split_equation[1].trim();
-
     let i = 0;
     while (i <= 9) {
         let equation1 = "";
