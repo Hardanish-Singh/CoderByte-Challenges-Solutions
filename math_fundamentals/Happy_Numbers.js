@@ -30,7 +30,6 @@ function Calculate_Sum_Of_Square_Of_Digits(number) {
 function HappyNumbers(num) {
     let number = String(num);
     let numbers = [];
-
     while (true) {
         let sum = Calculate_Sum_Of_Square_Of_Digits(number);
         number = String(sum);
