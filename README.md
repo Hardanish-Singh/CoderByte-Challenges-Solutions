@@ -31,6 +31,6 @@ A collection of my solutions to coding challenges from [Coderbyte](https://coder
     node filename.js
     ```
 
-## 💡 How to Use
+## 💡 How to Use it
 
 If you're stuck on a Coderbyte challenge, feel free to browse through my solutions for reference. Each file is named after the challenge it solves.
