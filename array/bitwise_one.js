@@ -22,14 +22,15 @@
  ***************************************************************/
 
 function BitwiseOne(strArr) {
-    let stringOne = strArr[0], stringTwo = strArr[1];
+    let stringOne = strArr[0],
+        stringTwo = strArr[1];
     let result = new String("");
-    for(let i=0; i<stringOne.length; i++){
-        if(stringOne[i] == '1' || stringTwo[i] == '1') result += '1';
-        else if(stringOne[i] == '0' || stringTwo[i] == '0') result += '0';
+    for (let i = 0; i < stringOne.length; i++) {
+        if (stringOne[i] == "1" || stringTwo[i] == "1") result += "1";
+        else if (stringOne[i] == "0" || stringTwo[i] == "0") result += "0";
     }
     return result;
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(BitwiseOne(readline()));
