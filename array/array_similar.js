@@ -17,41 +17,40 @@
  *                                                              *
  * Input 3: [1, 2, 2] and b = [2, 1, 1]                         *
  * Output 3: false                                              *
- * Explanation: Any swap of any two elements either in a or b   * 
+ * Explanation: Any swap of any two elements either in a or b   *
  * won't make a and b equal                                     *
  *                                                              *
  ***************************************************************/
 
 function solution(a, b) {
-        
-        if( a.length !== b.length ) {
-                return false;
-        }
-        
-        let differentIndexes = [];
-        for( let i = 0; i < a.length; i++ ) {
-                if( a[i] !== b[i] ) {
-                        differentIndexes.push( i );
-                }
-                if( differentIndexes.length > 2 ) {
-                        return false;
-                }
-        }
-        
-        if( differentIndexes.length === 0 ) {
-                return true;
-        }
-        
-        if( differentIndexes.length === 2 ) {
-                [leftIndex, rightIndex] = differentIndexes;
-                [ a[leftIndex], a[rightIndex] ] = [ a[rightIndex], a[leftIndex] ];
-                if( JSON.stringify( a ) === JSON.stringify( b ) ) {
-                        return true;
-                }
-        }
-        
+    if (a.length !== b.length) {
         return false;
+    }
+
+    let differentIndexes = [];
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) {
+            differentIndexes.push(i);
+        }
+        if (differentIndexes.length > 2) {
+            return false;
+        }
+    }
+
+    if (differentIndexes.length === 0) {
+        return true;
+    }
+
+    if (differentIndexes.length === 2) {
+        [leftIndex, rightIndex] = differentIndexes;
+        [a[leftIndex], a[rightIndex]] = [a[rightIndex], a[leftIndex]];
+        if (JSON.stringify(a) === JSON.stringify(b)) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 // KEEP THIS FUNCTION CALL HERE
-console.log( solution( readline() ) );
+console.log(solution(readline()));
