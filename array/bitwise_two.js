@@ -26,12 +26,12 @@ function BitwiseTwo(strArr) {
     let stringOne = strArr[0];
     let stringTwo = strArr[1];
     let bitwiseAnd = new String("");
-    for(let i=0; i<stringOne.length; i++){
-      if(stringOne[i] == "1" && stringTwo[i] == "1") bitwiseAnd += "1"
-      else bitwiseAnd +=  "0";
+    for (let i = 0; i < stringOne.length; i++) {
+        if (stringOne[i] == "1" && stringTwo[i] == "1") bitwiseAnd += "1";
+        else bitwiseAnd += "0";
     }
     return bitwiseAnd;
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(BitwiseTwo(readline()));
