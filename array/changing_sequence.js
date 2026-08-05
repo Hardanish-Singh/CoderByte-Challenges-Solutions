@@ -24,24 +24,23 @@
  *                                                              *
  ***************************************************************/
 
-function ChangingSequence(array) { 
+function ChangingSequence(array) {
     let changingSequenceIndex = -1;
     let findSequence = new String("");
-    if(array[0] < array[1]) findSequence = "incresing";
-    else if(array[0] > array[1]) findSequence = "decresing";
+    if (array[0] < array[1]) findSequence = "incresing";
+    else if (array[0] > array[1]) findSequence = "decresing";
     else return -1;
-    for(let i=0; i<array.length; i++){
-        if(findSequence==="incresing" && array[i] > array[i+1]) {
+    for (let i = 0; i < array.length; i++) {
+        if (findSequence === "incresing" && array[i] > array[i + 1]) {
             changingSequenceIndex = i;
             break;
-        } 
-        else if(findSequence==="decresing" && array[i] < array[i+1]) {
+        } else if (findSequence === "decresing" && array[i] < array[i + 1]) {
             changingSequenceIndex = i;
             break;
         }
     }
     return changingSequenceIndex;
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(ChangingSequence(readline()));
