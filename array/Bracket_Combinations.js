@@ -33,42 +33,40 @@
                 3) We get a valid combination IIF,  openParenthesisCount == closeParenthesisCount && closeParenthesisCount == n && openParenthesisCount == n
 */
 
-function BracketCombinations(n) { 
-        if( n === 0 ) {
-                return 1;
+function BracketCombinations(n) {
+    if (n === 0) {
+        return 1;
+    }
+    let parenthesis = [["(", 1, 0]];
+    while (true) {
+        let openParenthesisCount = parenthesis[0][1];
+        let closeParenthesisCount = parenthesis[0][2];
+        // RULE 3
+        if (openParenthesisCount == closeParenthesisCount && closeParenthesisCount == n && openParenthesisCount == n) {
+            break;
         }
-        let parenthesis = [
-                ['(', 1, 0]
-        ];
-        while( true ) {
-                let openParenthesisCount = parenthesis[0][1];
-                let closeParenthesisCount = parenthesis[0][2];
-                // RULE 3
-                if( openParenthesisCount == closeParenthesisCount && closeParenthesisCount == n && openParenthesisCount == n ) {
-                        break;
-                }
-                let data = parenthesis.shift();
-                let temp = [];
-                let str = "";
-                // RULE 1
-                if( openParenthesisCount < n ) {
-                        str = data[0] + "(";
-                        [, o, c] = data;
-                        temp.push(str, ++o, c);
-                        parenthesis.push(temp);
-                        temp = [];
-                }
-                // RULE 2
-                if( openParenthesisCount > closeParenthesisCount ) {
-                        str = data[0] + ")";
-                        [, o, c] = data;
-                        temp.push(str, o, ++c);
-                        parenthesis.push(temp);
-                        temp = [];
-                }
+        let data = parenthesis.shift();
+        let temp = [];
+        let str = "";
+        // RULE 1
+        if (openParenthesisCount < n) {
+            str = data[0] + "(";
+            [, o, c] = data;
+            temp.push(str, ++o, c);
+            parenthesis.push(temp);
+            temp = [];
         }
-        return parenthesis.map( result => result[0] ).length;
+        // RULE 2
+        if (openParenthesisCount > closeParenthesisCount) {
+            str = data[0] + ")";
+            [, o, c] = data;
+            temp.push(str, o, ++c);
+            parenthesis.push(temp);
+            temp = [];
+        }
+    }
+    return parenthesis.map((result) => result[0]).length;
 }
-        
+
 // KEEP THIS FUNCTION CALL HERE
-console.log( BracketCombinations( readline() ) );
+console.log(BracketCombinations(readline()));
