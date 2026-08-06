@@ -17,27 +17,27 @@
  *                                                              *
  ***************************************************************/
 
-function DistinctList( arr ) {
-        let distinct_count = 0;
-        for( let i=0; i<arr.length; i++ ) {
-                let isBackward = false;
-                for( let b=0; b<i; b++ ) {
-                        if( arr[i] === arr[b] ) {
-                                isBackward = true;
-                                break;
-                        }
-                }
-                if( isBackward ) {
-                        continue;
-                }
-                for( let j=i+1; j<arr.length; j++ ){
-                        if( arr[j] === arr[i] ) {
-                                distinct_count ++;
-                        }
-                }
+function DistinctList(arr) {
+    let distinct_count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let isBackward = false;
+        for (let b = 0; b < i; b++) {
+            if (arr[i] === arr[b]) {
+                isBackward = true;
+                break;
+            }
         }
-        return distinct_count;
+        if (isBackward) {
+            continue;
+        }
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] === arr[i]) {
+                distinct_count++;
+            }
+        }
+    }
+    return distinct_count;
 }
-         
+
 // KEEP THIS FUNCTION CALL HERE
-console.log( CountingAnagrams( readline() ) );
+console.log(CountingAnagrams(readline()));
