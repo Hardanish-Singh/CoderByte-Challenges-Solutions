@@ -29,23 +29,23 @@
  *                                                              *
  ***************************************************************/
 
-function CountingAnagrams( str ) { 
-        string_array = str.split(" ").sort();
-        let anagram_count = 0;
-        for( let i = 0; i<string_array.length; i++ ) {
-                for( let j=i+1; j<string_array.length; j++ ) {
-                        if( string_array[i] === string_array[j] ) {
-                                break;
-                        }
-                        if( string_array[i].split("").sort().join("") === string_array[j].split("").sort().join("") ) {
-                                anagram_count++;
-                                break;
-                        }
-                }
+function CountingAnagrams(str) {
+    string_array = str.split(" ").sort();
+    let anagram_count = 0;
+    for (let i = 0; i < string_array.length; i++) {
+        for (let j = i + 1; j < string_array.length; j++) {
+            if (string_array[i] === string_array[j]) {
+                break;
+            }
+            if (string_array[i].split("").sort().join("") === string_array[j].split("").sort().join("")) {
+                anagram_count++;
+                break;
+            }
         }
+    }
 
-        return anagram_count;
+    return anagram_count;
 }
-   
+
 // KEEP THIS FUNCTION CALL HERE
-console.log( CountingAnagrams( readline() ) );
+console.log(CountingAnagrams(readline()));
