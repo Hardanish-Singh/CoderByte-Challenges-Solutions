@@ -25,17 +25,15 @@
  *                                                              *
  ***************************************************************/
 
-function ElementMerger( arr ) { 
+function ElementMerger(arr) {
+    let merge_elements = [];
 
-        let merge_elements = [];
+    for (let i = 0; i < arr.length - 1; i++) {
+        merge_elements.push(Math.abs(arr[i] - arr[i + 1]));
+    }
 
-        for( let i=0; i<arr.length-1; i++ ){
-                merge_elements.push( Math.abs( arr[i] - arr[i+1] ) );
-        }
-
-        return (merge_elements.length > 1) ? ElementMerger(merge_elements) : merge_elements[0];
-
+    return merge_elements.length > 1 ? ElementMerger(merge_elements) : merge_elements[0];
 }
-        
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(ElementMerger(readline()));
