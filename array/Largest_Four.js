@@ -23,14 +23,14 @@
  *                                                              *
  ***************************************************************/
 
-function LargestFour( arr ) {
-        arr.sort( (a,b) => a - b );
-        let largest_one = arr[arr.length - 1] ? arr[arr.length - 1] : 0;
-        let largest_two = arr[arr.length - 2] ? arr[arr.length - 2] : 0;
-        let largest_three = arr[arr.length - 3] ? arr[arr.length - 3] : 0;
-        let largest_four = arr[arr.length - 4] ? arr[arr.length - 4] : 0;
-        return largest_one + largest_two + largest_three + largest_four;
+function LargestFour(arr) {
+    arr.sort((a, b) => a - b);
+    let largest_one = arr[arr.length - 1] ? arr[arr.length - 1] : 0;
+    let largest_two = arr[arr.length - 2] ? arr[arr.length - 2] : 0;
+    let largest_three = arr[arr.length - 3] ? arr[arr.length - 3] : 0;
+    let largest_four = arr[arr.length - 4] ? arr[arr.length - 4] : 0;
+    return largest_one + largest_two + largest_three + largest_four;
 }
-         
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(LargestFour(readline()));
