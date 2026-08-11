@@ -28,33 +28,32 @@
  ***************************************************************/
 
 function LongestConsecutive(arr) {
-        arr.sort( ( a, b ) => a - b );
-        let max = 1;
-        let temp = [];
-        let flag = false;
+    arr.sort((a, b) => a - b);
+    let max = 1;
+    let temp = [];
+    let flag = false;
 
-        for( let i=0; i<arr.length; i++ ) {
-                if( arr[i+1] === arr[i] ) {
-                        continue;
-                }
-                if( arr[i+1] - arr[i] === 1 ) {
-                        temp.push( arr[i] );
-                        flag = true;
-                }
-                else {
-                        if( flag ) {
-                                flag = false;
-                                temp.push( arr[i] );
-                                if( temp.length > max ) {
-                                        max = temp.length;
-                                }
-                                temp = [];
-                        }
-                }
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i + 1] === arr[i]) {
+            continue;
         }
+        if (arr[i + 1] - arr[i] === 1) {
+            temp.push(arr[i]);
+            flag = true;
+        } else {
+            if (flag) {
+                flag = false;
+                temp.push(arr[i]);
+                if (temp.length > max) {
+                    max = temp.length;
+                }
+                temp = [];
+            }
+        }
+    }
 
-        return max;
+    return max;
 }
-         
+
 // KEEP THIS FUNCTION CALL HERE
-console.log( LongestConsecutive( readline() ) );
+console.log(LongestConsecutive(readline()));
