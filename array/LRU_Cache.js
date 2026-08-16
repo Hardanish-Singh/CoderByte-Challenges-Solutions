@@ -41,35 +41,32 @@
  *                                                              *
  ***************************************************************/
 
-function LRUCache( strArr ) { 
-        
-        const cache_window_size = 5;
-        let lru_cache = [];
-        let is_old = false;
+function LRUCache(strArr) {
+    const cache_window_size = 5;
+    let lru_cache = [];
+    let is_old = false;
 
-        for( let i=0; i<strArr.length; i++ ) {
-                is_old = false;
-                if( lru_cache.length === cache_window_size ) {
-                        if( lru_cache.includes( strArr[i] ) ) {
-                                is_old = true;
-                        }
-                        else {
-                                lru_cache.splice( 0, 1 ); // or lru_cache.shift();
-                        }
-                }
-                if( lru_cache.includes( strArr[i] ) ) {
-                        is_old = true;
-                }
-                if( is_old ) {
-                        let index = lru_cache.indexOf( strArr[i] );
-                        lru_cache.splice( index, 1 );
-                }
-                lru_cache.push( strArr[i] );
+    for (let i = 0; i < strArr.length; i++) {
+        is_old = false;
+        if (lru_cache.length === cache_window_size) {
+            if (lru_cache.includes(strArr[i])) {
+                is_old = true;
+            } else {
+                lru_cache.splice(0, 1); // or lru_cache.shift();
+            }
         }
+        if (lru_cache.includes(strArr[i])) {
+            is_old = true;
+        }
+        if (is_old) {
+            let index = lru_cache.indexOf(strArr[i]);
+            lru_cache.splice(index, 1);
+        }
+        lru_cache.push(strArr[i]);
+    }
 
-        return lru_cache.join("-");
-
+    return lru_cache.join("-");
 }
 
 // KEEP THIS FUNCTION CALL HERE
-console.log( LRUCache( readline() ) );
+console.log(LRUCache(readline()));
