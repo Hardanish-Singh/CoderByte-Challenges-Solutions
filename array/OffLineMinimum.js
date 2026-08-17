@@ -26,23 +26,22 @@
  * challenge.                                                   *
  ***************************************************************/
 
-function OffLineMinimum(strArr) { 
+function OffLineMinimum(strArr) {
     let insertAndExtractMinimum = new Array();
     let offLineMinimum = new String("");
-    for(let i=0; i<strArr.length; i++){
-        if(strArr[i]==="E"){
+    for (let i = 0; i < strArr.length; i++) {
+        if (strArr[i] === "E") {
             offLineMinimum += "," + Math.min.apply(Math, insertAndExtractMinimum);
-            for(let j=0; j<insertAndExtractMinimum.length; j++){
-                if(insertAndExtractMinimum[j] === Math.min.apply(Math, insertAndExtractMinimum)) {
+            for (let j = 0; j < insertAndExtractMinimum.length; j++) {
+                if (insertAndExtractMinimum[j] === Math.min.apply(Math, insertAndExtractMinimum)) {
                     insertAndExtractMinimum.splice(j, 1);
                     break;
                 }
             }
-        }
-        else insertAndExtractMinimum.push(Number(strArr[i]));
+        } else insertAndExtractMinimum.push(Number(strArr[i]));
     }
     return offLineMinimum.slice(1);
 }
-    
-// KEEP THIS FUNCTION CALL HERE 
+
+// KEEP THIS FUNCTION CALL HERE
 console.log(OffLineMinimum(readline()));
