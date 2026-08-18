@@ -30,12 +30,12 @@
 function OverlappingRanges(array) {
     let overlappingRange1 = new Array();
     let overlappingRange2 = new Array();
-    for(let i=array[0]; i<=array[1]; i++) overlappingRange1.push(i);
-    for(let i=array[2]; i<=array[3]; i++) overlappingRange2.push(i);
-    let intersection = overlappingRange1.filter(e => overlappingRange2.includes(e));
-    if(intersection.length >= array[4]) return true;
+    for (let i = array[0]; i <= array[1]; i++) overlappingRange1.push(i);
+    for (let i = array[2]; i <= array[3]; i++) overlappingRange2.push(i);
+    let intersection = overlappingRange1.filter((e) => overlappingRange2.includes(e));
+    if (intersection.length >= array[4]) return true;
     else return false;
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(OverlappingRanges(readline()));
