@@ -24,15 +24,15 @@
  *                                                              *
  ***************************************************************/
 
-function OtherProducts(array) { 
+function OtherProducts(array) {
     let result = new String("");
-    for(let i=0; i<array.length; i++){
-      let product = 1;
-      for(let j=0; j<array.length; j++) if(i!=j) product *= array[j];
-      result += product + "-";
+    for (let i = 0; i < array.length; i++) {
+        let product = 1;
+        for (let j = 0; j < array.length; j++) if (i != j) product *= array[j];
+        result += product + "-";
     }
-    return result.slice(0, result.length-1);
+    return result.slice(0, result.length - 1);
 }
-    
+
 // KEEP THIS FUNCTION CALL HERE
 console.log(OtherProducts(readline()));
