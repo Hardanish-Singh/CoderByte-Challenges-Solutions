@@ -8,7 +8,7 @@ A collection of my solutions to coding challenges from [Coderbyte](https://coder
 | ---------------------- | -------------------------------- |
 | `array/`               | Array manipulation problems      |
 | `hash_table/`          | Hash table & dictionary problems |
-| `math_fundamentals/`   | Math-based challenges            |
+| `math_fundamentals/`   | Math based challenges            |
 | `searching/`           | Search algorithm problems        |
 | `SQL/`                 | SQL query challenges             |
 | `string manipulation/` | String processing problems       |
