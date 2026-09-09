@@ -18,7 +18,7 @@
  ***************************************************************/
 
 function SimpleEvens(num: number): boolean {
-    var n: string = num.toString();
+    let n: string = num.toString();
     for (let i = 0; i < n.length; i++) {
         if (+n[i] % 2 !== 0) {
             return false;
